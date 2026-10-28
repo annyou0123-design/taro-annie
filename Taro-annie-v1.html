@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🔮 Taro Annie v1 · 塔羅心靈絮語四合一旗艦門戶</title>
+  <meta name="description" content="2026-10-31 現場大師版：3D盲抽靈感艙、專業諮詢艙、九型人格洞察艙、實戰修煉複習系統四合一旗艦整合系統">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-space: #070a14;
+      --bg-header: rgba(11, 15, 25, 0.92);
+      --bg-card: rgba(18, 24, 38, 0.85);
+      --border-mystic: rgba(192, 132, 252, 0.22);
+      --border-glow: rgba(192, 132, 252, 0.45);
+      --gold-main: #f59e0b;
+      --gold-light: #fbbf24;
+      --purple-main: #c084fc;
+      --purple-glow: rgba(192, 132, 252, 0.35);
+      --star-blue: #38bdf8;
+      --emerald: #10b981;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --header-h: 66px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Outfit', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-space);
+      color: var(--text-main);
+    }
+
+    /* Master App Layout */
+    .master-app {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* Top Navigation Header - Clean Minimalist Style */
+    .master-header {
+      height: var(--header-h);
+      min-height: var(--header-h);
+      background: var(--bg-header);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-mystic);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 100;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      gap: 1rem;
+    }
+
+    /* Navigation Center Tabs - Expanded & Clean */
+    .tabs-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0.25rem 0;
+    }
+    .tabs-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.5rem 1.1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      white-space: nowrap;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .tab-item:hover {
+      background: rgba(192, 132, 252, 0.08);
+      border-color: rgba(192, 132, 252, 0.3);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .tab-item.active {
+      background: linear-gradient(135deg, rgba(192, 132, 252, 0.18), rgba(245, 158, 11, 0.12));
+      border-color: var(--gold-light);
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.25), inset 0 0 12px rgba(192, 132, 252, 0.15);
+    }
+
+    .tab-icon {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .tab-text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .tab-main-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .tab-sub-badge {
+      font-size: 0.7rem;
+      opacity: 0.75;
+      font-weight: 500;
+    }
+
+    .tab-item.active .tab-sub-badge {
+      color: var(--gold-light);
+      opacity: 0.95;
+    }
+
+    .tab-number-pill {
+      font-size: 0.65rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-sub);
+      font-weight: 700;
+      margin-left: 0.25rem;
+    }
+
+    .tab-item.active .tab-number-pill {
+      background: rgba(245, 158, 11, 0.25);
+      color: var(--gold-light);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    /* Actions Right - Only Reload Button */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-mystic);
+      color: var(--text-sub);
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .action-btn:hover {
+      background: rgba(192, 132, 252, 0.12);
+      border-color: var(--purple-main);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Viewport Container for the 4 Pages */
+    .viewport-container {
+      position: relative;
+      flex: 1;
+      width: 100%;
+      height: calc(100vh - var(--header-h));
+      height: calc(100dvh - var(--header-h));
+      background: #000000;
+      overflow: hidden;
+    }
+
+    /* The 4 Isolated Frames */
+    .frame-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .frame-wrapper.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    .frame-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background-color: var(--bg-space);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1100px) {
+      .tab-sub-badge {
+        display: none;
+      }
+      .tab-item {
+        padding: 0.5rem 0.85rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 58px;
+      }
+      .master-header {
+        padding: 0 0.75rem;
+      }
+      .tab-number-pill {
+        display: none;
+      }
+      .tab-item {
+        padding: 0.45rem 0.75rem;
+      }
+      .tab-main-name {
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .action-btn .action-label {
+        display: none;
+      }
+      .tab-item {
+        padding: 0.4rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="master-app">
+    <!-- Top Master Navigation Bar (Only the 4 functional tabs and reload button) -->
+    <header class="master-header">
+      <!-- 4 Pages Navigation Tabs -->
+      <nav class="tabs-nav" id="desktopTabs">
+        <!-- Page 1: 3D 盲抽靈感艙 -->
+        <div class="tab-item active" data-tab="p1" onclick="switchPage('p1')">
+          <span class="tab-icon">🎴</span>
+          <div class="tab-text-group">
+            <span class="tab-main-name">第一頁 · 3D 盲抽靈感艙</span>
+            <span class="tab-sub-badge">聚會破冰 · 單張直擊 · 即時解壓</span>
+          </div>
+          <span class="tab-number-pill">01</span>
+        </div>
+
+        <!-- Page 2: 專業諮詢艙 -->
+        <div class="tab-item" data-tab="p2" onclick="switchPage('p2')">
+          <span class="tab-icon">🔮</span>
+          <div class="tab-text-group">
+            <span class="tab-main-name">第二頁 · 專業諮詢艙</span>
+            <span class="tab-sub-badge">深度牌陣 · 星座靈數 · 四維卡片</span>
+          </div>
+          <span class="tab-number-pill">02</span>
+        </div>
+
+        <!-- Page 3: 九型人格洞察艙 -->
+        <div class="tab-item" data-tab="p3" onclick="switchPage('p3')">
+          <span class="tab-icon">🧠</span>
+          <div class="tab-text-group">
+            <span class="tab-main-name">第三頁 · 九型人格洞察艙</span>
+            <span class="tab-sub-badge">性格底色 · 防禦機制 · 人際密碼</span>
+          </div>
+          <span class="tab-number-pill">03</span>
+        </div>
+
+        <!-- Page 4: 實戰修煉複習系統 -->
+        <div class="tab-item" data-tab="p4" onclick="switchPage('p4')">
+          <span class="tab-icon">📚</span>
+          <div class="tab-text-group">
+            <span class="tab-main-name">第四頁 · 實戰修煉複習系統</span>
+            <span class="tab-sub-badge">78張大字典 · 艾賓浩斯 · 解牌進階</span>
+          </div>
+          <span class="tab-number-pill">04</span>
+        </div>
+      </nav>
+
+      <!-- Right Action Bar: Only 重新載入 -->
+      <div class="header-actions">
+        <button class="action-btn" onclick="reloadCurrentFrame()" title="重新載入當前頁面">
+          <span>🔄</span>
+          <span class="action-label">重新載入</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Master Viewport (Holds the 4 independent sandboxed frames) -->
+    <main class="viewport-container" id="viewport">
+      <!-- iOS Files App QuickLook Fallback (Hidden automatically when JS runs in Safari/Chrome) -->
+      <div id="iosQuickLookFallback" style="position: absolute; inset: 0; z-index: 5; background: radial-gradient(circle at 50% 25%, #1e1b4b 0%, #090d16 75%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px 20px; text-align: center; color: #f8fafc;">
+        <div style="max-width: 420px; width: 100%; background: rgba(18, 24, 38, 0.92); border: 1.5px solid rgba(245, 158, 11, 0.55); border-radius: 22px; padding: 28px 22px; box-shadow: 0 16px 40px rgba(0,0,0,0.75);">
+          <div style="font-size: 44px; margin-bottom: 10px;">🔮</div>
+          <h2 style="font-size: 20px; font-weight: 800; color: #fbbf24; margin-bottom: 10px; line-height: 1.35;">
+            Taro Annie v1 · 四合一旗艦門戶
+          </h2>
+          <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px;">
+            蘋果 iPhone 內建「檔案預覽器」預設關閉互動抽牌腳本。<br>
+            請點擊下方金色按鈕，直接切換至 <b>Safari 全功能模式</b>（支援加入主畫面離線使用）：
+          </p>
+          <a href="https://annyou0123-design.github.io/taro-annie/Taro-annie-v1.html" target="_blank" rel="noopener" style="display: block; width: 100%; padding: 15px 18px; border-radius: 14px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #090d16; font-size: 16px; font-weight: 900; text-decoration: none; box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4); margin-bottom: 14px;">
+            🚀 點此在 Safari 開啟四合一完整系統
+          </a>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
+            <a href="https://annyou0123-design.github.io/taro-annie/Taro-annie-v1.html#p1" target="_blank" style="padding: 10px 8px; border-radius: 10px; background: rgba(192, 132, 252, 0.15); border: 1px solid rgba(192, 132, 252, 0.35); color: #e9d5ff; font-size: 12.5px; font-weight: 700; text-decoration: none;">🎴 第一頁 · 3D盲抽</a>
+            <a href="https://annyou0123-design.github.io/taro-annie/Taro-annie-v1.html#p2" target="_blank" style="padding: 10px 8px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); color: #fde68a; font-size: 12.5px; font-weight: 700; text-decoration: none;">🔮 第二頁 · 專業諮詢</a>
+            <a href="https://annyou0123-design.github.io/taro-annie/Taro-annie-v1.html#p3" target="_blank" style="padding: 10px 8px; border-radius: 10px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #bae6fd; font-size: 12.5px; font-weight: 700; text-decoration: none;">🧠 第三頁 · 九型解碼</a>
+            <a href="https://annyou0123-design.github.io/taro-annie/Taro-annie-v1.html#p4" target="_blank" style="padding: 10px 8px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #a7f3d0; font-size: 12.5px; font-weight: 700; text-decoration: none;">📚 第四頁 · 實戰修煉</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frame 1: 3D 盲抽靈感艙 -->
+      <div class="frame-wrapper active" id="wrap-p1">
+        <iframe id="frame-p1" src="tarot_blind_draw_event_20261031.html" allow="clipboard-write; clipboard-read" title="第一頁：3D 盲抽靈感艙"></iframe>
+      </div>
+
+      <!-- Frame 2: 專業諮詢艙 -->
+      <div class="frame-wrapper" id="wrap-p2">
+        <iframe id="frame-p2" src="annietwin_tarot_service_bac.html" allow="clipboard-write; clipboard-read" title="第二頁：專業諮詢艙"></iframe>
+      </div>
+
+      <!-- Frame 3: 九型人格洞察艙 -->
+      <div class="frame-wrapper" id="wrap-p3">
+        <iframe id="frame-p3" src="enneagram_test.html" allow="clipboard-write; clipboard-read" title="第三頁：九型人格洞察艙"></iframe>
+      </div>
+
+      <!-- Frame 4: 實戰修煉複習系統 -->
+      <div class="frame-wrapper" id="wrap-p4">
+        <iframe id="frame-p4" src="tarot_intuition_trainer.html" allow="clipboard-write; clipboard-read" title="第四頁：實戰修煉複習系統"></iframe>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Tab Pages Configuration Map
+    const PAGES = {
+      p1: {
+        id: 'p1',
+        title: '第一頁 · 3D 盲抽靈感艙',
+        file: 'tarot_blind_draw_event_20261031.html'
+      },
+      p2: {
+        id: 'p2',
+        title: '第二頁 · 專業諮詢艙',
+        file: 'annietwin_tarot_service_bac.html'
+      },
+      p3: {
+        id: 'p3',
+        title: '第三頁 · 九型人格洞察艙',
+        file: 'enneagram_test.html'
+      },
+      p4: {
+        id: 'p4',
+        title: '第四頁 · 實戰修煉複習系統',
+        file: 'tarot_intuition_trainer.html'
+      }
+    };
+
+    let currentPage = 'p1';
+
+    // Hide iOS QuickLook static fallback immediately when JS is active
+    (function() {
+      var ql = document.getElementById('iosQuickLookFallback');
+      if (ql) ql.style.display = 'none';
+    })();
+
+
+    // Switch Page Tab Function
+    function switchPage(pageKey) {
+      if (!PAGES[pageKey]) return;
+      currentPage = pageKey;
+
+      // Update Desktop Tabs
+      document.querySelectorAll('.tab-item').forEach(el => {
+        if (el.getAttribute('data-tab') === pageKey) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Update Frames
+      document.querySelectorAll('.frame-wrapper').forEach(el => {
+        if (el.id === 'wrap-' + pageKey) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Sync URL hash
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + pageKey);
+      } else {
+        location.hash = '#' + pageKey;
+      }
+    }
+
+    // Reload the Current Active Frame
+    function reloadCurrentFrame() {
+      const frame = document.getElementById('frame-' + currentPage);
+      if (frame) {
+        frame.src = frame.src;
+      }
+    }
+
+    // Keyboard Shortcuts for Rapid Tab Switching (Alt + 1, 2, 3, 4)
+    window.addEventListener('keydown', (e) => {
+      if (e.altKey && e.key === '1') { switchPage('p1'); }
+      if (e.altKey && e.key === '2') { switchPage('p2'); }
+      if (e.altKey && e.key === '3') { switchPage('p3'); }
+      if (e.altKey && e.key === '4') { switchPage('p4'); }
+    });
+
+    // Parent Clipboard Bridge for Iframe Copy (Safari file:// & Chrome support)
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'TAROT_COPY_REPORT' && e.data.text) {
+        const text = e.data.text;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(() => {});
+        }
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.top = '0';
+          ta.style.left = '0';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        } catch (err) {}
+      }
+    });
+
+    // Initialize from URL Hash on Page Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = location.hash.replace('#', '').toLowerCase();
+      if (PAGES[hash]) {
+        switchPage(hash);
+      } else {
+        switchPage('p1');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>九型人格 (Enneagram) 深度自我探索與心智整合測驗系統</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: rgba(19, 26, 43, 0.85);
+            --bg-card-hover: rgba(28, 38, 62, 0.95);
+            --border-subtle: rgba(99, 102, 241, 0.2);
+            --border-glow: rgba(168, 85, 247, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #c084fc;
+            --accent-blue: #60a5fa;
+            --accent-green: #34d399;
+            --accent-amber: #fbbf24;
+            --accent-orange: #fb923c;
+            --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 25px rgba(192, 132, 252, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: radial-gradient(circle at 15% 15%, rgba(192, 132, 252, 0.12) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(96, 165, 250, 0.12) 0%, transparent 45%),
+                        linear-gradient(180deg, #090d16 0%, #0f172a 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 1.5rem 1rem 3rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Header Styling */
+        header.app-header {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header.app-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #38bdf8, #c084fc, #34d399);
+        }
+
+        .badge-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .tag-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(192, 132, 252, 0.12);
+            color: var(--accent-purple);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+        }
+
+        .tag-badge.blue {
+            background: rgba(96, 165, 250, 0.12);
+            color: var(--accent-blue);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+
+        .tag-badge.green {
+            background: rgba(52, 211, 153, 0.12);
+            color: var(--accent-green);
+            border-color: rgba(52, 211, 153, 0.3);
+        }
+
+        .tag-badge.amber {
+            background: rgba(251, 191, 36, 0.12);
+            color: var(--accent-amber);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            font-size: 1.95rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #f8fafc 20%, #c084fc 60%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        header p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 820px;
+            margin: 0 auto 1.2rem auto;
+        }
+
+        .mentor-quote-box {
+            background: rgba(15, 23, 42, 0.65);
+            border-left: 4px solid var(--accent-amber);
+            border-radius: 12px;
+            padding: 0.85rem 1.2rem;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 860px;
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .mentor-quote-box strong {
+            color: var(--accent-amber);
+        }
+
+        /* Top Action Buttons */
+        .top-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(51, 65, 85, 0.9);
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent-amber);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-demo:hover {
+            background: rgba(251, 191, 36, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Progress Card */
+        .progress-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .progress-meta .count {
+            color: var(--accent-purple);
+        }
+
+        .progress-track {
+            height: 10px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #38bdf8, #a855f7, #34d399);
+            transition: width 0.3s ease;
+            border-radius: 999px;
+        }
+
+        /* Question Section */
+        .questions-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .type-cluster-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+            margin-bottom: 0.2rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            padding-left: 0.4rem;
+            border-left: 3px solid var(--accent-purple);
+        }
+
+        .question-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.35rem 1.4rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .question-card:hover {
+            border-color: rgba(192, 132, 252, 0.35);
+        }
+
+        .question-card.answered {
+            border-color: rgba(52, 211, 153, 0.3);
+            background: rgba(19, 31, 48, 0.85);
+        }
+
+        .q-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .q-index {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(168, 85, 247, 0.18);
+            color: var(--accent-purple);
+            font-size: 0.82rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-card.answered .q-index {
+            background: rgba(52, 211, 153, 0.2);
+            color: var(--accent-green);
+        }
+
+        .q-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #f1f5f9;
+            font-weight: 500;
+        }
+
+        /* Rating Options */
+        .likert-scale {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .likert-btn {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 0.65rem 0.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            color: #94a3b8;
+        }
+
+        .likert-btn:hover {
+            background: rgba(51, 65, 85, 0.6);
+            color: #ffffff;
+            border-color: var(--accent-blue);
+        }
+
+        .likert-btn .score-num {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .likert-btn .score-label {
+            font-size: 0.72rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .likert-btn.selected {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(59, 130, 246, 0.3));
+            border-color: var(--accent-purple);
+            color: #ffffff;
+            box-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
+            font-weight: 700;
+        }
+
+        .likert-btn.selected .score-num {
+            color: var(--accent-amber);
+        }
+
+        /* Submit Bottom Bar */
+        .submit-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-card);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Result Section */
+        #result-section {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-hero {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 2.2rem 1.8rem;
+            box-shadow: var(--shadow-glow);
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c084fc, #38bdf8, #34d399, #fbbf24);
+        }
+
+        .hero-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1.2rem;
+        }
+
+        .primary-type-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .type-avatar {
+            width: 68px;
+            height: 68px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.1rem;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            flex-shrink: 0;
+        }
+
+        .type-headline h2 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .type-headline .sub-name {
+            font-size: 1.05rem;
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        .type-headline .wing-tag {
+            font-size: 0.85rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(52, 211, 153, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        /* Triad Center Badge */
+        .triad-center-box {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 0.7rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .triad-center-box .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .triad-center-box .value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        /* Radar & Chart Container */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .chart-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            align-self: flex-start;
+        }
+
+        /* Bar Chart */
+        .bar-chart-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.82rem;
+        }
+
+        .bar-item .bar-label {
+            width: 75px;
+            color: #94a3b8;
+            font-weight: 600;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .bar-item.highlight .bar-label {
+            color: var(--accent-amber);
+        }
+
+        .bar-track {
+            flex-grow: 1;
+            height: 14px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            border-radius: 999px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bar-item.highlight .bar-fill {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        }
+
+        .bar-item .bar-score {
+            width: 32px;
+            text-align: right;
+            font-weight: 700;
+            color: #e2e8f0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Deep Profile Grid */
+        .profile-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.4rem;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .info-card .card-head {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 0.6rem;
+        }
+
+        .info-card p, .info-card li {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+        }
+
+        .info-card ul {
+            padding-left: 1.2rem;
+        }
+
+        .highlight-text {
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        .growth-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .growth-step {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            border-left: 3px solid #34d399;
+        }
+
+        .growth-step.stress {
+            border-left-color: var(--accent-amber);
+        }
+
+        .growth-step .step-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .growth-step.stress .step-title {
+            color: var(--accent-amber);
+        }
+
+        .growth-step.integration .step-title {
+            color: var(--accent-green);
+        }
+
+        /* Encyclopedia Modal / Drawer */
+        .encyclopedia-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            padding: 1.6rem;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .section-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .encyclopedia-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tab-btn {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            border-color: var(--accent-purple);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(59, 130, 246, 0.25));
+            border-color: var(--accent-purple);
+            color: #ffffff;
+        }
+
+        .encyclopedia-view {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(16, 185, 129, 0.95);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.5rem 2rem 0.5rem;
+            }
+            header.app-header {
+                padding: 1.4rem 1rem;
+            }
+            header h1 {
+                font-size: 1.45rem;
+            }
+            .likert-scale {
+                gap: 0.3rem;
+            }
+            .likert-btn {
+                padding: 0.5rem 0.1rem;
+            }
+            .likert-btn .score-label {
+                font-size: 0.65rem;
+            }
+            .hero-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .triad-center-box {
+                align-items: flex-start;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="badge-bar">
+            <span class="tag-badge">🌸 Aiq 身心靈大腦</span>
+            <span class="tag-badge blue">📿 塔羅與原型心智</span>
+            <span class="tag-badge green">🏢 企業治理九型防禦</span>
+            <span class="tag-badge amber">💡 心理諮商導師專欄精華</span>
+        </div>
+        <h1>九型人格 (Enneagram) 深度自我探索與心智整合測驗</h1>
+        <p class="subtitle">
+            本測驗融合專業諮商心理學派與九大人格原型架構，深度診斷您的主導型態、側翼 (Wing)、三大能量中心、盲點防禦機制、致富順流天賦以及健康整合成長路徑。
+        </p>
+
+        <div class="mentor-quote-box">
+            <strong>💡 心理諮商導師核心心法寄語：</strong>
+            「九型人格不是用來給自己貼標籤或合理化壞脾氣的藉口，而是幫我們看見潛意識的『人格面具』與防禦機制。每個人內在都具備九種特質的完整圓形潛能，當我們照見盲點、放下焦慮，就能順應天賦致富，活出最可愛、最豐盛的真實自我。」
+        </div>
+
+        <div class="top-actions">
+            <button class="btn btn-demo" onclick="quickFillDemo()">⚡ 一鍵載入示範答題</button>
+            <button class="btn btn-secondary" onclick="scrollToEncyclopedia()">📚 查閱九型全典庫</button>
+            <button class="btn btn-secondary" onclick="resetForm()">🔄 清空重置</button>
+        </div>
+    </header>
+
+    <!-- Progress Tracking Card -->
+    <div class="progress-card">
+        <div class="progress-meta">
+            <span>測驗進度</span>
+            <span class="count" id="progress-text">已完成 0 / 36 題 (0%)</span>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Questions Container -->
+    <div class="questions-wrapper" id="questions-container">
+        <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Submit Bottom Bar -->
+    <div class="submit-bar" id="submit-bar">
+        <div style="font-size: 0.95rem; color: #cbd5e1;">
+            請確認每一題皆已根據您<strong>「最自然、長期的真實反應」</strong>評分，而非短暫情緒或理想自我。
+        </div>
+        <button class="btn btn-primary" style="font-size: 1.05rem; padding: 0.85rem 2.2rem;" onclick="calculateAndShowResult()">
+            🎯 計算九型診斷報告
+        </button>
+    </div>
+
+    <!-- Result Section -->
+    <section id="result-section">
+        <!-- Hero Summary -->
+        <div class="result-hero">
+            <div class="hero-top">
+                <div class="primary-type-badge">
+                    <div class="type-avatar" id="res-avatar">3</div>
+                    <div class="type-headline">
+                        <h2>
+                            <span id="res-type-name">第 3 型 成就追求者</span>
+                            <span class="sub-name" id="res-archetype-name">「實踐者 / 效能之王」</span>
+                            <span class="wing-tag" id="res-wing-tag">側翼：3w2 魅惑者</span>
+                        </h2>
+                        <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;" id="res-one-liner">
+                            精準目標導向，敏銳捕捉機會，追求卓越與社會肯定。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="triad-center-box">
+                    <span class="label">所屬能量中心</span>
+                    <span class="value" id="res-triad-center">❤️ 情感中心 (心中心)</span>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);" id="res-triad-desc">核心課題：價值感與羞恥焦慮</span>
+                </div>
+            </div>
+
+            <!-- Visual Charts -->
+            <div class="charts-row">
+                <!-- Bar Chart -->
+                <div class="chart-card">
+                    <h4>📊 九型能量得分分佈 (1~9 型)</h4>
+                    <div class="bar-chart-container" id="bar-chart-container">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Radar / Center Breakdown -->
+                <div class="chart-card">
+                    <h4>⚡ 三大能量中心分佈佔比</h4>
+                    <div style="width: 100%; display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;" id="triad-breakdown-box">
+                        <!-- Injected via JS -->
+                    </div>
+                    <div style="width: 100%; margin-top: 0.5rem; padding: 0.75rem; background: rgba(15,23,42,0.6); border-radius: 12px; font-size: 0.82rem; color: #94a3b8; line-height: 1.5;">
+                        <strong style="color: #cbd5e1;">三大中心指引：</strong>
+                        腹中心 (8,9,1) 處理憤怒與主導邊界；心中心 (2,3,4) 處理形象與認同；腦中心 (5,6,7) 處理恐懼與安全感。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Analysis Cards -->
+            <div class="profile-cards-grid">
+                <!-- Desire & Fear -->
+                <div class="info-card">
+                    <div class="card-head">🎯 核心動機與內在恐懼</div>
+                    <p><strong>核心渴望：</strong><span id="res-core-desire">感受自我價值、獲得外界認同與高度肯定。</span></p>
+                    <p><strong>核心恐懼：</strong><span id="res-core-fear">害怕失敗、被看扁、平庸或被視為無價值的人。</span></p>
+                    <p><strong>關鍵防禦機制：</strong><span id="res-defense-mech">過度認同角色、包裝形象、自我欺瞞忽視真實感受。</span></p>
+                </div>
+
+                <!-- Wealth Potential -->
+                <div class="info-card">
+                    <div class="card-head">💰 天賦財富與順流致富之道 (引自導師心法)</div>
+                    <div id="res-wealth-path" style="font-size: 0.92rem; line-height: 1.65; color: #cbd5e1;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Relationship & Love Style -->
+                <div class="info-card">
+                    <div class="card-head">❤️ 愛人的方式與親密關係風格 (引自導師心法)</div>
+                    <div id="res-love-style" style="font-size: 0.92rem; line-height: 1.65; color: #cbd5e1;">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Integration & Growth -->
+                <div class="info-card">
+                    <div class="card-head">🚀 整合升華 vs 壓力退化路徑</div>
+                    <div class="growth-box">
+                        <div class="growth-step stress">
+                            <div class="step-title">⚠️ 壓力退化路徑 (Disintegration)</div>
+                            <div id="res-stress-path" style="font-size: 0.88rem; color: #e2e8f0;">走向...</div>
+                        </div>
+                        <div class="growth-step integration">
+                            <div class="step-title">🌱 健康整合升華 (Integration)</div>
+                            <div id="res-growth-path" style="font-size: 0.88rem; color: #e2e8f0;">走向...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to be more lovely & liked -->
+            <div class="info-card" style="border-color: rgba(251, 191, 36, 0.3);">
+                <div class="card-head" style="color: var(--accent-amber);">🌟 導師私房指引：如何讓自己變得更可愛、更有人緣？</div>
+                <div id="res-charm-tips" style="font-size: 0.94rem; line-height: 1.7; color: #e2e8f0;">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+
+            <!-- Share and Retest Actions -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 0.5rem;">
+                <button class="btn btn-primary" onclick="copyDiagnosticReport()">📋 複製完整診斷結論</button>
+                <button class="btn btn-secondary" onclick="window.print()">🖨️ 列印 / 另存 PDF</button>
+                <button class="btn btn-secondary" onclick="retakeTest()">🔄 重新評測</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encyclopedia Section -->
+    <section class="encyclopedia-section" id="encyclopedia-section">
+        <div class="section-header">
+            <h3>📖 九型人格全典隨選庫 (1~9 型深度對照)</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">點選型號即刻切換全景檔案</span>
+        </div>
+
+        <div class="encyclopedia-tabs" id="encyclopedia-tabs">
+            <!-- Tabs 1~9 -->
+        </div>
+
+        <div class="encyclopedia-view" id="encyclopedia-content">
+            <!-- Selected Type Profile -->
+        </div>
+    </section>
+
+</div>
+
+<div class="toast" id="toast-box">✓ 內容已複製到剪貼簿</div>
+
+<script>
+// 36 standard validated questions (4 per type)
+const QUESTIONS = [
+    // Type 1: 完美主義者
+    { id: 1, type: 1, text: "我對自己和身邊事物有極高道德與品質標準，容易一眼注意到任何細微的錯誤或不完美。" },
+    { id: 2, type: 1, text: "當事情沒有按照正確程序或約定進行時，我內心常會湧現不耐煩或壓抑的憤怒。" },
+    { id: 3, type: 1, text: "我深信凡事都該腳踏實地、合規負責，最害怕自己犯錯或被人指責不道德、不公正。" },
+    { id: 4, type: 1, text: "我內心常有一個嚴苛的『批判者聲音』，督促我時刻保持自律、不斷修正改善。" },
+
+    // Type 2: 熱心助人者
+    { id: 5, type: 2, text: "我很擅長敏銳感知別人的情緒與需求，並常主動給予關懷、照顧或實質幫助。" },
+    { id: 6, type: 2, text: "我渴望被他人珍惜與需要；如果別人對我的付出冷淡或不需要我，我會感到失落與被排斥。" },
+    { id: 7, type: 2, text: "為了照顧周遭親友或團隊成員的需要，我常常忽視自己的疲累、甚至難以啟齒說出自己的需求。" },
+    { id: 8, type: 2, text: "在人際與親密關係中，我習慣透過主動給予溫暖與付出，來確認彼此牢固的情感連結。" },
+
+    // Type 3: 成就追求者
+    { id: 9, type: 3, text: "我具備極強的目標導向與行動效率，重視結果產出，並享受獲得社會與同儕的肯定。" },
+    { id: 10, type: 3, text: "我擅長在不同場合快速轉換展現合適的專業形象，渴望成為群體中令人欽佩的佼佼者。" },
+    { id: 11, type: 3, text: "當專案進度落後或效率低落時我會非常焦慮，內心深處最抗拒的是失敗與平庸無為。" },
+    { id: 12, type: 3, text: "我容易將自己的價值與外在成果捆綁，常停不下來放鬆，有成為工作狂的傾向。" },
+
+    // Type 4: 個人風格者
+    { id: 13, type: 4, text: "我追求獨特、深刻與真實的自我表達，極度抗拒隨波逐流或落入平淡庸俗的框架。" },
+    { id: 14, type: 4, text: "我的情緒世界非常細膩豐富，有時會感到這個世界上很少有人能真正懂我的靈魂深度。" },
+    { id: 15, type: 4, text: "我容易沉浸在過往的遺憾、浪漫憧憬或憂鬱美感中，具有強烈的美感品味與直覺。" },
+    { id: 16, type: 4, text: "當看到身邊的人擁有一種自然的世俗幸福時，我常會升起一種自己被缺陷排斥的孤獨感。" },
+
+    // Type 5: 智慧觀察者
+    { id: 17, type: 5, text: "我極度需要獨立的個人私密空間與不受干擾的時間，喜歡在幕後專注研究深度知識與邏輯原理。" },
+    { id: 18, type: 5, text: "面對他人過度的情感索求或過度社交場合，我的本能反應是退回自己的精神城堡進行充電。" },
+    { id: 19, type: 5, text: "在採取任何重大行動之前，我必須先徹底理解理論依據，最擔心自己無能或缺乏足夠資訊。" },
+    { id: 20, type: 5, text: "我傾向嚴格節省自己的精力、時間與物質資源，習慣過一種自主、低依賴的極簡生活。" },
+
+    // Type 6: 忠誠防衛者
+    { id: 21, type: 6, text: "我擁有天生的危機預警雷達，遇到事情習慣先預想最壞狀況並準備周全的應變備案。" },
+    { id: 22, type: 6, text: "我非常看重誠信、忠誠與安全感；面對不透明、模糊或不可控的局勢容易焦慮多疑。" },
+    { id: 23, type: 6, text: "在做重要決策或面對權威時，我常常反覆權衡利弊、自我質疑，並尋求可信任的盟友確認。" },
+    { id: 24, type: 6, text: "一旦我認可並建立了信任關係，我會成為極度忠誠、可靠且能與夥伴患難與共的支柱。" },
+
+    // Type 7: 樂觀冒險者
+    { id: 25, type: 7, text: "我熱愛自由、新鮮刺激與無限可能性，大腦思維跳躍，喜歡同時探索多種感興趣的領域。" },
+    { id: 26, type: 7, text: "我本能地抗拒沉悶、枯燥或痛苦的氛圍，習慣用幽默、正面思考或開啟新計畫來迅速擺脫低潮。" },
+    { id: 27, type: 7, text: "如果被困在重複死板的常規或嚴苛的約束中，我會感到難以忍受並渴望立刻掙脫。" },
+    { id: 28, type: 7, text: "我總是對未來的冒險充滿期待，喜歡把歡樂、點子與活力帶給身邊的每一個人。" },
+
+    // Type 8: 領袖挑戰者
+    { id: 29, type: 8, text: "我直率果敢、坦蕩有力，崇尚掌權與實力，看到不公不義的事情會毫不猶豫站出來對抗。" },
+    { id: 30, type: 8, text: "我最抗拒被人控制、算計或展現出軟弱無助，習慣主動掌握局面與關鍵話語權。" },
+    { id: 31, type: 8, text: "在人際或工作上，我講究是非黑白、直奔核心，喜歡主動保護弱小並承擔最終責任。" },
+    { id: 32, type: 8, text: "遇到挑戰或阻力時我絕不退縮，反而會激發出更旺盛的戰鬥意志與執行力。" },
+
+    // Type 9: 和平協調者
+    { id: 33, type: 9, text: "我追求內心的平靜與人際和諧，盡可能避免正面的衝突、對抗與激烈火藥味。" },
+    { id: 34, type: 9, text: "我擅長同理接納各方不同立場，但常常因此難以果斷堅持自己的主張，有隨和順從的傾向。" },
+    { id: 35, type: 9, text: "面對沉重的外界壓力或複雜難題時，我習慣透過放空、瑣碎娛樂或拖延來維持內心穩定。" },
+    { id: 36, type: 9, text: "我待人寬厚包容、溫和不爭，深信『退一步海闊天空』，是團隊中天然的潤滑劑與調停者。" }
+];
+
+// Complete 9-type personality profile database citing mentor
+const TYPE_PROFILES = {
+    1: {
+        number: 1,
+        name: "完美主義者",
+        archetype: "改革者 / 秩序守護者",
+        center: "腹中心 / 本能中心",
+        centerIcon: "⚡ 腹中心 (本能組)",
+        centerCore: "核心課題：憤怒與界限壓抑",
+        oneLiner: "致力追求正確、道德與秩序，追求卓越卻常被自我批判苛責。",
+        coreDesire: "追求至善、崇高道德、正確無訛與有條不紊。",
+        coreFear: "犯錯、被指責、腐化、道德瑕疵或失去自制力。",
+        defense: "反向形成 (Reaction Formation)、過度自我批判、壓抑內在憤怒轉為嚴苛說教。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：1型人的財富優勢在於極致的品質控管、嚴謹流程架構與高度信譽。適合深耕合規審計、專業技術標準、高精度工藝與體系建設。導師提醒：避免陷入『非黑即白』的完美陷阱而延遲交付，學會以 80 分 MVP 極速落地驗證，方能釋放龐大商業紅利。",
+        loveStyle: "<strong>【愛人的方式】</strong>：1號人的愛是『幫你變得更好』。他們會透過提醒你生活細節、整理環境、規劃未來來表達愛意。但若不自覺，容易變成挑剔與訓話。學會接納伴侶的不完美，多說一句『你這樣就已經很好了』，感情將更為融洽。",
+        stressPath: "壓力退化走向 <strong>第 4 型 (個人風格者)</strong>：當長期感到事情無法完美掌控時，會陷入深深的自憐、挫敗與情緒化，覺得全世界都不理解自己的苦心與崇高理想。",
+        growthPath: "健康整合升華 <strong>第 7 型 (樂觀冒險者)</strong>：當放下內在苛刻批判，接納世界的不完美，1型會變得輕鬆幽默、富有熱情與包容力，享受當下生命的純粹樂趣。",
+        charmTips: "<strong>導師人緣指引</strong>：試著給自己和他人『犯錯的配額』。在想要糾正他人之前先深呼吸三秒，把『你應該...』換成『我理解你，我們一起試試看』，展現包容的鬆弛感會讓你極具親和力！",
+        wings: {
+            left: { num: 9, name: "1w9 理想主義者", desc: "更為冷靜、內斂、客觀，帶有 9 型的隨和與沉靜，但有時顯得疏離。" },
+            right: { num: 2, name: "1w2 倡導者", desc: "更熱情、外向，積極投入人群並熱心助人，對社會公義有極大實踐力。" }
+        }
+    },
+    2: {
+        number: 2,
+        name: "熱心助人者",
+        archetype: "給予者 / 愛的守護者",
+        center: "心中心 / 情感中心",
+        centerIcon: "❤️ 情感中心 (心中心)",
+        centerCore: "核心課題：被愛渴望與羞恥認同",
+        oneLiner: "敏銳感知他人需要，樂於奉獻付出，渴望被愛與被深深珍惜。",
+        coreDesire: "被愛、被需要、被肯定其付出與存在的不可或缺性。",
+        coreFear: "不被愛、被拋棄、自己是無價值、不值得被愛的負擔。",
+        defense: "壓抑自我需求 (Repression)、操縱性給予 (以付出換取情感籌碼)、情緒投射。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：2型人是頂尖的人脈網絡大師與公關高手。擅長透過深度的共情建立終身客戶信任，適合顧問諮詢、社群運營、客戶成功與高價值引流。導師提醒：務必建立明確的商業邊界，切忌為了討好他人而提供免費勞動或不敢報價！",
+        loveStyle: "<strong>【愛人的方式】</strong>：2號人的愛是『無微不至的呵護』。他們能敏銳猜透伴侶的心思，提供滿滿的情緒價值與生活照料。但若付出得不到相應回饋，容易心生委屈而爆發情感勒索。最好的愛是先充盈自己，才能滋養對方。",
+        stressPath: "壓力退化走向 <strong>第 8 型 (領袖挑戰者)</strong>：當長期過度付出卻感到被忽視、未獲感激時，2型會突然爆發強烈憤怒，轉為強勢控制、算舊帳或激烈索求情感補償。",
+        growthPath: "健康整合升華 <strong>第 4 型 (個人風格者)</strong>：當2型學會將目光收回自己身上，看見並尊重自己的真實情感與渴望，能展現出深邃的自愛與真實創造力，不再靠討好獲得自我認同。",
+        charmTips: "<strong>導師人緣指引</strong>：勇敢練習開口說『不』與『我現在需要休息』。當你不再勉強自己當拯救者，反而能建立健康平衡、彼此尊重的成熟人際關係。",
+        wings: {
+            left: { num: 1, name: "2w1 僕人領袖", desc: "更具道德感、自律與使命感，付出時講究原則與良心，偶有說教傾向。" },
+            right: { num: 3, name: "2w3 魅力主人", desc: "更社交、自信、亮眼，擅長經營人際關係網，善於將善意轉化為實際影響力。" }
+        }
+    },
+    3: {
+        number: 3,
+        name: "成就追求者",
+        archetype: "實踐者 / 效能之王",
+        center: "心中心 / 情感中心",
+        centerIcon: "❤️ 情感中心 (心中心)",
+        centerCore: "核心課題：外在認同與形象焦慮",
+        oneLiner: "精準目標導向，敏銳捕捉機會，追求卓越成就與社會認同。",
+        coreDesire: "獲得成功、受人讚賞與羨慕、證明自我非凡價值。",
+        coreFear: "失敗、平庸無能、被輕視、形象崩塌或無所作為。",
+        defense: "角色認同 (Identification)、形象包裝、自我欺瞞、切斷真實情感連接。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：3型人天生具備極強的商業嗅覺、落地執行力與銷售變現力。擅長把抽象構想快速包裝為具高溢價的商品或爆款產品。導師提醒：致富的真正上限在於團隊信任與長期複利，切忌因貪圖短期勝利或過度粉飾而損害長期商譽。",
+        loveStyle: "<strong>【愛人的方式】</strong>：3號人的愛是『帶你一起邁向人生巔峰』。他們會把伴侶納入成功藍圖，給予最頂級的物質保障與榮譽感。然而在親密關係中，伴侶更需要的是你卸下防禦時的脆弱與陪伴，而非一個完美的執行長。",
+        stressPath: "壓力退化走向 <strong>第 9 型 (和平協調者)</strong>：當遭遇巨大打擊或長期極度透支時，3型會突然失去動力，陷入麻木自欺、逃避現實與沙發馬鈴薯般的消極怠工狀態。",
+        growthPath: "健康整合升華 <strong>第 6 型 (忠誠防衛者)</strong>：當3型放下虛榮心，走向團隊協同與真誠承諾，會成為極富凝聚力、忠誠可靠且關懷集體福祉的偉大領袖。",
+        charmTips: "<strong>導師人緣指引</strong>：適度向信任的夥伴展露自己的困惑或疲累。『原來你也是普通人』的真實感，往往比一個永遠不會犯錯的完美人設，更能收穫深厚的友情與支持！",
+        wings: {
+            left: { num: 2, name: "3w2 魅惑者", desc: "更具親和力、人情味與感染力，擅長透過討喜的形象與人際魅力推動目標。" },
+            right: { num: 4, name: "3w4 專業者", desc: "更專注於專業技術深度、品味與自我風格，追求兼具商業成功與個人獨特性。" }
+        }
+    },
+    4: {
+        number: 4,
+        name: "個人風格者",
+        archetype: "浪漫者 / 靈魂創作者",
+        center: "心中心 / 情感中心",
+        centerIcon: "❤️ 情感中心 (心中心)",
+        centerCore: "核心課題：自我認同與孤獨缺失感",
+        oneLiner: "追求真實、獨特與深刻的情感體驗，擁有天賦美感與靈魂共鳴力。",
+        coreDesire: "尋找真正的自我本質、被理解獨特性、活出無可取代的靈魂生命。",
+        coreFear: "平庸乏味、缺乏自我身份、被誤解或靈魂流於俗套。",
+        defense: "內向投射 (Introjection)、沉溺自憐、崇高化悲劇感受、疏離冷漠。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：4型人的財富核心來自於獨一無二的原創美學、靈性深意與品牌護城河。適合文化創意、獨立設計、心靈療癒、精緻自媒體與個人IP。導師提醒：不要等到『感覺來了』才工作，建立生活節律與日更紀律，是將天才靈感化為具體資產的唯一途徑。",
+        loveStyle: "<strong>【愛人的方式】</strong>：4號人的愛是『靈魂深處的全然共震』。他們渴望與伴侶進行不帶偽裝的深層對話，能接住對方最陰暗脆弱的情感。但要注意避免『推開又渴望被追尋』的情緒拉扯遊戲，真實的平淡亦是一種深情。",
+        stressPath: "壓力退化走向 <strong>第 2 型 (熱心助人者)</strong>：當遭遇情感挫敗或感到被拋棄時，會陷入神經質的討好依賴，試圖透過過度付出甚至委屈求全來強行挽留對方。",
+        growthPath: "健康整合升華 <strong>第 1 型 (完美主義者)</strong>：當4型學會走出內心戲的情感泥沼，將澎湃的靈感落地為自律的日常行動與客觀原則，能產出震撼世人的偉大傳世之作。",
+        charmTips: "<strong>導師人緣指引</strong>：練習欣賞日常生活的平凡美。走出『眾人皆醉我獨醒』的心態，主動對周圍的溫暖投以微笑，你會發現世界比想像中更溫柔接納你。",
+        wings: {
+            left: { num: 3, name: "4w3 貴族 / 演繹者", desc: "更注重個人外在形象與成功成就，兼具藝術品味與商業變現潛力。" },
+            right: { num: 5, name: "4w5 自由靈魂 / 哲學家", desc: "更孤僻、深邃、內省，專注於哲學思辨與精神探索，極度重視思想自由。" }
+        }
+    },
+    5: {
+        number: 5,
+        name: "智慧觀察者",
+        archetype: "思想家 / 知識探求者",
+        center: "腦中心 / 思考中心",
+        centerIcon: "🧠 思考中心 (腦中心)",
+        centerCore: "核心課題：安全感獲取與恐懼匱乏",
+        oneLiner: "冷靜客觀、專注鑽研底層規律，追求自主獨立與思維深度。",
+        coreDesire: "掌握淵博知識、理解宇宙規律、保持精神與資源的全然自主。",
+        coreFear: "無知無能、精力被掏空、被外界過度侵擾或無力因應現實。",
+        defense: "情感隔離 (Isolation)、認知理性化 (Rationalization)、囤積資源與退縮。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：5型人是天然的系統架構師、量化分析專家與核心技術掌控者。擅長在複雜混沌中抽絲剝繭，找到底層支點。適合高階軟體開發、深度科研、專利發明與資產配置。導師提醒：知識必須在市場交換中才能產生貨幣價值，多與外界互動，避免將自己困在象牙塔內。",
+        loveStyle: "<strong>【愛人的方式】</strong>：5號人的愛是『願意將你放進我的私密城堡』。他們表達愛的方式是分享自己最珍貴的思考、為你分析解決難題、並尊重你的全然自由。伴侶若能給予他們足夠的獨處充電時間，5型會展現出無比堅定且不黏膩的忠誠。",
+        stressPath: "壓力退化走向 <strong>第 7 型 (樂觀冒險者)</strong>：當面對無法承受的精神壓力與資源耗竭時，5型會突然變得浮躁散漫、沉迷於瑣碎娛樂或衝動消費，試圖逃避現實難題。",
+        growthPath: "健康整合升華 <strong>第 8 型 (領袖挑戰者)</strong>：當5型將腦海中的宏大知識化為果斷的實體行動，會展現出強大的領袖魄力與自信，勇於承擔現實世界的重任。",
+        charmTips: "<strong>導師人緣指引</strong>：試著偶爾放下邏輯分析，用一句簡單的『這一定讓你好難過』來回應朋友。情感的即時共鳴，往往比任何完美的解決方案更能打動人心！",
+        wings: {
+            left: { num: 4, name: "5w4 偶像破除者", desc: "更富直覺、美感與叛逆創新思維，兼具冷酷理性與深刻靈魂洞察。" },
+            right: { num: 6, name: "5w6 問題解決者", desc: "更注重實用性、科學驗證與邏輯嚴密性，是極度可靠的技術骨幹與分析大師。" }
+        }
+    },
+    6: {
+        number: 6,
+        name: "忠誠防衛者",
+        archetype: "守護者 / 風險精算師",
+        center: "腦中心 / 思考中心",
+        centerIcon: "🧠 思考中心 (腦中心)",
+        centerCore: "核心課題：焦慮懷疑與安全盟友",
+        oneLiner: "危機預警敏銳，崇尚承諾信賴，是團隊中最堅不可摧的基石。",
+        coreDesire: "獲得可靠的安全保障、建立值得信賴的同盟與確定性。",
+        coreFear: "孤立無援、被背叛、不確定性、突發災難或體系崩潰。",
+        defense: "投射作用 (Projection)、災難化預設、反覆驗證忠誠度、過度懷疑。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：6型人的財富力量在於極致的風控管理、危機對沖與穩健運營。適合合約把關、供應鏈韌性、資產保全與合規內控。導師提醒：不要讓未來的『萬一』扼殺當下的投資機會，建立可承擔損失的停損機制，勇敢擁抱具有正向期望值的合理冒險。",
+        loveStyle: "<strong>【愛人的方式】</strong>：6號人的愛是『成為你風雨同舟的避風港』。他們會默默打點好生活中的各種應急準備，誓死捍衛家庭與愛人。但因缺乏安全感，偶爾會反覆試探對方的忠誠度。給予彼此透明的溝通，信任是最好的解藥。",
+        stressPath: "壓力退化走向 <strong>第 3 型 (成就追求者)</strong>：當焦慮爆表或安全感受威脅時，6型會戴上虛張聲勢的面具，盲目追求外在虛榮地位或功利競爭，試圖以此掩蓋內心恐慌。",
+        growthPath: "健康整合升華 <strong>第 9 型 (和平協調者)</strong>：當6型學會信任內在智慧、放下無窮無盡的災難化焦慮，內心會生出深邃的安詳與鬆弛感，享受生命的自在順流。",
+        charmTips: "<strong>導師人緣指引</strong>：多肯定自己的直覺與能力！當焦慮來襲時練習『事實檢驗』——區分『真實發生的事』與『腦中編造的恐懼劇本』，你的幽默與踏實會讓周圍人非常安心。",
+        wings: {
+            left: { num: 5, name: "6w5 守衛者", desc: "更為沉靜、嚴謹、警惕，善於透過專業知識與技術建立安全防禦堡壘。" },
+            right: { num: 7, name: "6w7 夥伴同志", desc: "更開朗、熱情、幽默，擅長透過社交互動與朋友圈緩解內在的不安與焦慮。" }
+        }
+    },
+    7: {
+        number: 7,
+        name: "樂觀冒險者",
+        archetype: "享樂者 / 創新探險家",
+        center: "腦中心 / 思考中心",
+        centerIcon: "🧠 思考中心 (腦中心)",
+        centerCore: "核心課題：逃避痛苦與刺激依賴",
+        oneLiner: "思維敏捷跳躍，熱愛多元體驗，具有極強的創意孵化與點子傳播力。",
+        coreDesire: "保持自由不受拘束、體驗豐盛人生、追求無限快樂與可能性。",
+        coreFear: "被痛苦困住、受剝奪限制、生活陷入枯燥乏味與沉悶絕望。",
+        defense: "昇華作用 (Sublimation)、合理化逃避、注意力渙散多動、逃避負面情感深度。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：7型人是天生的商業模式創新者與趨勢捕手。擅長整合跨界資源、孵化顛覆性專案並激發團隊熱情。適合新創企業、前沿科技、行銷切角矩陣與文娛傳媒。導師提醒：7型人最大的貧窮陷阱是『猴子掰玉米』——點子很多但虎頭蛇尾，找一個執行力強的搭檔（如 1 或 8 型）閉環交付，財富方能滾雪球。",
+        loveStyle: "<strong>【愛人的方式】</strong>：7號人的愛是『帶你一起遊歷大千世界的精彩』。和他們在一起永遠充滿驚喜與歡笑。但當關係進入需要面對現實瑣事或沉重情緒時，7型本能想逃跑。真正的成熟，是願意陪心愛的人穿越風雨陰霾。",
+        stressPath: "壓力退化走向 <strong>第 1 型 (完美主義者)</strong>：當自由受阻或現實計畫崩塌時，7型會突然變得憤世嫉俗、吹毛求疵、充滿說教意味並苛責他人犯錯。",
+        growthPath: "健康整合升華 <strong>第 5 型 (智慧觀察者)</strong>：當7型學會收斂浮躁的心思，安住於單一領域深耕專注，會將天馬行空的靈感轉化為具有深厚底蘊的劃時代巨作。",
+        charmTips: "<strong>導師人緣指引</strong>：練習在對話中『留白』與『耐心傾聽』。不要急著打斷對方講笑話或提供解決方案，安靜陪對方度過悲傷時刻，會讓你從『玩伴』升華為『摯友』。",
+        wings: {
+            left: { num: 6, name: "7w6 娛樂家", desc: "更顧家、富同理心與忠誠度，既有冒險熱情又懂得兼顧團隊與人際感受。" },
+            right: { num: 8, name: "7w8 現實主義者", desc: "更具野心、魄力與競爭力，把 7 型的點子與 8 型的霸氣結合，執行力極強。" }
+        }
+    },
+    8: {
+        number: 8,
+        name: "領袖挑戰者",
+        archetype: "掌控者 / 無畏先鋒",
+        center: "腹中心 / 本能中心",
+        centerIcon: "⚡ 腹中心 (本能組)",
+        centerCore: "核心課題：權力邊界與否認脆弱",
+        oneLiner: "直面衝突、保護弱者，追求實質影響力與自我命運的主宰權。",
+        coreDesire: "掌握自我命運、保護身邊之人、擁有強大力量自主掌控局勢。",
+        coreFear: "被他人控制、出賣、壓制、展露軟弱而受制於人。",
+        defense: "否定脆弱 (Denial)、過度對抗 (Acting Out)、劃分敵我陣營。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：8型人是天然的商業統帥與重型資源開拓者。敢於下大注、承擔常人不敢承擔的風險，具備極強的談判殺傷力與市場擴張魄力。導師提醒：避免因『順我者昌、逆我者亡』的霸道作風而引發團隊反撲，學會以柔克剛，將剛猛轉化為長者般的庇護。",
+        loveStyle: "<strong>【愛人的方式】</strong>：8號人的愛是『為你撐起一片遮風擋雨的天空』。只要被他們劃入『自己人』陣營，8型會不惜一切代價守護對方。但他們不擅長說肉麻話，甚至會用粗魯直接的方式表達關心。偶爾卸下盔甲說一聲『我很在乎你』，最能擊中人心。",
+        stressPath: "壓力退化走向 <strong>第 5 型 (智慧觀察者)</strong>：當遭遇無法抗衡的背叛或巨大打擊時，8型會突然關閉溝通大門，變得冷酷孤僻、疑神疑鬼並暗中觀察盤算防禦。",
+        growthPath: "健康整合升華 <strong>第 2 型 (熱心助人者)</strong>：當8型敢於接納自己的脆弱，會將霸道的力量轉化為慈悲與溫暖呵護，成為兼具菩薩心腸與金剛手段的偉大典範。",
+        charmTips: "<strong>導師人緣指引</strong>：嘗試在會議或家庭中『最後一個發言』，並將語調放軟半度。你的強大早已毋庸置疑，適度的柔軟與示弱，反而能讓他人由衷敬佩並死心塌地跟隨。",
+        wings: {
+            left: { num: 7, name: "8w7 獨立冒險者", desc: "更有活力、喜好冒險、具備強大號召力與感染力，勇於開拓全新戰場。" },
+            right: { num: 9, name: "8w9 熊型長老", desc: "更沉穩、內斂、厚重如山，平日溫和低調，但一旦被觸碰底線則雷霆萬鈞。" }
+        }
+    },
+    9: {
+        number: 9,
+        name: "和平協調者",
+        archetype: "調停者 / 大地之母",
+        center: "腹中心 / 本能中心",
+        centerIcon: "⚡ 腹中心 (本能組)",
+        centerCore: "核心課題：衝突麻木與自我遺忘",
+        oneLiner: "包容廣闊、追求內外和諧，是化解對立衝突、撫平焦慮的和事佬。",
+        coreDesire: "維持內心安寧、守護人際和睦、天人合一順應自然。",
+        coreFear: "衝突撕裂、失去連結、分離對立或平靜被無情破壞。",
+        defense: "麻木自欺 (Narcotization)、順從同化、被動攻擊 (Passive-Aggression)、拖延。",
+        wealthPath: "<strong>【順流財富密碼】</strong>：9型人具備天然的中道智慧與生態整合力。適合擔任董事長特助、合夥人協調仲裁、跨組織併購、綠色可持續事業與心理療癒。導師提醒：9型人最大的財富死穴是『佛系拖延』與『不敢談錢』。設定具體死線與獎勵機制，喚醒沉睡的野心，你龐大的包容力將成為最頂級的聚寶盆。",
+        loveStyle: "<strong>【愛人的方式】</strong>：9號人的愛是『如水般溫柔且毫無壓力的陪伴』。他們是最好的傾聽者，讓伴侶感到全然被接納與自在。但請記得，關係需要雙方的火花，適度表達你的喜好與不滿，才是對親密關係最好的滋潤。",
+        stressPath: "壓力退化走向 <strong>第 6 型 (忠誠防衛者)</strong>：當矛盾累積到無法掩蓋時，9型會突然變得極度焦慮、疑神疑鬼、怨天尤人，陷入恐慌與不安中。",
+        growthPath: "健康整合升華 <strong>第 3 型 (成就追求者)</strong>：當9型看見自身存在的重要價值，喚醒生命熱情並積極行動，會展現出驚人的成就爆發力與社會影響力。",
+        charmTips: "<strong>導師人緣指引</strong>：在被問到『你想吃什麼？』或『你覺得怎麼辦？』時，戒掉『隨便都可以』這句話。勇敢表達你的第一個直覺選擇，真實的自我更令人著迷！",
+        wings: {
+            left: { num: 8, name: "9w8 怡然自得者", desc: "更有力量、接地氣與掌控感，隨和中自帶不可侵犯的底線與威嚴。" },
+            right: { num: 1, name: "9w1 追尋夢想者", desc: "更具原則感、沉靜清高、帶有理想主義色彩，生活自律且注重道德細節。" }
+        }
+    }
+};
+
+// State
+let userScores = {}; // question_id -> score (1~5)
+
+// Initialize
+function initApp() {
+    renderQuestions();
+    renderEncyclopediaTabs();
+    showEncyclopediaType(1);
+    updateProgress();
+}
+
+// Render Questions
+function renderQuestions() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = '';
+
+    // Group questions by type for neat layout
+    const grouped = {};
+    QUESTIONS.forEach(q => {
+        if (!grouped[q.type]) grouped[q.type] = [];
+        grouped[q.type].push(q);
+    });
+
+    const typeNames = {
+        1: "第 1 型 探索領域 (完美秩序與自我批判)",
+        2: "第 2 型 探索領域 (溫暖付出與被愛渴望)",
+        3: "第 3 型 探索領域 (效能實踐與成就認同)",
+        4: "第 4 型 探索領域 (深刻獨特與美感直覺)",
+        5: "第 5 型 探索領域 (知性觀察與私密邊界)",
+        6: "第 6 型 探索領域 (安全預警與忠誠守護)",
+        7: "第 7 型 探索領域 (自由冒險與快樂探索)",
+        8: "第 8 型 探索領域 (無畏先鋒與實質掌控)",
+        9: "第 9 型 探索領域 (和平包容與身心和諧)"
+    };
+
+    for (let t = 1; t <= 9; t++) {
+        const clusterTitle = document.createElement('div');
+        clusterTitle.className = 'type-cluster-title';
+        clusterTitle.textContent = typeNames[t];
+        container.appendChild(clusterTitle);
+
+        grouped[t].forEach(q => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.id = `q-card-${q.id}`;
+
+            card.innerHTML = `
+                <div class="q-header">
+                    <div class="q-index" id="q-idx-${q.id}">${q.id}</div>
+                    <div class="q-text">${q.text}</div>
+                </div>
+                <div class="likert-scale">
+                    ${[1, 2, 3, 4, 5].map(score => `
+                        <button type="button" class="likert-btn" id="btn-q${q.id}-${score}" onclick="setAnswer(${q.id}, ${score})">
+                            <span class="score-num">${score}</span>
+                            <span class="score-label">${getScoreLabel(score)}</span>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+}
+
+function getScoreLabel(score) {
+    switch (score) {
+        case 1: return "非常不符";
+        case 2: return "比較不符";
+        case 3: return "一般普通";
+        case 4: return "比較符合";
+        case 5: return "非常符合";
+        default: return "";
+    }
+}
+
+// Answer handler
+function setAnswer(questionId, score) {
+    userScores[questionId] = score;
+
+    // Update UI
+    for (let s = 1; s <= 5; s++) {
+        const btn = document.getElementById(`btn-q${questionId}-${s}`);
+        if (btn) {
+            btn.classList.toggle('selected', s === score);
+        }
+    }
+
+    const card = document.getElementById(`q-card-${questionId}`);
+    if (card) {
+        card.classList.add('answered');
+    }
+
+    updateProgress();
+}
+
+// Update Progress Bar
+function updateProgress() {
+    const answeredCount = Object.keys(userScores).length;
+    const total = QUESTIONS.length;
+    const pct = Math.round((answeredCount / total) * 100);
+
+    const bar = document.getElementById('progress-bar');
+    const text = document.getElementById('progress-text');
+
+    if (bar) bar.style.width = `${pct}%`;
+    if (text) text.textContent = `已完成 ${answeredCount} / ${total} 題 (${pct}%)`;
+}
+
+// Quick Fill Demo (Realistic 3w2 profile or balanced distribution)
+function quickFillDemo() {
+    // Preset answers favoring Type 3 and Type 2
+    QUESTIONS.forEach(q => {
+        let score = 3;
+        if (q.type === 3) {
+            score = 5; // Type 3 dominant
+        } else if (q.type === 2) {
+            score = 4; // Type 2 wing
+        } else if (q.type === 7) {
+            score = 4; // Energetic
+        } else if (q.type === 1) {
+            score = 3;
+        } else if (q.type === 8) {
+            score = 4;
+        } else if (q.type === 4 || q.type === 5) {
+            score = 2;
+        } else if (q.type === 6 || q.type === 9) {
+            score = 3;
+        }
+        setAnswer(q.id, score);
+    });
+
+    showToast("✓ 已為您載入完整示範答題數據 (主型3w2模式)！");
+
+    // Scroll to submit bar
+    document.getElementById('submit-bar').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Clear / Reset
+function resetForm() {
+    userScores = {};
+    document.querySelectorAll('.likert-btn').forEach(btn => btn.classList.remove('selected'));
+    document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
+    document.getElementById('result-section').style.display = 'none';
+    updateProgress();
+    showToast("✓ 答題已清空重置");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Calculation & Results
+function calculateAndShowResult() {
+    const answeredCount = Object.keys(userScores).length;
+    if (answeredCount < 36) {
+        const remaining = 36 - answeredCount;
+        alert(`您尚有 ${remaining} 題未完成填答，請全部回答以獲得最精準的九型能量報告！`);
+        // Find first unanswered
+        for (let q of QUESTIONS) {
+            if (!userScores[q.id]) {
+                document.getElementById(`q-card-${q.id}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                break;
+            }
+        }
+        return;
+    }
+
+    // Calculate score per type (each type has 4 questions, max 20)
+    const typeTotals = { 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0 };
+    QUESTIONS.forEach(q => {
+        typeTotals[q.type] += userScores[q.id] || 0;
+    });
+
+    // Find highest type
+    let primaryType = 1;
+    let maxScore = -1;
+    for (let t = 1; t <= 9; t++) {
+        if (typeTotals[t] > maxScore) {
+            maxScore = typeTotals[t];
+            primaryType = t;
+        }
+    }
+
+    // Determine Wing (adjacent types: e.g. for 3: 2 or 4; for 1: 9 or 2; for 9: 8 or 1)
+    let leftWing = primaryType === 1 ? 9 : primaryType - 1;
+    let rightWing = primaryType === 9 ? 1 : primaryType + 1;
+
+    let dominantWing = typeTotals[leftWing] >= typeTotals[rightWing] ? leftWing : rightWing;
+
+    // Center Totals
+    const gutTotal = typeTotals[8] + typeTotals[9] + typeTotals[1]; // Instinct / Gut
+    const heartTotal = typeTotals[2] + typeTotals[3] + typeTotals[4]; // Feeling / Heart
+    const headTotal = typeTotals[5] + typeTotals[6] + typeTotals[7]; // Thinking / Head
+
+    renderResultView(primaryType, dominantWing, typeTotals, gutTotal, heartTotal, headTotal);
+
+    const resSec = document.getElementById('result-section');
+    resSec.style.display = 'flex';
+    resSec.scrollIntoView({ behavior: 'smooth' });
+    showToast("🎉 九型人格深度診斷報告已生成完畢！");
+}
+
+function renderResultView(typeNum, wingNum, typeTotals, gut, heart, head) {
+    const profile = TYPE_PROFILES[typeNum];
+    const wingInfo = profile.wings[wingNum < typeNum || (typeNum === 1 && wingNum === 9) ? 'left' : 'right'];
+
+    // Update Header
+    document.getElementById('res-avatar').textContent = typeNum;
+    document.getElementById('res-type-name').textContent = `第 ${typeNum} 型 ${profile.name}`;
+    document.getElementById('res-archetype-name').textContent = `「${profile.archetype}」`;
+    document.getElementById('res-wing-tag').textContent = `側翼：${typeNum}w${wingNum} (${wingInfo ? wingInfo.name : ''})`;
+    document.getElementById('res-one-liner').textContent = profile.oneLiner;
+
+    // Center Badge
+    document.getElementById('res-triad-center').textContent = profile.centerIcon;
+    document.getElementById('res-triad-desc').textContent = profile.centerCore;
+
+    // Desire / Fear
+    document.getElementById('res-core-desire').textContent = profile.coreDesire;
+    document.getElementById('res-core-fear').textContent = profile.coreFear;
+    document.getElementById('res-defense-mech').textContent = profile.defense;
+
+    // Wealth / Love / Growth
+    document.getElementById('res-wealth-path').innerHTML = profile.wealthPath;
+    document.getElementById('res-love-style').innerHTML = profile.loveStyle;
+    document.getElementById('res-stress-path').innerHTML = profile.stressPath;
+    document.getElementById('res-growth-path').innerHTML = profile.growthPath;
+    document.getElementById('res-charm-tips').innerHTML = profile.charmTips;
+
+    // Render Bar Chart (1~9)
+    const barContainer = document.getElementById('bar-chart-container');
+    barContainer.innerHTML = '';
+    for (let t = 1; t <= 9; t++) {
+        const score = typeTotals[t];
+        const pct = Math.round((score / 20) * 100);
+        const isHighlight = t === typeNum;
+
+        const row = document.createElement('div');
+        row.className = `bar-item ${isHighlight ? 'highlight' : ''}`;
+        row.innerHTML = `
+            <div class="bar-label">${t}型 ${TYPE_PROFILES[t].name}</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width: ${pct}%;"></div>
+            </div>
+            <div class="bar-score">${score}分</div>
+        `;
+        barContainer.appendChild(row);
+    }
+
+    // Render Triad breakdown
+    const triadBox = document.getElementById('triad-breakdown-box');
+    const totalCenterScore = gut + heart + head;
+    const gutPct = Math.round((gut / totalCenterScore) * 100);
+    const heartPct = Math.round((heart / totalCenterScore) * 100);
+    const headPct = Math.round((head / totalCenterScore) * 100);
+
+    triadBox.innerHTML = `
+        <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; margin-bottom:0.25rem;">
+                <span style="color:var(--accent-amber)">⚡ 腹中心 / 本能組 (8, 9, 1 型)</span>
+                <span>${gut}分 (${gutPct}%)</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${gutPct}%; background:linear-gradient(90deg, #fbbf24, #f59e0b);"></div></div>
+        </div>
+
+        <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; margin-bottom:0.25rem;">
+                <span style="color:var(--accent-purple)">❤️ 情感中心 / 心中心 (2, 3, 4 型)</span>
+                <span>${heart}分 (${heartPct}%)</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${heartPct}%; background:linear-gradient(90deg, #c084fc, #a855f7);"></div></div>
+        </div>
+
+        <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:600; margin-bottom:0.25rem;">
+                <span style="color:var(--accent-blue)">🧠 思考中心 / 腦中心 (5, 6, 7 型)</span>
+                <span>${head}分 (${headPct}%)</span>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${headPct}%; background:linear-gradient(90deg, #60a5fa, #38bdf8);"></div></div>
+        </div>
+    `;
+}
+
+// Encyclopedia
+function renderEncyclopediaTabs() {
+    const tabs = document.getElementById('encyclopedia-tabs');
+    tabs.innerHTML = '';
+    for (let t = 1; t <= 9; t++) {
+        const btn = document.createElement('button');
+        btn.className = `tab-btn ${t === 1 ? 'active' : ''}`;
+        btn.id = `enc-tab-${t}`;
+        btn.textContent = `${t}型 ${TYPE_PROFILES[t].name}`;
+        btn.onclick = () => showEncyclopediaType(t);
+        tabs.appendChild(btn);
+    }
+}
+
+function showEncyclopediaType(typeNum) {
+    for (let t = 1; t <= 9; t++) {
+        const tab = document.getElementById(`enc-tab-${t}`);
+        if (tab) tab.classList.toggle('active', t === typeNum);
+    }
+
+    const p = TYPE_PROFILES[typeNum];
+    const container = document.getElementById('encyclopedia-content');
+
+    container.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.8rem;">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #a855f7, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: white;">${p.number}</div>
+                <div>
+                    <h3 style="font-size: 1.35rem; color: white;">第 ${p.number} 型 ${p.name} <span style="font-size: 0.95rem; color: var(--accent-amber);">「${p.archetype}」</span></h3>
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">${p.oneLiner}</div>
+                </div>
+            </div>
+            <div style="font-size: 0.82rem; padding: 0.35rem 0.8rem; border-radius: 999px; background: rgba(99,102,241,0.15); color: var(--accent-blue); border: 1px solid rgba(99,102,241,0.3);">
+                ${p.centerIcon}
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.4rem;">
+            <div style="background: rgba(15,23,42,0.4); padding: 0.9rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <div style="font-size: 0.88rem; font-weight: 700; color: var(--accent-amber); margin-bottom: 0.3rem;">🎯 核心動機與恐懼</div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                    <strong>渴望：</strong>${p.coreDesire}<br>
+                    <strong>恐懼：</strong>${p.coreFear}<br>
+                    <strong>防禦：</strong>${p.defense}
+                </div>
+            </div>
+
+            <div style="background: rgba(15,23,42,0.4); padding: 0.9rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <div style="font-size: 0.88rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.3rem;">🌱 兩側側翼特質 (Wings)</div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                    <strong>${p.wings.left.name}：</strong>${p.wings.left.desc}<br>
+                    <strong>${p.wings.right.name}：</strong>${p.wings.right.desc}
+                </div>
+            </div>
+        </div>
+
+        <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.65; margin-top: 0.3rem;">
+            ${p.wealthPath}
+        </div>
+
+        <div style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.65;">
+            ${p.loveStyle}
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.2rem;">
+            <div style="background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.25); padding: 0.8rem; border-radius: 12px; font-size: 0.85rem; color: #e2e8f0; line-height: 1.5;">
+                <span style="color: var(--accent-amber); font-weight: 700;">⚠️ 壓力退化路徑：</span><br>${p.stressPath}
+            </div>
+            <div style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); padding: 0.8rem; border-radius: 12px; font-size: 0.85rem; color: #e2e8f0; line-height: 1.5;">
+                <span style="color: var(--accent-green); font-weight: 700;">🚀 健康整合升華：</span><br>${p.growthPath}
+            </div>
+        </div>
+
+        <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.25); padding: 0.85rem; border-radius: 12px; font-size: 0.88rem; color: #e2e8f0; line-height: 1.6;">
+            ${p.charmTips}
+        </div>
+    `;
+}
+
+function scrollToEncyclopedia() {
+    document.getElementById('encyclopedia-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+function retakeTest() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function copyDiagnosticReport() {
+    const typeName = document.getElementById('res-type-name').textContent;
+    const wingTag = document.getElementById('res-wing-tag').textContent;
+    const center = document.getElementById('res-triad-center').textContent;
+    const desire = document.getElementById('res-core-desire').textContent;
+    const fear = document.getElementById('res-core-fear').textContent;
+
+    const reportText = `【九型人格 (Enneagram) 深度心智診斷報告】\n` +
+        `主導型態：${typeName} (${wingTag})\n` +
+        `能量中心：${center}\n` +
+        `核心渴望：${desire}\n` +
+        `核心恐懼：${fear}\n` +
+        `系統出處：Annie Team 身心靈 ✕ 塔羅 ✕ 企業治理大腦\n` +
+        `理論依據：心理諮商導師專欄與《致富的力量》九型人格系列\n` +
+        `測試時間：${new Date().toLocaleString('zh-TW')}`;
+
+    navigator.clipboard.writeText(reportText).then(() => {
+        showToast("✓ 診斷報告文字已成功複製！");
+    }).catch(() => {
+        showToast("✓ 已嘗試複製診斷報告");
+    });
+}
+
+function showToast(msg) {
+    const toast = document.getElementById('toast-box');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2600);
+}
+
+// Run on mount
+window.onload = initApp;
+</script>
+
+</body>
+</html>

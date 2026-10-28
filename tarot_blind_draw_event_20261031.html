@@ -1,0 +1,3110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🌟 10/31 塔羅心靈絮語 · 四層自然語言心靈解碼 · 愜意的 Annie 生活</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070913;
+      --bg-card: rgba(18, 22, 40, 0.92);
+      --gold-primary: #fbbf24;
+      --gold-light: #fef08a;
+      --gold-deep: #d97706;
+      --purple-accent: #c084fc;
+      --purple-deep: #581c87;
+      --emerald-glow: #34d399;
+      --rose-accent: #fb7185;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-glow: rgba(251, 191, 36, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(88, 28, 135, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(217, 119, 6, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, #070913 0%, #0d1124 50%, #060814 100%);
+      color: var(--text-main);
+      font-family: 'Noto Serif TC', serif, system-ui, -apple-system;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Star Canvas */
+    #starCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top Navigation Bar */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-primary), var(--purple-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 18px rgba(251, 191, 36, 0.45);
+    }
+
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(88, 28, 135, 0.45);
+      border: 1px solid var(--purple-accent);
+      color: var(--gold-light);
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-ctrl:hover {
+      background: rgba(192, 132, 252, 0.3);
+      box-shadow: 0 0 14px rgba(192, 132, 252, 0.45);
+    }
+
+    .btn-ctrl.active {
+      border-color: var(--emerald-glow);
+      color: var(--emerald-glow);
+      background: rgba(52, 211, 153, 0.18);
+    }
+
+    /* Main Container */
+    main {
+      width: 100%;
+      max-width: 1200px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Stage Header */
+    .stage-prompt {
+      text-align: center;
+      margin-bottom: 24px;
+      max-width: 740px;
+    }
+
+    .stage-prompt h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.15rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 22px rgba(251, 191, 36, 0.5);
+    }
+
+    .stage-prompt p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .magic-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px dashed rgba(251, 191, 36, 0.35);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.88rem;
+      color: var(--gold-primary);
+      margin-top: 12px;
+    }
+
+    /* Annie First-Page Voice Anchor */
+    .annie-intro-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(88, 28, 135, 0.3);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      padding: 8px 18px;
+      border-radius: 24px;
+      margin-top: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(88, 28, 135, 0.3);
+    }
+
+    .annie-intro-banner:hover {
+      background: rgba(88, 28, 135, 0.5);
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    }
+
+    .annie-intro-wave {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 16px;
+    }
+
+    .wave-bar {
+      width: 3px;
+      height: 100%;
+      background: var(--purple-accent);
+      border-radius: 2px;
+      animation: waveMove 1.2s infinite ease-in-out;
+    }
+
+    .wave-bar:nth-child(2) { animation-delay: 0.2s; height: 70%; }
+    .wave-bar:nth-child(3) { animation-delay: 0.4s; height: 100%; }
+    .wave-bar:nth-child(4) { animation-delay: 0.1s; height: 60%; }
+
+    @keyframes waveMove {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); background: var(--gold-light); }
+    }
+
+    /* 3D Scene Viewport */
+    .scene-3d {
+      width: 100%;
+      height: 480px;
+      perspective: 1100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    /* 3D Carousel Cylinder */
+    .carousel-3d {
+      width: 115px;
+      height: 198px;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .carousel-3d.spinning {
+      animation: spinCarousel 36s linear infinite;
+    }
+
+    .carousel-3d.spinning:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes spinCarousel {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* Individual Card in Cylinder */
+    .cylinder-card {
+      position: absolute;
+      width: 110px;
+      height: 192px;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), 0 0 12px rgba(251, 191, 36, 0.2);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      background: #0f172a;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .cylinder-card:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.8);
+      transform-origin: center center;
+    }
+
+    /* Card Back Sacred Pattern (Procedural SVG) */
+    .card-back-pattern {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #311042 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 8px;
+    }
+
+    .card-back-border {
+      width: 92%;
+      height: 92%;
+      border: 1px solid rgba(251, 191, 36, 0.5);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.15) 0%, transparent 70%);
+    }
+
+    .card-back-border::before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      border: 1px dashed rgba(251, 191, 36, 0.25);
+      border-radius: 4px;
+    }
+
+    .star-emblem {
+      font-size: 26px;
+      color: var(--gold-primary);
+      text-shadow: 0 0 10px var(--gold-primary);
+      animation: pulseStar 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseStar {
+      from { transform: scale(0.9); opacity: 0.7; }
+      to { transform: scale(1.1); opacity: 1; text-shadow: 0 0 16px var(--gold-light); }
+    }
+
+    /* Pedestal Base */
+    .magic-pedestal {
+      position: absolute;
+      bottom: 10px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.18) 0%, rgba(88, 28, 135, 0.12) 45%, transparent 70%);
+      transform: rotateX(80deg) translateZ(-80px);
+      pointer-events: none;
+      border: 1px dashed rgba(251, 191, 36, 0.28);
+      box-shadow: 0 0 45px rgba(251, 191, 36, 0.22);
+    }
+
+    /* Big Reveal Card Area */
+    .reveal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 7, 16, 0.90);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .reveal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .reveal-modal {
+      width: 100%;
+      max-width: 1100px;
+      max-height: 92vh;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 24px;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.85), 0 0 32px rgba(251, 191, 36, 0.28);
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      position: relative;
+      animation: modalSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from {
+        transform: translateY(40px) scale(0.95);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      transition: all 0.2s ease;
+    }
+
+    .btn-close-modal:hover {
+      background: rgba(251, 191, 36, 0.25);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    /* Left Column: Annie Avatar & Tarot Card Display */
+    .reveal-left-col {
+      flex: 0 0 390px;
+      background: linear-gradient(180deg, rgba(20, 24, 48, 0.95) 0%, rgba(10, 12, 24, 0.98) 100%);
+      border-right: 1px solid rgba(251, 191, 36, 0.15);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Annie Avatar Stage with Photorealistic Morphing Talking Engine */
+    .annie-avatar-stage {
+      position: relative;
+      width: 180px;
+      height: 236px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 0 24px rgba(251, 191, 36, 0.4);
+      background: #090c19;
+      margin-bottom: 16px;
+      transition: transform 0.4s ease;
+    }
+
+    /* Annie Natural Body & Face Motion */
+    .annie-avatar-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: opacity 0.08s ease, transform 0.25s ease;
+      filter: brightness(1.03) contrast(1.02);
+    }
+
+    /* Active Viseme Frame */
+    .annie-avatar-img.active-frame {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .annie-avatar-img.inactive-frame {
+      opacity: 0;
+      z-index: 1;
+    }
+
+    /* Subtle Head Nod & Posture Movement while speaking */
+    .annie-avatar-stage.speaking {
+      animation: annieSpeakingPosture 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes annieSpeakingPosture {
+      0% {
+        transform: scale(1.0) translateY(0) rotate(0deg);
+      }
+      30% {
+        transform: scale(1.012) translateY(-2px) rotate(0.4deg);
+      }
+      70% {
+        transform: scale(1.018) translateY(-1px) rotate(-0.3deg);
+      }
+      100% {
+        transform: scale(1.008) translateY(-3px) rotate(0.2deg);
+      }
+    }
+
+    .avatar-badge {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(7, 9, 19, 0.88);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .speaking-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+
+    .annie-avatar-stage.speaking .speaking-indicator {
+      background: var(--emerald-glow);
+      box-shadow: 0 0 8px var(--emerald-glow);
+      animation: pulseGreen 1s infinite alternate;
+    }
+
+    @keyframes pulseGreen {
+      from { transform: scale(0.8); }
+      to { transform: scale(1.3); }
+    }
+
+    /* Flip Card Container */
+    .flip-card-container {
+      width: 160px;
+      height: 275px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .flip-card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-inner.flipped.is-reversed {
+      transform: rotateY(180deg) rotateZ(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--gold-primary);
+    }
+
+    .flip-back {
+      background: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flip-front {
+      transform: rotateY(180deg);
+      background: #000;
+    }
+
+    .flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Card Orientation Badge */
+    .card-pos-badge {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-pos-badge.upright {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid var(--emerald-glow);
+      color: var(--emerald-glow);
+    }
+
+    .card-pos-badge.reversed {
+      background: rgba(251, 113, 133, 0.15);
+      border: 1px solid var(--rose-accent);
+      color: var(--rose-accent);
+    }
+
+    /* Right Column: Detailed Card Text & 5-Angle Coaching */
+    .reveal-right-col {
+      flex: 1;
+      padding: 28px 32px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .card-header-meta {
+      border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+      padding-bottom: 12px;
+    }
+
+    .card-num-suit {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold-primary);
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+
+    .card-main-title {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-archetype {
+      font-size: 0.95rem;
+      color: var(--purple-accent);
+      font-weight: normal;
+      margin-top: 4px;
+    }
+
+    /* Annie Speech Bubble - Signature IP Persona Style */
+    .annie-speech-bubble {
+      background: rgba(88, 28, 135, 0.32);
+      border-left: 4px solid var(--purple-accent);
+      border-radius: 0 14px 14px 0;
+      padding: 16px 20px;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: #f1f5f9;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .annie-speech-bubble::before {
+      content: '☕【愜意的 Annie 特助・微醺私房話】';
+      display: block;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    /* 5 Angle Dimension Cards */
+    .dimensions-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dim-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dim-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .dim-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 15px;
+      transition: all 0.2s ease;
+    }
+
+    .dim-card:hover {
+      background: rgba(251, 191, 36, 0.06);
+      border-color: rgba(251, 191, 36, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .dim-card-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dim-card-body {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    /* Lifestyle Golden Punchline & Empathy */
+    .lifestyle-quote-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.12) 0%, rgba(88, 28, 135, 0.18) 100%);
+      border: 1px dashed rgba(251, 191, 36, 0.4);
+      border-radius: 12px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--gold-light);
+      line-height: 1.6;
+    }
+
+    .lifestyle-quote-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    /* Modal Action Controls */
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .btn-act {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-act-redraw {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-deep));
+      border: none;
+      color: #000;
+      box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4);
+    }
+
+    .btn-act-redraw:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    }
+
+    .btn-act-speak {
+      background: rgba(88, 28, 135, 0.5);
+      border: 1px solid var(--purple-accent);
+      color: var(--gold-light);
+    }
+
+    .btn-act-speak:hover {
+      background: rgba(192, 132, 252, 0.3);
+      border-color: var(--gold-light);
+    }
+
+    /* Bottom Status Bar */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ==========================================================
+       📱 Mobile & Tablet Responsive Architecture (Anti-Cramping)
+       ========================================================== */
+    @media (max-width: 860px) {
+      header {
+        padding: 12px 16px;
+      }
+      .brand-title {
+        font-size: 1.1rem;
+      }
+      .brand-sub {
+        font-size: 0.72rem;
+      }
+      .reveal-modal {
+        flex-direction: column;
+        max-height: 94vh;
+        overflow-y: auto;
+      }
+      .reveal-left-col {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+        padding: 14px 12px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .annie-avatar-stage {
+        width: 110px;
+        height: 145px;
+        margin-bottom: 0;
+      }
+      .flip-card-container {
+        width: 95px;
+        height: 162px;
+      }
+      .dim-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .reveal-right-col {
+        padding: 16px 14px;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* Header Compact & Breathing Room */
+      header {
+        padding: 10px 14px;
+        gap: 8px;
+      }
+      .brand {
+        gap: 8px;
+        min-width: 0;
+        flex: 1;
+      }
+      .brand-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .brand-title {
+        font-size: 0.98rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .brand-sub {
+        font-size: 0.65rem;
+        letter-spacing: 0px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 135px;
+      }
+      .header-controls {
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .btn-ctrl {
+        padding: 5px 9px;
+        font-size: 0.72rem;
+        border-radius: 14px;
+        gap: 4px;
+      }
+
+      /* Main & Stage Prompt */
+      main {
+        padding: 12px 10px;
+        width: 100%;
+      }
+      .stage-prompt {
+        margin-bottom: 10px;
+        padding: 0 6px;
+      }
+      .stage-prompt h1 {
+        font-size: 1.25rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+      }
+      .stage-prompt p {
+        font-size: 0.8rem;
+        line-height: 1.45;
+        color: #cbd5e1;
+      }
+      .magic-tip {
+        padding: 3px 10px;
+        font-size: 0.72rem;
+        margin-top: 6px;
+      }
+      .annie-intro-banner {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+        margin-top: 8px;
+        border-radius: 16px;
+        gap: 6px;
+      }
+
+      /* 3D Scene Viewport - Fitted to Phone Screen */
+      .scene-3d {
+        height: 290px;
+        perspective: 680px;
+        margin-bottom: 8px;
+      }
+      .carousel-3d {
+        width: 70px;
+        height: 122px;
+      }
+      .cylinder-card {
+        width: 68px;
+        height: 118px;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+      .card-back-border {
+        border-width: 0.8px;
+      }
+      .star-emblem {
+        font-size: 16px;
+      }
+      .magic-pedestal {
+        width: 270px;
+        height: 270px;
+        bottom: 0px;
+        transform: rotateX(80deg) translateZ(-40px);
+      }
+
+      /* Reveal Modal Overlay */
+      .reveal-overlay {
+        padding: 8px 6px;
+      }
+      .reveal-modal {
+        width: 100%;
+        max-height: 95vh;
+        border-radius: 16px;
+      }
+      .btn-close-modal {
+        top: 8px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+      .reveal-left-col {
+        padding: 12px 8px 8px 8px;
+        gap: 12px;
+      }
+      .annie-avatar-stage {
+        width: 90px;
+        height: 118px;
+        border-radius: 10px;
+      }
+      .avatar-badge {
+        bottom: 3px;
+        font-size: 0.65rem;
+        padding: 2px 6px;
+      }
+      .flip-card-container {
+        width: 82px;
+        height: 140px;
+      }
+      .card-pos-badge {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        margin-top: 2px;
+      }
+      .reveal-right-col {
+        padding: 12px 12px 16px 12px;
+        gap: 10px;
+      }
+      .card-num-suit {
+        font-size: 0.72rem;
+      }
+      .card-main-title {
+        font-size: 1.2rem;
+      }
+      .card-archetype {
+        font-size: 0.76rem;
+      }
+      .annie-speech-bubble {
+        font-size: 0.84rem;
+        line-height: 1.48;
+        padding: 10px 12px;
+        border-radius: 12px;
+      }
+      .dimensions-section .dim-title {
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+      }
+      .dim-card {
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+      .dim-card-label {
+        font-size: 0.76rem;
+        margin-bottom: 2px;
+      }
+      .dim-card-body {
+        font-size: 0.78rem;
+        line-height: 1.4;
+      }
+      .lifestyle-quote-box {
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        gap: 6px;
+      }
+      .modal-actions {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 2px;
+      }
+      .btn-act {
+        padding: 9px 12px;
+        font-size: 0.78rem;
+        border-radius: 18px;
+        flex: 1;
+        justify-content: center;
+      }
+      footer {
+        padding: 12px 8px;
+        font-size: 0.7rem;
+        line-height: 1.35;
+      }
+    }
+  
+    /* 10/31 Event 4-Layer Heart-Mind Reading Styles */
+    .mind-reading-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 10px 0 14px 0;
+    }
+
+    .reading-card {
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      line-height: 1.72;
+      font-size: 0.95rem;
+    }
+
+    .reading-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .reading-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .reading-badge-icon {
+      font-size: 1.15rem;
+    }
+
+    /* 1. 溫暖同理 */
+    .reading-warm {
+      background: linear-gradient(135deg, rgba(244, 114, 182, 0.12) 0%, rgba(35, 20, 45, 0.75) 100%);
+      border: 1px solid rgba(244, 114, 182, 0.4);
+      color: #fce7f3;
+    }
+    .reading-warm .reading-badge-title {
+      color: #f472b6;
+    }
+
+    /* 2. 深層心態解碼 (自然語言！不顯示女媧或人性弱點) */
+    .reading-mind {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(15, 28, 55, 0.75) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #e0f2fe;
+    }
+    .reading-mind .reading-badge-title {
+      color: #38bdf8;
+    }
+
+    /* 3. 幽默轉念解壓 */
+    .reading-humor {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(45, 32, 15, 0.75) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #fef3c7;
+    }
+    .reading-humor .reading-badge-title {
+      color: #f59e0b;
+    }
+
+    /* 4. 定心小處方 */
+    .reading-action {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(15, 45, 30, 0.75) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #d1fae5;
+    }
+    .reading-action .reading-badge-title {
+      color: #10b981;
+    }
+
+    .reading-card-body {
+      font-size: 0.94rem;
+      letter-spacing: 0.2px;
+      line-height: 1.75;
+    }
+
+    /* Quick Demo Bar for Ann in 10/31 Workshop */
+    .event-demo-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      border-radius: 40px;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), 0 0 16px rgba(251, 191, 36, 0.2);
+      backdrop-filter: blur(12px);
+      font-size: 0.88rem;
+    }
+
+    .event-demo-bar select {
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      color: #fef3c7;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .event-demo-bar button {
+      background: linear-gradient(135deg, var(--gold-primary), #f59e0b);
+      border: none;
+      color: #0b0f19;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .event-demo-bar button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: rgba(16, 185, 129, 0.95);
+      color: #ffffff;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-popup.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Starry Background Canvas -->
+  <canvas id="starCanvas"></canvas>
+
+  <!-- Audio Elements -->
+  
+  <!-- 2. Annie Guide Voice (First Page) -->
+  <audio id="introAudio" preload="auto">
+    <source src="annie_intro.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Top Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">🔮</div>
+      <div>
+        <div class="brand-title">TAROT MIND WHISPER</div>
+        <div class="brand-sub">10/31 塔羅心靈絮語 · 四層自然語言心靈解碼 · 愜意的 Annie 生活</div>
+      </div>
+    </div>
+    <div class="header-controls">
+      <!-- Voice Toggle Button -->
+      <button class="btn-ctrl active" id="toggleAudioBtn" onclick="toggleSpeechVoice()" title="切換特助語音">
+        <span id="voiceIcon">🎙️</span>
+        <span id="voiceLabel">語音：開</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Stage -->
+  <main>
+    <div class="stage-prompt">
+      <h1>心念合一 · 點擊命運之輪</h1>
+      <p>請先深呼吸三次，在心中默想你近期最掛念的一件事或一個目標。<br>當感覺準備好了，點擊緩緩旋轉中的塔羅牌盒，命運之牌即將翻轉浮現！</p>
+      
+      <!-- Interactive Voice Guide Trigger -->
+      <div class="annie-intro-banner" onclick="playAnnieIntroVoice()" title="點擊聆聽 Annie 特助的冥想引導語">
+        <div class="annie-intro-wave" id="introWave">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <span id="introBannerText">🎙️ 點擊聆聽 Annie 特助感性冥想引導語</span>
+      </div>
+
+      <div class="magic-tip">
+        <span>✨</span>
+        <span>大阿爾克那 22 張機率嚴格均等 (1/22) · 正逆位機率 50% / 50%</span>
+      </div>
+    </div>
+
+    <!-- 3D Carousel Viewport -->
+    <div class="scene-3d" id="sceneViewport">
+      <div class="magic-pedestal"></div>
+      <div class="carousel-3d spinning" id="carousel3D" onclick="handleDeckClick(event)">
+        <!-- 22 Cards inserted by JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Reveal Modal Overlay -->
+  <div class="reveal-overlay" id="revealOverlay">
+    <div class="reveal-modal">
+      <button class="btn-close-modal" onclick="closeReveal()" title="關閉">✕</button>
+
+      <!-- Left Column: Annie Avatar & Tarot Card Display -->
+      <div class="reveal-left-col">
+        <!-- Annie Avatar Stage with Photorealistic Morphing Engine -->
+        <div class="annie-avatar-stage" id="avatarStage">
+          <!-- 4 High-fidelity biological viseme frames -->
+          <img src="annie_viseme_0.jpg" alt="Annie 靜態優雅" class="annie-avatar-img active-frame" id="viseme0">
+          <img src="annie_viseme_1.jpg" alt="Annie 輕微吐字" class="annie-avatar-img inactive-frame" id="viseme1">
+          <img src="annie_viseme_2.jpg" alt="Annie 中度發音" class="annie-avatar-img inactive-frame" id="viseme2">
+          <img src="annie_viseme_3.jpg" alt="Annie 圓潤開合" class="annie-avatar-img inactive-frame" id="viseme3">
+
+          <div class="avatar-badge">
+            <span class="speaking-indicator" id="speakDot"></span>
+            <span id="avatarStatus">特助 Annie 微醺解牌</span>
+          </div>
+        </div>
+
+        <!-- Flipped Tarot Card -->
+        <div class="flip-card-container" onclick="toggleOrientationManual()" title="點擊可翻轉測試正/逆位">
+          <div class="flip-card-inner" id="flipCardInner">
+            <!-- Card Back -->
+            <div class="flip-face flip-back">
+              <div class="card-back-pattern">
+                <div class="card-back-border">
+                  <div class="star-emblem">✡</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card Front -->
+            <div class="flip-face flip-front">
+              <img id="cardFrontImg" src="" alt="牌面">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-pos-badge" id="posBadge">正位 UPRIGHT</div>
+      </div>
+
+      <!-- Right Column: Annie 4-Layer Heart-Mind Reading (10/31 塔羅活動專用旗艦版) -->
+      <div class="reveal-right-col">
+        <div class="card-header-meta">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <div class="card-num-suit" id="cardRomanId">MAJOR ARCANA 0</div>
+            <div class="event-tag" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: var(--gold-primary); font-size: 0.76rem; padding: 2px 10px; border-radius: 12px; font-weight: 600;">✨ 10/31 塔羅活動 · 靈性心智解碼</div>
+          </div>
+          <div class="card-main-title">
+            <span id="cardDisplayName">愚者 (The Fool)</span>
+            <span id="cardPureName" style="font-size: 1.1rem; color: var(--gold-primary);"></span>
+          </div>
+          <div class="card-archetype" id="cardSymTitle">懸崖邊的純真旅人 · 風元素</div>
+        </div>
+
+        <!-- 4-Layer Natural Language Heart-Mind Reading Container -->
+        <div class="mind-reading-container">
+          <!-- 1. 溫暖同理 -->
+          <div class="reading-card reading-warm">
+            <div class="reading-card-header">
+              <span class="reading-badge-icon">🌸</span>
+              <span class="reading-badge-title">【溫暖同理 · 走進你的當下】</span>
+            </div>
+            <div class="reading-card-body" id="textWarmEmpathy">正在感應心靈能量...</div>
+          </div>
+
+          <!-- 2. 深層心態解碼 (自然語言！不顯示女媧或人性弱點) -->
+          <div class="reading-card reading-mind">
+            <div class="reading-card-header">
+              <span class="reading-badge-icon">🧠</span>
+              <span class="reading-badge-title">【心靈透視 · 照見真實心事】</span>
+            </div>
+            <div class="reading-card-body" id="textMindDecryption">正在照見深層盲區...</div>
+          </div>
+
+          <!-- 3. 幽默轉念解壓 -->
+          <div class="reading-card reading-humor">
+            <div class="reading-card-header">
+              <span class="reading-badge-icon">😂</span>
+              <span class="reading-badge-title">【幽默轉念 · Annie 輕鬆解壓】</span>
+            </div>
+            <div class="reading-card-body" id="textHumorReframe">正在轉動放鬆視角...</div>
+          </div>
+
+          <!-- 4. 定心小處方 -->
+          <div class="reading-card reading-action">
+            <div class="reading-card-header">
+              <span class="reading-badge-icon">🌱</span>
+              <span class="reading-badge-title">【定心小處方 · 今日微行動】</span>
+            </div>
+            <div class="reading-card-body" id="textMicroAction">正在生成行動處方...</div>
+          </div>
+        </div>
+
+        <!-- Hidden compat bubble for voice -->
+        <div id="speechBubble" style="display: none;"></div>
+
+        <!-- Optional Collapsible 4 Dimensions (職場/情感/財富/人際) -->
+        <details class="dimensions-collapsible" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 10px 14px; margin-bottom: 10px;">
+          <summary style="cursor: pointer; color: var(--gold-light); font-size: 0.88rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; user-select: none;">
+            <span>🌿 展開 5 大生活領域指引（職場 · 情感 · 財富 · 人際 · 心理與健康）</span>
+            <span style="font-size: 0.75rem; color: var(--purple-accent);">▼ 點擊展開</span>
+          </summary>
+          <div class="dim-grid" style="margin-top: 12px;">
+            <div class="dim-card">
+              <div class="dim-card-label"><span>💼</span> 職場與專案</div>
+              <div class="dim-card-body" id="dimCareer">--</div>
+            </div>
+            <div class="dim-card">
+              <div class="dim-card-label"><span>🍷</span> 情感與知己</div>
+              <div class="dim-card-body" id="dimLove">--</div>
+            </div>
+            <div class="dim-card">
+              <div class="dim-card-label"><span>💰</span> 財富與身家</div>
+              <div class="dim-card-body" id="dimWealth">--</div>
+            </div>
+            <div class="dim-card">
+              <div class="dim-card-label"><span>🤝</span> 人際與局氣</div>
+              <div class="dim-card-body" id="dimInter">--</div>
+            </div>
+            <div class="dim-card dim-card-health" style="grid-column: span 2; background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(20, 35, 45, 0.6) 100%); border-color: rgba(16, 185, 129, 0.35);">
+              <div class="dim-card-label" style="color: #34d399;"><span>🌿</span> 心理與健康</div>
+              <div class="dim-card-body" id="dimHealth" style="color: #d1fae5;">--</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Lifestyle Quote Box -->
+        <div class="lifestyle-quote-box">
+          <div class="lifestyle-quote-icon">🌸</div>
+          <div>
+            <strong>Annie 的鬆弛感金句：</strong>
+            <span id="lifestyleQuoteText">把複雜留給特助，你只要負責享受生活。走得從容一點，生活自然會有它的節奏。</span>
+          </div>
+        </div>
+
+        <!-- Modal Actions (Enhanced for 10/31 workshop!) -->
+        <div class="modal-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button class="btn-act btn-act-speak" onclick="replayVoice()" style="flex: 1; min-width: 140px;">
+            <span>🔊</span>
+            <span>聆聽 Annie 私房語</span>
+          </button>
+          <button class="btn-act btn-act-copy" onclick="copyFullReadingReport()" style="flex: 1.2; min-width: 170px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(129, 140, 248, 0.35) 100%); border: 1px solid rgba(56, 189, 248, 0.6); color: #e0f2fe; padding: 10px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <span>📋</span>
+            <span id="copyBtnText">一鍵複製完整解讀報告</span>
+          </button>
+          <button class="btn-act btn-act-redraw" onclick="redrawNewCard()" style="flex: 1; min-width: 140px;">
+            <span>🔄</span>
+            <span>收牌重洗 · 再抽一張</span>
+          </button>
+        </div>
+      </div>
+</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Annie Team 智慧塔羅魔法室 · 獨立盲抽體驗系統 (Zero-Regression Standalone Module) · 支援 S6 平板觸控與神經對嘴
+  </footer>
+
+  <script>
+    // 22 Major Arcana Database with Witty Annie IP Persona Scripts
+    const MAJOR_ARCANA = [
+  {
+    "id": 1,
+    "name": "愚者 (The Fool)",
+    "pure_name": "愚者",
+    "suit": "大阿爾克那",
+    "elem": "風",
+    "astro": "天王星 ♅",
+    "img": "120px-RWS_Tarot_00_Fool.jpg",
+    "sym_title": "懸崖邊的純真旅人",
+    "visual_clue": "站在懸崖邊緣的少年象徵勇敢邁向未知；小白狗象徵本能的警示與忠誠夥伴；手中的白玫瑰象徵純潔的心靈；小包裹象徵帶著精簡經驗開啟旅程。",
+    "vibe": "全新的開始、勇於跨出第一步、保持開放冒險心態",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "別被過去的SOP框死！新專案像拆驚喜包，勇敢踩油門，複雜的報表留給特助，你負責大膽開拓就好。",
+      "love": "拋開算盤談戀愛吧！別在第一天就逼對方簽五十年合約，輕鬆喝杯微醺特調，享受心動當下。",
+      "wealth": "衝動是魔鬼，但為真正熱愛的事物買單是投資！別把錢砸在莫名其妙的跟風投機上就好。",
+      "interpersonal": "做最真實的自己！合得來就一起去冒險，頻率不對的慢走不送，不用討好全世界。",
+      "health": "保持初生牛犢的鬆弛心態，別讓緊繃的心弦勒死活力。注意小腿與腳踝關節保護，多去戶外草地赤足行走或散步，深呼吸重啟自律神經副交感能量。"
+    },
+    "empathy": "請看見內在對未知既期待又害怕受傷的恐懼。允許自己保持童心與彈性，不必急於在第一天就看清所有的答案。",
+    "action": "勇敢跨出第一步！停止過度的焦慮與自我限制，將焦點放在當下的行動與嘗試。",
+    "reversed_guide": "逆位提醒：全新的開始、勇於跨出第一步、保持開放冒險心態 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "哎呀，抽到愚者牌！這不就是標準的『帶著全部家當去流浪，連懸崖都當伸展台走』嗎？特助給你的建議很簡單：別想太多，人生最昂貴的成本不是試錯，而是在原地反覆焦慮！今天先把腦袋清空，像個孩子一樣大膽跨出那一步，複雜的事交給我，你只要負責出發就好。",
+    "annie_witty_reversed": "抽到逆位愚者囉！這是在溫馨提醒：自由很美，但裸奔是會感冒的！你現在是不是有點想逃避現實、或者衝動得想把老闆或專案直接放生？深呼吸，給自己泡杯咖啡冷靜十分鐘，我們踩穩剎車再出發，別把任性當勇敢喔。",
+    "mind_reading_upright": {
+      "warm": "看著牌面上站在懸崖邊抬頭仰望天空的少年，手握白玫瑰、小白狗在腳邊跳躍。你現在心裡是不是正盤算著一個全新的計畫，既興奮又有點忐忑？",
+      "mind": "你其實早就厭倦了現在的生活節奏，但你一直卡在「害怕別人笑我不切實際、害怕選錯了會顯得自己很笨」。你用「我還沒想清楚」當拖延的擋箭牌，真相是你早就準備好了，你只是在害怕踏出舒適圈後的不確定性。",
+      "humor": "你看他腳底下都快踩空了，小狗叫得喉嚨都快啞了，他還在笑看藍天！生活哪有那麼多標準答案，先踩油門出發再說，大不了半路迷路還能多看一片風景嘛！",
+      "action": "今天先把密密麻麻的計劃書關掉。去做一件你平常不敢做的小冒險——點一杯沒喝過的特調，或者大方告訴朋友你的新點子！"
+    },
+    "mind_reading_reversed": {
+      "warm": "少年在懸崖邊倒過來了，包裹差點滾落山谷。你最近是不是有一種「好想把手機關機、把爛攤子甩給全世界不管」的窒息感？",
+      "mind": "這張牌悄悄看穿了你：你現在不是真的想追逐夢想，你只是在「用任性和衝動來逃避眼前的溝通與責任」。當現實壓力太大時，你本能想直接掀桌子，因為這樣就不用面對繁瑣的收尾工作。",
+      "humor": "追求自由很浪漫，但在懸崖邊倒立是會腦充血的！小狗在旁邊都看傻了，想說主人你這特技是不是玩得有點大？",
+      "action": "給自己 15 分鐘冷靜期。先喝大半杯溫水，把剛才衝動寫好的訊息先存成草稿，明早睡醒再決定要不要寄出。"
+    },
+    "dimensions_up": {
+      "career": "別被過去的SOP框死！新專案像拆驚喜包，勇敢踩油門，複雜的報表留給特助，你負責大膽開拓就好。",
+      "love": "拋開算盤談戀愛吧！別在第一天就逼對方簽五十年合約，輕鬆喝杯微醺特調，享受心動當下。",
+      "wealth": "衝動是魔鬼，但為真正熱愛的事物買單是投資！別把錢砸在莫名其妙的跟風投機上就好。",
+      "interpersonal": "做最真實的自己！合得來就一起去冒險，頻率不對的慢走不送，不用討好全世界。",
+      "health": "保持初生牛犢的鬆弛心態，別讓緊繃的心弦勒死活力。注意小腿與腳踝關節保護，多去戶外草地赤足行走或散步，深呼吸重啟自律神經副交感能量。"
+    },
+    "dimensions_down": {
+      "career": "衝得太快容易踩空懸崖！別把盲目當勇氣，把企劃細節看清楚、煞車踩穩再踩油門。",
+      "love": "忽冷忽熱的三分鐘熱度讓人很沒安全感。別藉口追求自由而逃避承諾，給彼此一點踏實感。",
+      "wealth": "衝動是荷包最大的殺手！捂緊錢包拒絕莫名跟風投資，這陣子先以守成儲蓄為上。",
+      "interpersonal": "說話太直容易傷人而不自知。管住嘴、多聽少說，遠離愛拱你冒險的酒肉損友。",
+      "health": "步伐浮躁易扭傷拉傷，作息顛倒致神經衰弱。慢下腳步踩踩實地，多喝溫水安定浮躁心神。"
+    }
+  },
+  {
+    "id": 2,
+    "name": "魔術師 (The Magician)",
+    "pure_name": "魔術師",
+    "suit": "大阿爾克那",
+    "elem": "風",
+    "astro": "水星 ☿",
+    "img": "120px-RWS_Tarot_01_Magician.jpg",
+    "sym_title": "掌握四元素的神聖顯化者",
+    "visual_clue": "右手指向天、左手指在地，象徵『如其在上，如其在下』的顯化定律；桌上四元素工具代表掌握資源；頭頂無限大符號象徵無窮潛力。",
+    "vibe": "資源齊備、點石成金、展現溝通與專業執行力",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "你手上牌面超齊全！簡報端出來直接控場，把抽象想法變現，降維打擊那些只會打嘴砲的人。",
+      "love": "你的魅力正在爆棚！主動發條有梗的幽默訊息，幽默是最高級的性感，話題節奏全由你主導。",
+      "wealth": "靈感就是真金白銀！把你的專業打包成高價值方案，點石成金的機會就在眼前。",
+      "interpersonal": "社交場上的魔術師！開啟你的天線，跟同頻的頂尖高手聯手，創造共贏局面。",
+      "health": "大腦思緒高速運轉時，最容易神經衰弱與頭部緊繃。多補充深層睡眠與水分，注意肩頸與上肢經絡放鬆，避免過量咖啡因造成交感神經亢奮。"
+    },
+    "empathy": "相信自己手頭上已經具備足夠的工具與能力，無須向外求索，顯化的關鍵在於你是否敢於開啟溝通。",
+    "action": "主動發起對話與計畫！運用你的智慧與說服力，將想法落實為具體的行動方案。",
+    "reversed_guide": "逆位提醒：資源齊備、點石成金、展現溝通與專業執行力 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "瞧瞧！魔術師來了！桌上水火風土全備齊，右手通天左手通地，連特助都得敬你三分。這代表你手上的籌碼早就夠用了，少在那邊懷疑人生！現在正是你展現降維打擊的大好時機，把你的點子直接端出來，讓旁邊的人看傻眼吧。",
+    "annie_witty_reversed": "逆位魔術師！小心喔，現在手上的戲法有點露餡了，或者有人正在對你畫大餅說鬼話！也可能是你想太多套路反而卡住。特助提醒你：少一點套路，多一點真誠，把底牌收好，別讓別人的三寸不爛之舌把你繞進去了。",
+    "mind_reading_upright": {
+      "warm": "魔術師桌上擺齊了權杖、聖杯、寶劍與錢幣，右手通天左手通地。牌面在溫柔提醒你：你現在站在一個極具主導力的起跑點上。",
+      "mind": "你手上的牌明明已經夠好了，但你內心深處卻藏著「冒名頂替」的惶恐，總擔心「萬一被別人發現我其實沒那麼厲害怎麼辦？」。你習慣把實力藏起來，深層原因是害怕站到聚光燈下會被大家放大檢視。",
+      "humor": "道具全都擺滿桌了，觀眾席的票都賣完了，你總不能一直躲在後台切水果招待工作人員吧！該你上台揮魔杖啦！",
+      "action": "挑出你手邊最拿手的一項長處，今天就在群組或會議中主動給出你的觀點，不追求滿分，只追求登場！"
+    },
+    "mind_reading_reversed": {
+      "warm": "桌面上的工具散落一地。你最近是不是覺得自己的精力被多個專案扯爛了，每天都在滅火，越忙越覺得空虛？",
+      "mind": "你正在陷入「靠表面聰明或過度承諾來撐場面」的惡性循環。因為你太害怕讓別人失望，所以不敢說出「我需要時間」或「這個我做不到」，結果把自己逼進死胡同。",
+      "humor": "魔術帽子裡的鴿子都飛跑了，就別再硬從裡面掏抹布裝神秘啦！真誠坦白，大家反而覺得你可愛又親切。",
+      "action": "誠實檢視你的待辦清單，直接劃掉兩件「只是為了面子才答應」的雜事，把精力留給核心成果。"
+    },
+    "dimensions_up": {
+      "career": "你手上牌面超齊全！簡報端出來直接控場，把抽象想法變現，降維打擊那些只會打嘴砲的人。",
+      "love": "你的魅力正在爆棚！主動發條有梗的幽默訊息，幽默是最高級的性感，話題節奏全由你主導。",
+      "wealth": "靈感就是真金白銀！把你的專業打包成高價值方案，點石成金的機會就在眼前。",
+      "interpersonal": "社交場上的魔術師！開啟你的天線，跟同頻的頂尖高手聯手，創造共贏局面。",
+      "health": "大腦思緒高速運轉時，最容易神經衰弱與頭部緊繃。多補充深層睡眠與水分，注意肩頸與上肢經絡放鬆，避免過量咖啡因造成交感神經亢奮。"
+    },
+    "dimensions_down": {
+      "career": "餅畫太大容易圓不回來！收起浮誇花招，落實具體數據與執行表，腳踏實地才是真本事。",
+      "love": "甜言蜜語多了像套路，真誠才是必殺技。卸下心防好好說句真心話，別玩欲擒故縱的心理戰。",
+      "wealth": "警惕「低風險高報酬」的花俏投資陷阱！把錢留在看得懂的項目上，別因貪心被割韭菜。",
+      "interpersonal": "社交圈看似熱鬧卻全是利益算計。及時篩選人脈，遠離滿嘴跑火車與愛畫大餅的人。",
+      "health": "思慮過度頭皮發緊、偏頭痛或手腕滑鼠手。少盯螢幕、放下手機，閉目做10次深長吐氣。"
+    }
+  },
+  {
+    "id": 3,
+    "name": "女祭司 (The High Priestess)",
+    "pure_name": "女祭司",
+    "suit": "大阿爾克那",
+    "elem": "水",
+    "astro": "月亮 ☽",
+    "img": "120px-RWS_Tarot_02_High_Priestess.jpg",
+    "sym_title": "守護潛意識與智慧聖殿的女神",
+    "visual_clue": "背後的石榴與棕櫚葉面紗象徵潛意識；兩側黑白B/J柱象徵陰陽平衡；腳下新月象徵強烈直覺；胸前等臂十字架象徵和諧秩序。",
+    "vibe": "直覺敏銳、靜心觀察、等待最佳時機再行動",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "少開無效會議，多花時間深度思考。你的直覺往往比三十頁的PPT更能一眼看破漏洞。",
+      "love": "保持三分神祕感，越從容越迷人。不必天天黏在一起，心照不宣的靈魂默契最珍貴。",
+      "wealth": "冷靜按兵不動！市場嘈雜的時候更要握緊荷包，多讀書充實腦袋就是最好的資產配置。",
+      "interpersonal": "寧缺毋濫的社交極簡主義。跟能讓你平靜的人喝茶，把能量留給值得的知己。",
+      "health": "情緒容易內收隱忍，注意荷爾蒙平衡、婦科自律神經與腸胃代謝。透過睡前腹式呼吸（336諧振呼吸）與足浴釋放內在未宣洩的壓抑情緒。"
+    },
+    "empathy": "請接納並相信你的第一直覺。當外界紛擾喧囂時，靜下心來聽聽內在的聲音，答案早已在你心中。",
+    "action": "保持沉靜與觀察！暫時不要過早表態或強行推動，給予事件自然發酵的時間與空間。",
+    "reversed_guide": "逆位提醒：直覺敏銳、靜心觀察、等待最佳時機再行動 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "嘖嘖，高冷的女祭司！連背景的黑白柱子都散發著『請勿打擾』的貴族氣場。這張牌告訴你：現在少說話、多觀察，你的第六感比那些長篇大論的報表準多了！今天適合點個香氛、翻兩頁書，靜靜看他們在台上演戲，真相自然會浮現。",
+    "annie_witty_reversed": "哎呀，女祭司翻車倒過來了！你是不是最近表面冷靜得像座冰山，內在卻焦慮得像熱水壺快燒開了？別把所有秘密跟委屈都往肚子裡吞，找個懂你的閨蜜喝杯熱茶，或者去戶外吹吹風，心胸打開，世界才進得來嘛。",
+    "mind_reading_upright": {
+      "warm": "坐在黑白雙柱之間的女祭司，長袍如水波流動，手握智慧卷軸。你此刻的心情，就像這座莊嚴的神殿，表面平靜如鏡，內在卻有著極其細膩的感知。",
+      "mind": "你其實早就直覺知道事情的真相或人際關係的答案了，但你卻不斷向外求證、瘋狂搜尋別人的意見。你不敢相信自己，是因為你害怕「如果我自己做了決定，要是結果不好就不能怪別人了」。",
+      "humor": "外面那些人吵吵鬧鬧在台上演戲，女祭司連爆米花都懶得拿！何必急著跟著起鬨，優雅坐著看戲不是更高級嗎？",
+      "action": "今晚睡前給自己 15 分鐘無手機時間，閉上眼睛深呼吸，聽聽你心裡浮現的第一個直覺感受。"
+    },
+    "mind_reading_reversed": {
+      "warm": "女祭司手裡的卷軸掉落在地，神殿帷幕被風吹得獵獵作響。你最近是不是心裡憋了太多沒有說出口的批判與委屈，整個人又冷淡又內耗？",
+      "mind": "你正在用「冷漠、被動沈默或高冷」來當作你的情緒盔甲。你覺得世界上沒有人真正懂你，但真相是你根本不願意拆開心防給別人靠近的機會，你在用孤傲來掩蓋內心害怕受傷的脆弱。",
+      "humor": "神明高冷是因為不用交房租水電，我們凡人一直端著架子，下巴和脖子真的很酸對不對！",
+      "action": "找一個你信任的朋友，主動跟他說一句真實心聲：「我今天有點累，借我吐苦水五分鐘就好」，允許自己柔軟一次。"
+    },
+    "dimensions_up": {
+      "career": "少開無效會議，多花時間深度思考。你的直覺往往比三十頁的PPT更能一眼看破漏洞。",
+      "love": "保持三分神祕感，越從容越迷人。不必天天黏在一起，心照不宣的靈魂默契最珍貴。",
+      "wealth": "冷靜按兵不動！市場嘈雜的時候更要握緊荷包，多讀書充實腦袋就是最好的資產配置。",
+      "interpersonal": "寧缺毋濫的社交極簡主義。跟能讓你平靜的人喝茶，把能量留給值得的知己。",
+      "health": "情緒容易內收隱忍，注意荷爾蒙平衡、婦科自律神經與腸胃代謝。透過睡前腹式呼吸（336諧振呼吸）與足浴釋放內在未宣洩的壓抑情緒。"
+    },
+    "dimensions_down": {
+      "career": "閉門造車容易誤判情勢！走出象牙塔接地氣，主動向團隊溝通，別把沉默當作保護色。",
+      "love": "高冷演變成冷暴力只會推開對的人。放下防備與猜忌，坦率表達真實感受，溫暖才能破冰。",
+      "wealth": "過度迷信神秘直覺或內部消息容易被套牢。多看財務報表與真實數據，該止損時別猶豫。",
+      "interpersonal": "疑神疑鬼容易陷入孤芳自賞的內耗。放下戒心坦蕩待人，真誠能自動過濾小人。",
+      "health": "荷爾蒙易波動、經期不順或情緒壓抑引發胃痛。睡前熱敷小腹，做腹式呼吸釋放深層鬱結。"
+    }
+  },
+  {
+    "id": 4,
+    "name": "女皇 (The Empress)",
+    "pure_name": "女皇",
+    "suit": "大阿爾克那",
+    "elem": "土",
+    "astro": "金星 ♀",
+    "img": "120px-RWS_Tarot_03_Empress.jpg",
+    "sym_title": "豐饒母性與大地繁衍的化身",
+    "visual_clue": "身著石榴圖案長袍象徵豐饒產出；十二星冠象徵宇宙循環；腳下麥田象徵豐收成果；金星符號之盾象徵愛與美感。",
+    "vibe": "當前求問者正面臨內在能量的轉換期，表面看似尋求外部答案，實質正在尋找自我認同與行動底氣。",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "大女主氣場全開！創造一個讓大家都舒服的環境，用溫柔而堅定的影響力推動大局。",
+      "love": "被愛的前提是狠狠寵愛自己！今天去吃米其林或點份精緻下午茶，你的鬆弛感最讓人著迷。",
+      "wealth": "豐盛法則啟動！財富喜歡流向懂得享受生命的人，把家裡佈置得舒服點，好運自然報到。",
+      "interpersonal": "你就是朋友圈裡溫暖的太陽。大方分享你的喜悅，大家自然會圍繞在你身邊。",
+      "health": "身心靈最豐盈滋養的時刻！多享受大自然芬多精、天然有機時令膳食與全身精油舒壓，讓身體在被呵護的溫柔體感中激活自癒免疫力。"
+    },
+    "empathy": "享受生活與創造的過程，允許自己放鬆並接納豐盛，不需用過度緊繃的控制來證明價值。",
+    "action": "用心滋養你的專案與人際關係，營造舒適友善的環境，讓成果自然開花結果。",
+    "reversed_guide": "逆位提醒能量有所阻滯或過度，宜暫緩步伐、向內自省，換個視角化解僵局。",
+    "annie_witty_upright": "哇！抽到女皇，簡直就是愜意生活的大女主天花板！坐在麥田絲絨沙發上，身心靈都散發著貴婦般的豐盛與鬆弛。這張牌在嚴肅命令你：今天禁止內耗！去吃頓精緻美食、買束喜歡的花，先把自己寵好，豐盛的財富與好運自然會像飛蛾撲火一樣找上你。",
+    "annie_witty_reversed": "逆位女皇！特助掐指一算，你最近是不是過度勞碌、把身邊所有人都照顧了一圈，唯獨忘了照顧你自己？或者甜點外送點太多了？停！今晚把手機靜音，泡個精油熱水澡，你自己的電量才是最珍貴的資產。",
+    "mind_reading_upright": {
+      "warm": "金色麥田圍繞著豐腴優雅的女皇，身穿石榴長裙，神情慵懶舒適。這張牌像一杯溫熱香甜的熱可可，正輕輕擁抱著你。",
+      "mind": "你習慣了當那個照顧大家、照顧專案、照顧團隊的「大地之母」，卻唯獨忘了照顧你自己。你內心有個盲區：誤以為「只有當我對別人有用、我不斷付出時，我才配得到愛與尊重」。",
+      "humor": "看看女皇斜躺在靠墊上多愜意！連麥子都熟得自己彎腰了，你還在著急什麼？今天准許你把拯救世界的任務請假半天！",
+      "action": "今天下班後，為自己做一件純粹享受、毫無生產力的事情——吃塊精緻甜點，或者洗個香氛熱水澡。"
+    },
+    "mind_reading_reversed": {
+      "warm": "女皇王冠上的星光有些暗淡，麥田顯得凌亂。你最近是不是覺得自己的付出像掉進了無底洞，身邊的人理所當然，讓你心裡滿是委屈？",
+      "mind": "你陷入了「以愛為名的過度控制與情緒勒索」。你表面上是無私奉獻，但骨子裡渴望用這些付出換取對方的感激與依賴；一旦對方沒有給你預期的反應，你的委屈就會變成無聲的怨念。",
+      "humor": "媽媽牌愛心便當煮太鹹，全家人也是會默默喝水的！收回你的過度熱情，把愛留給自己敷臉保養吧！",
+      "action": "停止主動去幫別人擦屁股。今天看到身邊人忘記帶傘或事情沒做好，微笑忍住不要插手，讓他們自己長大。"
+    },
+    "dimensions_up": {
+      "career": "大女主氣場全開！創造一個讓大家都舒服的環境，用溫柔而堅定的影響力推動大局。",
+      "love": "被愛的前提是狠狠寵愛自己！今天去吃米其林或點份精緻下午茶，你的鬆弛感最讓人著迷。",
+      "wealth": "豐盛法則啟動！財富喜歡流向懂得享受生命的人，把家裡佈置得舒服點，好運自然報到。",
+      "interpersonal": "你就是朋友圈裡溫暖的太陽。大方分享你的喜悅，大家自然會圍繞在你身邊。",
+      "health": "身心靈最豐盈滋養的時刻！多享受大自然芬多精、天然有機時令膳食與全身精油舒壓，讓身體在被呵護的溫柔體感中激活自癒免疫力。"
+    },
+    "dimensions_down": {
+      "career": "太過放鬆可能變成拖延懶散！給自己設個剛性截止日，該盯緊進度時別一味當爛好人。",
+      "love": "愛得太滿容易讓人窒息。把過度關注收回自己身上，先滿足自己的需求，別靠勒索換取安全感。",
+      "wealth": "報復性消費會讓荷包大失血！先暫停不必要的奢侈開支，享受簡單清爽的日常小確幸。",
+      "interpersonal": "打腫臉充胖子只會招來蹭吃蹭喝之徒。立好社交界線，把善意留給懂得感恩的朋友。",
+      "health": "貪吃甜食油炸易致代謝沉重、長痘過敏。飲食少糖少鹽多纖維，泡個溫水澡促進微循環。"
+    }
+  },
+  {
+    "id": 5,
+    "name": "皇帝 (The Emperor)",
+    "pure_name": "皇帝",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "白羊座 ♈",
+    "img": "120px-RWS_Tarot_04_Emperor.jpg",
+    "sym_title": "秩序威嚴與物質疆界的主宰",
+    "visual_clue": "石座上的公羊頭雕刻象徵白羊座領導力；右手持生命之鑰象徵統治權力；鎧甲象徵隨時防禦的堅定決心。",
+    "vibe": "秩序與規則、建立架構、展現領導力與穩定度",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "立規矩、定邊界！別當爛好人，核心大局由你拍板定案，執行力就是你最強大的權杖。",
+      "love": "放下特助式嚴格考核！感情不是季度KPI，多一點摸頭擁抱，少一點說教檢討。",
+      "wealth": "建立嚴密的財務防火牆！資產配置要有大將之風，不打沒把握的仗，穩扎穩打築護城河。",
+      "interpersonal": "威嚴中帶點仗義。當朋友最可靠的定海神針，但別把別人的責任全攬在自己肩上。",
+      "health": "長期高度自律與權責壓力，容易導致偏頭痛、心血管負擔與背部腰椎僵硬。學會放下緊握的拳頭，每週固定做一次深層伸展或熱水水療，卸下防備。"
+    },
+    "empathy": "理解建立規則是為了保護成果，但適度放下剛硬的防衛，能讓溝通更具溫度與包容力。",
+    "action": "確立清晰的目標與邊界，以邏輯與紀律推進架構，承擔起領導者的責任。",
+    "reversed_guide": "逆位提醒：秩序與規則、建立架構、展現領導力與穩定度 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "霸氣皇帝坐鎮！紅袍鐵甲加石雕寶座，氣場兩米八。這張牌出來，代表混亂到此為止，你必須拿出特助控場的決斷力！別再跟那些優柔寡斷的人瞎扯淡，把邊界畫清楚，你的地盤你作主，秩序一建立，誰敢不服？",
+    "annie_witty_reversed": "逆位皇帝！這是在調侃你：放輕鬆點，脖子上的領帶是不是勒得太緊了？別把每件小事都當作國家大事在指揮，搞得身邊人壓力山大自己也胃痛。把控制欲放下一半，學會授權，你會發現天根本不會塌下來。",
+    "mind_reading_upright": {
+      "warm": "威嚴的皇帝端坐在岩石寶座上，身穿戰甲與紅袍，眼神堅定。這張牌為你帶來強大的錨定力量：你是有能力掌控局面的。",
+      "mind": "你習慣了扛起所有硬仗，任何事情都要在你掌控之中才安心。但你的心魔在於「極度恐懼失控」——只要身邊人做事節奏慢了一點，你就焦慮得想搶過來自己做，結果把自己累得像頭牛。",
+      "humor": "石頭椅子坐久了屁股很痛的！你看皇帝腰桿挺得那麼直，連喝水都要拿權杖，放輕鬆點，皇冠掉不下來的！",
+      "action": "盤點今天必須做的三件事，將其中一件大膽「授權分工」給他人，只檢查最終結果，中間過程放手不管。"
+    },
+    "mind_reading_reversed": {
+      "warm": "皇帝的權杖歪斜，寶座基石有些動搖。你最近是不是覺得身邊人不聽話、事情完全不按你的劇本走，讓你莫名煩躁暴躁？",
+      "mind": "當事情脫軌時，你習慣用「生硬的脾氣、嚴厲的指責或威權壓制」來掩飾內心的無助感。你越是大聲說話，越說明你心裡慌了；你害怕承認自己其實也沒有萬全之策。",
+      "humor": "皇帝微服出巡吃路邊攤都要被認出來，更何況你現在臉黑得像包青天！先把眉頭鬆開，喝杯溫茶降降肝火。",
+      "action": "今天對身邊的人把指責的話改成提問：「這件事你覺得我們怎麼做會更順利？」，讓他人主動分擔。"
+    },
+    "dimensions_up": {
+      "career": "立規矩、定邊界！別當爛好人，核心大局由你拍板定案，執行力就是你最強大的權杖。",
+      "love": "放下特助式嚴格考核！感情不是季度KPI，多一點摸頭擁抱，少一點說教檢討。",
+      "wealth": "建立嚴密的財務防火牆！資產配置要有大將之風，不打沒把握的仗，穩扎穩打築護城河。",
+      "interpersonal": "威嚴中帶點仗義。當朋友最可靠的定海神針，但別把別人的責任全攬在自己肩上。",
+      "health": "長期高度自律與權責壓力，容易導致偏頭痛、心血管負擔與背部腰椎僵硬。學會放下緊握的拳頭，每週固定做一次深層伸展或熱水水療，卸下防備。"
+    },
+    "dimensions_down": {
+      "career": "控制欲太強只會讓團隊噤若寒蟬。放下微觀管理、學會授權，容納不同意見反而格局更大。",
+      "love": "別把職場的發號施令帶回家！愛是平等的雙向傾聽，偶爾示弱撒嬌不是輸，而是智慧。",
+      "wealth": "僵化守舊容易錯過轉型機會，或因面子硬扛虧損。打破路徑依賴，靈活調整資產配置。",
+      "interpersonal": "凡事爭輸贏只會把朋友推遠。收起說教與威壓氣場，溫和待人才能贏得真心敬重。",
+      "health": "壓力山大導致偏頭痛、血壓升高、肩頸堅硬如石。放下控制欲，快走慢跑排出頭部重壓。"
+    }
+  },
+  {
+    "id": 6,
+    "name": "教皇 (The Hierophant)",
+    "pure_name": "教皇",
+    "suit": "大阿爾克那",
+    "elem": "土",
+    "astro": "金牛座 ♉",
+    "img": "120px-RWS_Tarot_05_Hierophant.jpg",
+    "sym_title": "傳遞傳統智慧與靈性指引的導師",
+    "visual_clue": "三層教皇冠象徵身心靈三界；三重十字權杖象徵靈性權威；腳下的交叉鑰匙象徵解開智慧之門；台下兩位求教修士代表知識傳承。",
+    "vibe": "貴人相助、遵從制度、尋求專業導師的建議",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "站在巨人的肩膀上跳舞！去請教你信得過的前輩，老江湖的一句話能讓你少走三年冤枉路。",
+      "love": "三觀契合比五官耐看重要一百倍！找一個能坐下來聊靈魂、又能一起吃路邊攤的長期隊友。",
+      "wealth": "跟隨成熟穩健的傳統正道。別碰那些看不懂的暴富神話，慢慢變富才是最高級的智慧。",
+      "interpersonal": "擔任團隊裡的智慧導師。給人指路時多帶點人情味，大家會發自內心尊敬你。",
+      "health": "生活作息宜規律守時，注意呼吸道咽喉與頸椎經絡。放下道德自我審判的心理枷鎖，給心靈鬆綁，偶爾允許自己打破教條散散心。"
+    },
+    "empathy": "尊重既有的智慧與規範，但在依循傳統的同時，保持內在真理的自省與獨立思考。",
+    "action": "主動向資深前輩請教或尋求體制內資源，依循成熟的流程與道德準則推進行動。",
+    "reversed_guide": "逆位提醒：貴人相助、遵從制度、尋求專業導師的建議 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "教皇現身！這可是自帶神聖 BGM 的牌面。代表關鍵時刻有前輩貴人相助，或者你需要遵守一下遊戲規則。別總是想著走偏門打破體制，先順著人情世故的河流走，借力使力，事半功倍才是特助的高段位心法。",
+    "annie_witty_reversed": "逆位教皇！那些滿嘴仁義道德、老生常談的毒雞湯，你可以禮貌微笑然後當耳邊風了。別被傳統規矩綁架，如果老方法行不通，何不自己換個賽道？生活是過給自己的，不是演給那些教條看的。",
+    "mind_reading_upright": {
+      "warm": "身穿神聖法袍的教皇端坐講壇，信徒恭敬聆聽。這張牌散發著深厚穩重的智慧，告訴你：有些規則和傳統正在保護著你。",
+      "mind": "你做事循規蹈矩、重視承諾，但你的深層盲區在於「過度受限於別人的眼光與長輩/體制的期待」。你常常為了符合「懂事的好孩子、負責任的員工」的人設，而壓抑了自己最真實的渴望。",
+      "humor": "教皇帽子戴得那麼高，進門都要低頭防撞呢！規矩是給糊塗人當參考的，聰明的你偶爾翹個課放鬆一下，天壇不會塌的！",
+      "action": "誠實檢視一件你正在做但很不情願的事，問自己：「這真的是我想做的，還是只是為了讓別人滿意？」。"
+    },
+    "mind_reading_reversed": {
+      "warm": "教皇的聖物傾斜，信徒四散。你最近是不是對某個權威、制度或某位一直指導你的人感到深深的幻滅與反感？",
+      "mind": "你現在處於「叛逆與質疑」的臨界點。但你內心深處的卡點是：你一邊想推翻既有的框架，一邊又害怕失去傳統體系給你的安全感和保護傘，所以你停在抱怨階段，遲遲不敢自己立門戶。",
+      "humor": "想造反就大大方方去開新店，別一邊吃著大廚的飯一邊嫌盤子難看嘛！",
+      "action": "如果某個教條已經不再適合你，寫下屬於你自己的「新原則」，勇敢按照自己的標準走一次。"
+    },
+    "dimensions_up": {
+      "career": "站在巨人的肩膀上跳舞！去請教你信得過的前輩，老江湖的一句話能讓你少走三年冤枉路。",
+      "love": "三觀契合比五官耐看重要一百倍！找一個能坐下來聊靈魂、又能一起吃路邊攤的長期隊友。",
+      "wealth": "跟隨成熟穩健的傳統正道。別碰那些看不懂的暴富神話，慢慢變富才是最高級的智慧。",
+      "interpersonal": "擔任團隊裡的智慧導師。給人指路時多帶點人情味，大家會發自內心尊敬你。",
+      "health": "生活作息宜規律守時，注意呼吸道咽喉與頸椎經絡。放下道德自我審判的心理枷鎖，給心靈鬆綁，偶爾允許自己打破教條散散心。"
+    },
+    "dimensions_down": {
+      "career": "墨守成規只會被市場淘汰！敢於挑戰不合時宜的老舊體制，走出一條沒人走過的創新路。",
+      "love": "別被傳統眼光與他人期待綁架！兩個人過日子合不合適，只有你們自己說了算。",
+      "wealth": "盲目聽從權威大師的明牌最危險！建立自己的獨立判斷，別把辛苦錢交給教條主義。",
+      "interpersonal": "遠離好為人師、愛道德綁架的偽專家。不必向所有人交代，道不同不相為謀即可。",
+      "health": "咽喉乾癢、頸椎勞損僵硬、甲狀腺易疲勞。遠離低頭久坐，用溫鹽水漱口、溫敷頸部經絡。"
+    }
+  },
+  {
+    "id": 7,
+    "name": "戀人 (The Lovers)",
+    "pure_name": "戀人",
+    "suit": "大阿爾克那",
+    "elem": "風",
+    "astro": "雙子座 ♊",
+    "img": "120px-RWS_Tarot_06_Lovers.jpg",
+    "sym_title": "靈魂共鳴與神聖抉擇的盟約",
+    "visual_clue": "天使拉斐爾在上方祝福；亞當與夏娃象徵理性與感性、意識與潛意識的結合；背後的生命之樹與善惡知識之樹象徵道德抉擇。",
+    "vibe": "合作無間、重要的抉擇、心靈相通的夥伴關係",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "挑選合夥人就像選靈魂伴侶！價值觀不同千萬別勉強合夥，合拍的團隊能讓效益翻十倍。",
+      "love": "雙向奔赴的甜蜜時刻！大膽表達愛意，今晚安排個浪漫晚餐，生活需要儀式感來點綴。",
+      "wealth": "兩個人一起做財務規劃，互為後盾。合作簽約前先把利益講清楚，感情才能長長久久。",
+      "interpersonal": "遇到頻率完全對得上的靈魂夥伴！珍惜這份難得的懂得，一起把日子過得有滋有味。",
+      "health": "心輪能量活躍，容易受親密關係與人際氣場波動影響。保持心情愉快開朗，注意胸肺呼吸順暢與肺經調養，拒絕在糾結關係中消耗生命元氣。"
+    },
+    "empathy": "看見關係中深層的投射與渴望，真正的結合始於自我內在陰陽特質的接納與整合。",
+    "action": "依隨內心真正熱愛的價值做出選擇，真誠地表達感受，與夥伴建立平等的信任合作。",
+    "reversed_guide": "逆位提醒：合作無間、重要的抉擇、心靈相通的夥伴關係 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "抽到戀人牌！空氣中都飄著蜜桃般的粉紅泡泡。無論是遇到合拍的夥伴、心動的對象，還是面臨一次靈魂契合的選擇，這張牌都在說：跟隨你內心真正的渴望！別用算盤打感情，心動了就勇敢擁抱它。",
+    "annie_witty_reversed": "逆位戀人！這下尷尬了，是不是在感情或合作上陷入『食之無味、棄之可惜』的糾結期？特助私房話：如果一個關係讓你天天懷疑人生，那它就不叫緣分，叫精神內耗！果斷點，不適合的鞋子走起路來是會磨腳破皮的。",
+    "mind_reading_upright": {
+      "warm": "天使拉斐爾展開紫紅雙翼，在金色陽光下祝福著亞當與夏娃。這張牌洋溢著深層的理解、契合與美好的選擇。",
+      "mind": "表面上你在糾結兩個選項（兩個工作、兩個對象或兩種生活），但底層真正的原因是「你什麼都想要、什麼都不肯捨棄」。你害怕一旦選了一條路，另一條路的遺憾會折磨你，於是你在岔路口消耗了所有力氣。",
+      "humor": "小孩子才在菜單前面看半小時，大人都知道兩道菜都好吃就先點一道，下次再來吃另一道！",
+      "action": "閉上眼睛拋一枚硬幣，在硬幣落地的那一瞬間，你心裡希望它出現哪一面？那個答案就是你的真心。"
+    },
+    "mind_reading_reversed": {
+      "warm": "天使的翅膀被烏雲遮蔽，兩人背對著背。你最近是不是在一種若即若離的關係或價值觀衝突中，感到前所未有的心累？",
+      "mind": "你正在違背自己的真實價值觀，勉強自己去配合別人。因為你太害怕孤單、太害怕成為關係中「主動放手的那個人（惡人）」，所以你寧可忍受慢性折磨，也不願挑明現實。",
+      "humor": "鞋子不合腳，再名貴穿出去也是磨得腳後跟流血！幹嘛要為了面子硬穿呢？換雙舒服的帆布鞋多自在！",
+      "action": "今天不要再去猜對方在想什麼。把注意力轉回自己身上，買一束喜歡的鮮花放在自己桌前。"
+    },
+    "dimensions_up": {
+      "career": "挑選合夥人就像選靈魂伴侶！價值觀不同千萬別勉強合夥，合拍的團隊能讓效益翻十倍。",
+      "love": "雙向奔赴的甜蜜時刻！大膽表達愛意，今晚安排個浪漫晚餐，生活需要儀式感來點綴。",
+      "wealth": "兩個人一起做財務規劃，互為後盾。合作簽約前先把利益講清楚，感情才能長長久久。",
+      "interpersonal": "遇到頻率完全對得上的靈魂夥伴！珍惜這份難得的懂得，一起把日子過得有滋有味。",
+      "health": "心輪能量活躍，容易受親密關係與人際氣場波動影響。保持心情愉快開朗，注意胸肺呼吸順暢與肺經調養，拒絕在糾結關係中消耗生命元氣。"
+    },
+    "dimensions_down": {
+      "career": "左右為難、猶豫不決最耗能量！在二選一的抉擇中果斷拍板，利益分配講清楚才走得長遠。",
+      "love": "信任出現裂痕或陷入三人關係的泥淖。該攤牌的講清楚，別在食之無味棄之可惜中消耗青春。",
+      "wealth": "合夥財務不清容易反目成仇。親兄弟明算帳，白紙黑字簽訂協議才是最好的護城河。",
+      "interpersonal": "發現朋友價值觀漸行漸遠？不強求同頻，體面淡出是成年人最高級的自律。",
+      "health": "左右搖擺焦慮致胸悶氣短、淺呼吸。閉目做左右鼻孔交替呼吸法，深層舒展胸廓與肺經。"
+    }
+  },
+  {
+    "id": 8,
+    "name": "戰車 (The Chariot)",
+    "pure_name": "戰車",
+    "suit": "大阿爾克那",
+    "elem": "水",
+    "astro": "巨蟹座 ♋",
+    "img": "120px-RWS_Tarot_07_Chariot.jpg",
+    "sym_title": "以堅定意志駕馭兩極的征服者",
+    "visual_clue": "黑白兩隻斯芬克斯象徵對立的情緒與欲望；戰士以意志力而非韁繩控制前進；肩膀上的月亮面具象徵情感保護；華蓋上的星辰象徵天意指引。",
+    "vibe": "克服萬難、意志堅定、全力衝刺邁向成功",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "開啟雞血戰鬥模式！目標鎖死、油門踩到底，把質疑聲全甩在照後鏡裡，衝過終點線！",
+      "love": "愛就要勇敢直球對決！別在暗處搞曖昧猜心遊戲，霸氣一點邀約，成功率高達九成。",
+      "wealth": "主動出擊搶佔市場先機！勇敢推進新商機，但切記手握方向盤，風險控制千萬不能放手。",
+      "interpersonal": "帶領團隊攻城掠地！你是當之無愧的領頭羊，但別跑太快把隊友全甩丟了喔。",
+      "health": "腎上腺素長期狂飆容易造成身體慢性發炎與肌肉過度緊繃。注意胃潰瘍與消化系統吸收，適時踩煞車強制斷電，避免過勞透支身體底子。"
+    },
+    "empathy": "接納內在衝突的兩種聲音，用清明的專注力引導能量朝向同一方向，而非壓抑情緒。",
+    "action": "保持高度專注與自律！克服內在懷疑，堅定朝著設定的目標全速推進。",
+    "reversed_guide": "逆位提醒：克服萬難、意志堅定、全力衝刺邁向成功 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "衝啊！戰車駕臨！黑白雙獅都得聽你號令，這能量簡直是週一早上灌了雙份濃縮黑咖啡！鎖定你的目標，把雜音全拋在車後，一鼓作氣衝破瓶頸。這時候退縮就太可惜了，勝利已經在向你招手！",
+    "annie_witty_reversed": "逆位戰車！踩剎車、快踩剎車！你現在的狀態不是衝刺，是有點像無頭蒼蠅在暴走撞牆啊！方向錯了，力氣越大越危險。先把車停在路邊，吹吹微風吃個冰淇淋，確認好導航地圖再重新出發。",
+    "mind_reading_upright": {
+      "warm": "年輕戰士駕馭著一黑一白兩隻斯芬克斯，戰旗在城堡前迎風飄揚。這張牌充滿了專注與勝利的堅毅意志。",
+      "mind": "你的意志力非常強大，但你目前內心最大的矛盾是「理性與情緒在激烈拔河」。黑白兩隻神獸代表你想往前衝的野心，以及內心疲憊想擺爛的拉扯；你靠著緊咬牙關硬撐，其實肌肉已經快抽筋了。",
+      "humor": "戰車開得再快，油表到底還是得進休息站的！你又不是在拍玩命關頭，偶爾放慢時速看風景才安全！",
+      "action": "今天排定一段 30 分鐘的徹底關機時間，不處理公務、不看訊息，讓狂奔的心率平復下來。"
+    },
+    "mind_reading_reversed": {
+      "warm": "戰車輪子陷入泥沼，黑白獸各奔東西。你最近是不是有一種「事情完全失控、越用力踩油門車子越打滑」的挫折感？",
+      "mind": "當局勢偏離軌道時，你唯一的應對方式是「更用力地硬衝」，這源於你內心「輸不起」的執念。你不敢承認此路不通，因為你把拐彎當成認輸；但硬撞南牆受傷的只有自己的腦袋。",
+      "humor": "車子陷在泥巴裡，死踩油門只會噴得後面的人滿臉泥！把車熄火，下車推一推，或者叫拖吊車比較快啦！",
+      "action": "暫停正在硬頂的一個阻滯專案。給自己 48 小時不碰它，換個視角重新檢視替代方案。"
+    },
+    "dimensions_up": {
+      "career": "開啟雞血戰鬥模式！目標鎖死、油門踩到底，把質疑聲全甩在照後鏡裡，衝過終點線！",
+      "love": "愛就要勇敢直球對決！別在暗處搞曖昧猜心遊戲，霸氣一點邀約，成功率高達九成。",
+      "wealth": "主動出擊搶佔市場先機！勇敢推進新商機，但切記手握方向盤，風險控制千萬不能放手。",
+      "interpersonal": "帶領團隊攻城掠地！你是當之無愧的領頭羊，但別跑太快把隊友全甩丟了喔。",
+      "health": "腎上腺素長期狂飆容易造成身體慢性發炎與肌肉過度緊繃。注意胃潰瘍與消化系統吸收，適時踩煞車強制斷電，避免過勞透支身體底子。"
+    },
+    "dimensions_down": {
+      "career": "用力過猛導致專案失控翻車！立刻踩煞車重整隊形，平息焦躁情緒，欲速則不達。",
+      "love": "脾氣上頭容易口不擇言傷了最愛的人。熄火冷靜半小時再對話，愛需要包容不是爭強好勝。",
+      "wealth": "槓桿開太大面臨爆倉風險！果斷斷尾求生、降低負債比，先把安全防護網織好。",
+      "interpersonal": "侵略性太強讓身邊人退避三舍。收起尖銳鋒芒，換位思考才能贏得真正的盟友。",
+      "health": "胃酸逆流、胃痙攣或肌肉過度緊繃。強制停止熬夜加班，清淡飲食溫養脾胃、適度拉筋。"
+    }
+  },
+  {
+    "id": 9,
+    "name": "力量 (Strength)",
+    "pure_name": "力量",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "獅子座 ♌",
+    "img": "120px-RWS_Tarot_08_Strength.jpg",
+    "sym_title": "以柔克剛的內在無畏之愛",
+    "visual_clue": "白衣女子溫柔撫摸雄獅的下顎；頭頂無限大符號(∞)象徵無窮精神力量；腰間的花環象徵用愛化解獸性本能。",
+    "vibe": "以柔克剛、內在韌性、情緒管理與溫柔包容",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "以柔克剛的談判天花板！用溫柔微笑把最難搞的客戶安撫得服服貼貼，這才叫真功夫。",
+      "love": "愛是包容也是馴服。用理解化解對方的暴躁脾氣，輕輕順順毛，猛獸也會變成黏人小貓。",
+      "wealth": "克制住短期的物質衝動。有耐心守住長期價值，你的定力會為你換來驚人的複利回報。",
+      "interpersonal": "情緒穩定的特助超能力！當所有人都在抓狂崩潰時，你的從容微笑就是全場的救命丹。",
+      "health": "內在耐力與心肺功能強大。注意心臟活力與胸腺免疫，學習溫和宣洩內在悶火，不硬壓脾氣，適度快走或瑜伽有助於平息躁動不安。"
+    },
+    "empathy": "真正的強大不是壓制或對抗，而是擁抱自己與他人的脆弱與恐懼，以愛轉化一切。",
+    "action": "保持耐心與溫和的堅定，不急於強行反擊，以長遠的智慧與柔韌化解僵局。",
+    "reversed_guide": "逆位提醒：以柔克剛、內在韌性、情緒管理與溫柔包容 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "抽到力量牌！溫柔白衣女子優雅撫摸獅子下巴，這就是『以柔克剛』的最高境界。真正強大的人從不大吼大叫，而是用從容的微笑把桀驁不馴的難題馴服。今天遇到難搞的人或事，保持優雅微笑，你就贏了八成。",
+    "annie_witty_reversed": "逆位力量！是不是感覺精力快被掏空、內心的暴躁小獅子快要破籠而出了？千萬別在這個時候對身邊人發脾氣，那只是因為你太累了。給自己一個大大的擁抱，承認脆弱不丟臉，給自己放半天假充個電吧。",
+    "mind_reading_upright": {
+      "warm": "白衣女子頭頂無限符號，用溫柔的手掌輕撫雄獅的下顎，猛獸在她懷裡如同溫順的貓咪。這張牌象徵著最頂級的以柔克剛。",
+      "mind": "你面對的挑戰看似兇猛（可能是刁鑽的客戶、叛逆的孩子，或是你自己內心的焦慮焦躁）。你的盲區是誤以為「非要大發雷霆或強硬對決才能證明力量」，但其實你真正的超能力，是那份不被激怒的定力。",
+      "humor": "大獅子都被摸得呼嚕呼嚕快睡著了，你何必手裡拿著皮鞭把自己搞得滿頭大汗呢？",
+      "action": "面對今天讓你頭痛的那個人或那件事，深吸一口氣，用比平常放慢半拍的溫柔語速回應，你會發現對方的刺立刻軟化了。"
+    },
+    "mind_reading_reversed": {
+      "warm": "女子神情倦怠，獅子有些焦躁不安。你最近是不是覺得自己的耐性已經逼近極限，一點小火星就能把你點炸？",
+      "mind": "你一直壓抑內心真實的憤怒與委屈，為了維持優雅好脾氣的形象而過度隱忍。但隱忍不等於包容，積累的負能量正在反噬你的健康和睡眠，你隨時處在情緒潰堤的邊緣。",
+      "humor": "貓咪餓了會叫，肚子餓了要吃，憋著不發脾氣最後只會把枕頭抓爛！生氣就生氣，去打一場羽球發洩一下！",
+      "action": "找一個私密空間（如車裡或浴室），用力把心裡的抱怨吼出來，或者在紙上痛快塗鴉寫完後撕碎丟掉。"
+    },
+    "dimensions_up": {
+      "career": "以柔克剛的談判天花板！用溫柔微笑把最難搞的客戶安撫得服服貼貼，這才叫真功夫。",
+      "love": "愛是包容也是馴服。用理解化解對方的暴躁脾氣，輕輕順順毛，猛獸也會變成黏人小貓。",
+      "wealth": "克制住短期的物質衝動。有耐心守住長期價值，你的定力會為你換來驚人的複利回報。",
+      "interpersonal": "情緒穩定的特助超能力！當所有人都在抓狂崩潰時，你的從容微笑就是全場的救命丹。",
+      "health": "內在耐力與心肺功能強大。注意心臟活力與胸腺免疫，學習溫和宣洩內在悶火，不硬壓脾氣，適度快走或瑜伽有助於平息躁動不安。"
+    },
+    "dimensions_down": {
+      "career": "內心被冒名頂替症候群的恐懼吞噬！別被內在恐懼嚇倒，你比想像中更強大，先跨出第一步。",
+      "love": "情緒容易失控暴走或陷入無助自卑。允許自己有軟弱脆弱的時刻，先抱抱自己再談愛。",
+      "wealth": "因焦慮恐慌而亂砍部位或不敢動作。深呼吸穩住心智，別在情緒最低點做重大財務決策。",
+      "interpersonal": "討好型人格讓自己筋疲力竭。敢於說「不」，不必委屈自己去討好每個人的心情。",
+      "health": "心理耗竭引發心悸胸悶、背部腰肌拉傷。補充優質睡眠與維生素B群，別硬扛超出負荷的重擔。"
+    }
+  },
+  {
+    "id": 10,
+    "name": "隱士 (The Hermit)",
+    "pure_name": "隱士",
+    "suit": "大阿爾克那",
+    "elem": "土",
+    "astro": "處女座 ♍",
+    "img": "120px-RWS_Tarot_09_Hermit.jpg",
+    "sym_title": "孤峰之上的求道者與引路明燈",
+    "visual_clue": "站在雪山之巔的長者手提六角星真理之燈；長袍遮蓋身形象徵沉澱與反省；手中的權杖象徵靈性支撐與經驗智慧。",
+    "vibe": "沉澱思考、尋求真相、保持獨處與沉澱",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "關掉群組通知，留出專注時段。深度的專業研究或戰略佈局，往往在孤獨中誕生奇蹟。",
+      "love": "給彼此一點獨立空間。各自在自己的書房裡發光，抬頭相視一笑，是最舒服的親密距離。",
+      "wealth": "低調檢視真實財務狀況。不攀比、不顯擺，內在精神富足的人，花很少的錢也很幸福。",
+      "interpersonal": "遠離無效社交與酒肉飯局。給自己留白，去散散步吹吹風，心靈排毒比什麼都重要。",
+      "health": "需要高品質的深度安靜與獨處充電。注意眼睛疲勞、關節保暖與腸道微生態，讓大腦從資訊爆炸中徹底排毒，享受真正的清心寡欲。"
+    },
+    "empathy": "享受孤獨帶來的清明與洞察，向內探索本自具足的智慧，不必向外尋求他人的肯定。",
+    "action": "暫時放慢外部腳步，留給自己安靜獨處與深度復盤的時間，點亮內在的心燈。",
+    "reversed_guide": "逆位提醒：沉澱思考、尋求真相、保持獨處與沉澱 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "老隱士提燈漫步雪山！太有意境了。這張牌在告訴你：狂歡是一群人的孤單，獨處才是一個人的狂歡。今天很適合把社交軟體通知關掉，在落地窗前點一盞暖燈，跟自己的內心深度對話，你尋找的答案其實早就在你心裡。",
+    "annie_witty_reversed": "逆位隱士！閉關太久，該出來曬曬太陽啦！你是不是把自己關在牛角尖裡，連朋友關心的訊息都懶得回了？孤獨太久容易變成孤僻，走出家門去咖啡廳聞聞咖啡香、看看街上的人群，人間煙火氣最能治癒心靈。",
+    "mind_reading_upright": {
+      "warm": "白髮長者身披灰袍，手提六角星明燈，在雪山之巔靜靜守望。這張牌散發著深沉的孤獨，卻無比清澈明亮。",
+      "mind": "你現在需要的是深度的沉澱與獨處。但你的心理卡點是「害怕錯過熱鬧與社群動態（FOMO）」，你一邊覺得社交好累想躲起來，一邊又害怕如果不露臉會被世界邊緣化，讓自己卡在半山腰。",
+      "humor": "山頂風很大，老人家提著燈籠可沒在刷短影音！把那些無效社交的群組靜音，你的世界清靜得像五星級飯店！",
+      "action": "今晚把手機調成飛航模式一小時，給自己泡杯好茶，安靜讀完一章好書。"
+    },
+    "mind_reading_reversed": {
+      "warm": "隱士的提燈光芒微弱，雪山顯得冰冷刺骨。你最近是不是把自己封閉在一個窄小的殼子裡，拒絕與任何人溝通？",
+      "mind": "你把「自我療癒」變成了「逃避現實的孤島」。因為之前受了傷或被辜負，你下意識認定「外面全是壞人，只有我自己最安全」，這種過度防禦正在讓你走向乾枯與偏狹。",
+      "humor": "閉關太久鬍子都長到拖地啦！再不下山呼吸人間煙火，連麵包店的剛出爐香味都要忘記囉！",
+      "action": "主動發個訊息問候一位老朋友，或者出門去熱鬧的市集走走，感受一下人群的溫度。"
+    },
+    "dimensions_up": {
+      "career": "關掉群組通知，留出專注時段。深度的專業研究或戰略佈局，往往在孤獨中誕生奇蹟。",
+      "love": "給彼此一點獨立空間。各自在自己的書房裡發光，抬頭相視一笑，是最舒服的親密距離。",
+      "wealth": "低調檢視真實財務狀況。不攀比、不顯擺，內在精神富足的人，花很少的錢也很幸福。",
+      "interpersonal": "遠離無效社交與酒肉飯局。給自己留白，去散散步吹吹風，心靈排毒比什麼都重要。",
+      "health": "需要高品質的深度安靜與獨處充電。注意眼睛疲勞、關節保暖與腸道微生態，讓大腦從資訊爆炸中徹底排毒，享受真正的清心寡欲。"
+    },
+    "dimensions_down": {
+      "career": "閉門造車成了孤芳自賞！走出封閉房間與外界交流資訊，別讓珍貴經驗在象牙塔裡發霉。",
+      "love": "過度冷漠孤僻會把緣分推向千里之外。試著向外界打開心扉，愛需要走入人間煙火。",
+      "wealth": "守財奴心態容易錯過新時代機遇。適度花錢投資自己的眼界與技能，錢流動才會增值。",
+      "interpersonal": "社交退縮只會讓自己越來越孤立。參加一個溫暖的小圈子，走出自設的心靈牢籠。",
+      "health": "腸胃神經紊亂、腹脹便秘或因缺乏日照情緒低落。晨起多曬太陽15分鐘，攝取高纖益生菌。"
+    }
+  },
+  {
+    "id": 11,
+    "name": "命運之輪 (Wheel of Fortune)",
+    "pure_name": "命運之輪",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "木星 ♃",
+    "img": "120px-RWS_Tarot_10_Wheel_of_Fortune.jpg",
+    "sym_title": "宇宙循環與神聖轉折之輪",
+    "visual_clue": "四角的四活物象徵四固定星座守護神聖知識；輪上的希伯來神名與煉金術符號象徵宇宙法則；斯芬克斯居上象徵智慧平衡；阿努比斯與蛇象徵起伏循環。",
+    "vibe": "順應轉機、把握時機、命運的順流與轉折",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "風口來了，連豬都會飛，何況是你！準備好承接突如其來的升遷或專案轉機，順風起飛！",
+      "love": "宿命般的奇妙邂逅！可能在轉角咖啡廳或出差路上遇見意想不到的人，敞開心胸微笑吧。",
+      "wealth": "天降甘霖的財運轉折！被動收入或意外獎金敲門，抓準時機上車，記得見好就收。",
+      "interpersonal": "人脈圈大洗牌！揮別消耗你的人，宇宙正在幫你把真正的高維度貴人排進你的行事曆。",
+      "health": "時序運轉順逆皆有時，注意氣血循環、血壓波動與前庭平衡。面對外在環境變化，保持平常心即是最佳抗老良藥，順天應時調整作息。"
+    },
+    "empathy": "凡事皆有起伏循環，在順境中保持謙卑，在逆境中保持信心，輪轉終有升起之時。",
+    "action": "敏銳覺察機遇的到來，順勢而為，果斷抓住轉折點做出突破！",
+    "reversed_guide": "逆位提醒：順應轉機、把握時機、命運的順流與轉折 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "命運之輪轟隆隆轉動！恭喜你，風水輪流轉，這把終於輪到你當主角了！過去卡住的事情即將迎刃而解，抓住眼前突如其來的機會，順水推舟，大風吹來的時候，咱們只要張開翅膀順勢起飛就好！",
+    "annie_witty_reversed": "逆位命運之輪！哎，電梯暫時故障卡住幾分鐘而已，別慌！人生本來就是起起伏伏，現在處在低谷，代表接下來不管往哪走都是往上爬！逆風的時候別跟風較勁，把基本功練好，等風再來就是了。",
+    "mind_reading_upright": {
+      "warm": "命運大輪在蔚藍天空中旋轉，四角神獸安詳展卷，斯芬克斯手握利劍坐鎮頂端。這張牌告訴你：人生的轉折點已經悄然來臨。",
+      "mind": "你習慣了凡事算無遺策、步步為營，但當命運的浪潮湧來時，你的恐懼是「我無法百分之百控制結果」。學會順應天時、借力使力，比你逆風硬游要輕鬆十倍。",
+      "humor": "摩天輪轉起來的時候，你只要負責看風景尖叫就好，不用爬下去幫齒輪抹黃油啦！",
+      "action": "面對這幾天突如其來的變化或意外插曲，不要急著排斥，微笑接下它，問自己：「這背後藏著什麼新機會？」。"
+    },
+    "mind_reading_reversed": {
+      "warm": "輪盤倒轉，下方的生物似乎有些眩暈。你最近是不是覺得「運氣怎麼這麼背，喝水都塞牙縫」？",
+      "mind": "你陷在「為什麼倒楣的總是我」的受害者心態裡。你把週期性的低潮，當成了命運對你的永久審判；事實上，低谷只是週期的一半，你在谷底賴著不走，輪子怎麼轉上來呢？",
+      "humor": "坐過山車衝到底部的時候，閉上眼睛深吸一口氣，馬上就要衝上雲霄了！別在谷底吐酸水啦！",
+      "action": "整理一次皮夾或房間桌面，把不要的收據雜物扔掉，以乾淨的氣場迎接轉運。"
+    },
+    "dimensions_up": {
+      "career": "風口來了，連豬都會飛，何況是你！準備好承接突如其來的升遷或專案轉機，順風起飛！",
+      "love": "宿命般的奇妙邂逅！可能在轉角咖啡廳或出差路上遇見意想不到的人，敞開心胸微笑吧。",
+      "wealth": "天降甘霖的財運轉折！被動收入或意外獎金敲門，抓準時機上車，記得見好就收。",
+      "interpersonal": "人脈圈大洗牌！揮別消耗你的人，宇宙正在幫你把真正的高維度貴人排進你的行事曆。",
+      "health": "時序運轉順逆皆有時，注意氣血循環、血壓波動與前庭平衡。面對外在環境變化，保持平常心即是最佳抗老良藥，順天應時調整作息。"
+    },
+    "dimensions_down": {
+      "career": "遭遇週期性逆風是正常規律！別在低谷盲目折騰，靜下心沉澱打磨基本功，靜待風起。",
+      "love": "緣分出現波折或感覺熱情冷卻。接納關係的起伏律動，給彼此喘息空間，時間會沉澱真愛。",
+      "wealth": "投資遭遇週期性回檔！切忌逆勢攤平賭一把，守住現金流，熬過低谷就是下一個上升波。",
+      "interpersonal": "昔日熱絡的朋友漸漸疏遠？看淡人走茶涼的常態，珍惜眼前仍陪伴在側的知己。",
+      "health": "熬夜作息紊亂致肝膽負擔重、下肢水腫。重置生理時鐘，睡前抬腿15分鐘促進循環代謝。"
+    }
+  },
+  {
+    "id": 12,
+    "name": "正義 (Justice)",
+    "pure_name": "正義",
+    "suit": "大阿爾克那",
+    "elem": "風",
+    "astro": "天秤座 ♎",
+    "img": "120px-RWS_Tarot_11_Justice.jpg",
+    "sym_title": "因果法則與理性衡平的裁決者",
+    "visual_clue": "右手高舉雙刃劍象徵斬斷虛妄的理性決斷；左手持天平象徵客觀衡平；背後的紫色簾幕象徵尊嚴與公正。",
+    "vibe": "公道合理、理性客觀、評估得失與因果平衡",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "條理分明、就事論事！看清楚合約上的每一個小字，用無可挑剔的專業數據說服所有人。",
+      "love": "平衡是關係長久的基石。不能總是單方面付出，健康的愛需要彼此尊重與對等投入。",
+      "wealth": "一分耕耘一分收穫，算清楚收支流水。不貪便宜就不會踩坑，問心無愧睡得最香。",
+      "interpersonal": "做人講原則、做事有底線。雙標的人果斷拉黑，你的善良必須帶點鋒芒。",
+      "health": "講求平衡與秩序，需特別關照腎臟代謝、腰部與體內水鹽電解質平衡。放下追求絕對對錯的心智糾結，給自己和他人留點容錯空間。"
+    },
+    "empathy": "誠實面對因果關係，每一份當下的結果都源於過往的選擇，承擔責任即是自由的開始。",
+    "action": "秉持公正與客觀，仔細審查所有條款與事實，做出無愧於心智與道德的決斷。",
+    "reversed_guide": "逆位提醒：公道合理、理性客觀、評估得失與因果平衡 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "正義女神寶劍天平在手，眼神銳利得像能穿透螢幕！這代表該結算的、該釐清的因果清清楚楚。客觀理性看待眼前的一切，一分耕耘一分收穫，簽合約看清細節，問心無愧就是你最強大的護甲。",
+    "annie_witty_reversed": "逆位正義！心裡是不是正在狂喊『這世界太不公平了！』？也許遭遇了雙標對待，或者自己良心有點不安。特助勸你一句：別在不公平的秤上斤斤計較，及時止損抽身，別讓別人的失誤懲罰了你自己的好心情。",
+    "mind_reading_upright": {
+      "warm": "莊嚴的女神一手握利劍直指蒼穹，一手持天平平衡兩端。這張牌帶來的是絕對的清醒、理性與公道。",
+      "mind": "你個講理、追求公平的人，但你的盲區在於「太過非黑即白」。生活中很多事不是法庭辯論，你非要在人際或感情中爭出個「誰對誰錯、誰欠誰多」，最後贏了道理卻輸掉了感情與溫暖。",
+      "humor": "判官天天拿著天平量體重，也是會把自己逼瘋的！有些事糊塗一點過，日子甜多了！",
+      "action": "在今天的一場爭執中，主動退一步說：「這件事我們各有道理，先喝杯茶再說」，放下爭辯的執念。"
+    },
+    "mind_reading_reversed": {
+      "warm": "天平傾斜，利劍有些動搖。你最近是不是遇到了不公道的對待，或者自己正面臨一個道德與利益的艱難抉擇？",
+      "mind": "你內心正承受著「自我內在衝突」的折磨。你可能正在用藉口合理化自己的某個妥協，或者一邊憤恨不公、一邊又不敢站出來發聲捍衛自己的權益，內外矛盾讓你倍感煎熬。",
+      "humor": "秤砣偏了就要校準，硬在那邊墊紙板假裝平整，秤出來的肉還是缺斤少兩的！",
+      "action": "白紙黑字寫下這件事的底線：哪一點你絕不妥協？一旦看清楚底線，立刻果斷表態。"
+    },
+    "dimensions_up": {
+      "career": "條理分明、就事論事！看清楚合約上的每一個小字，用無可挑剔的專業數據說服所有人。",
+      "love": "平衡是關係長久的基石。不能總是單方面付出，健康的愛需要彼此尊重與對等投入。",
+      "wealth": "一分耕耘一分收穫，算清楚收支流水。不貪便宜就不會踩坑，問心無愧睡得最香。",
+      "interpersonal": "做人講原則、做事有底線。雙標的人果斷拉黑，你的善良必須帶點鋒芒。",
+      "health": "講求平衡與秩序，需特別關照腎臟代謝、腰部與體內水鹽電解質平衡。放下追求絕對對錯的心智糾結，給自己和他人留點容錯空間。"
+    },
+    "dimensions_down": {
+      "career": "遭遇合約陷阱或不公正考核！冷靜蒐集客觀證據，切忌衝動吵鬧，用專業與合規討回公道。",
+      "love": "關係中總是斤斤計較付出與收穫。感情不是秤斤論兩的買賣，多給一點溫情少一點評判。",
+      "wealth": "警惕帳目混亂、逃漏稅或合規風險。認真核對每一筆發票單據，守住底線才不踩大坑。",
+      "interpersonal": "偏聽偏信容易冤枉真心朋友。不要輕易給別人貼標籤，兼聽則明才是處世之道。",
+      "health": "久坐腰酸背痛、水鹽失調、泌尿道負擔。多喝溫開水拒絕憋尿，做骨盆平衡伸展操矯正體態。"
+    }
+  },
+  {
+    "id": 13,
+    "name": "倒吊人 (The Hanged Man)",
+    "pure_name": "倒吊人",
+    "suit": "大阿爾克那",
+    "elem": "水",
+    "astro": "海王星 ♆",
+    "img": "120px-RWS_Tarot_12_Hanged_Man.jpg",
+    "sym_title": "換位思考與主動臣服的覺悟者",
+    "visual_clue": "一隻腳倒吊在T型生命之樹上；頭部散發光環象徵靈魂覺醒；神情平靜無痛苦象徵自願臣服與換個視角看世界。",
+    "vibe": "換個角度思考、暫時順應、放手換取大局",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "換個視角看世界！大家都在卷同一個方向，你倒過來另闢蹊徑，藍海商機立馬浮現。",
+      "love": "停止自導自演苦情戲！愛不是受苦受難，懂得適時放手，反而能換來對方的尊重與珍惜。",
+      "wealth": "暫時套牢或卡住別焦慮！按兵不動就是最好的策略，等市場情緒過去，價值自會回歸。",
+      "interpersonal": "退一步海闊天空。不跟認知不同的人爭辯，靜靜看著他們表演，嘴角微微上揚就好。",
+      "health": "容易有血液循環不順、水腫或精神嗜睡困頓。適度做倒立、抬腿或伸展運動促進下肢回流，心理上放下犧牲者悲情心態，重獲生命輕盈感。"
+    },
+    "empathy": "暫時的停滯不是失敗，而是宇宙給予的重新校準時間。臣服於當下，智慧自然湧現。",
+    "action": "停止無謂的掙扎，學會從對方的角度思考問題，在靜止中醞釀突破的契機。",
+    "reversed_guide": "逆位提醒：換個角度思考、暫時順應、放手換取大局 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "倒吊人金光閃閃地掛在樹上，臉上居然還帶著從容的微笑！這簡直是『愜意人生』的哲學大師啊！當大家都在著急奔跑時，倒過來看世界，障礙瞬間就變成風景了。現在按兵不動不是被困住，而是在醞釀一場驚豔所有人的降維升級！",
+    "annie_witty_reversed": "逆位倒吊人！特助忍不住想搖醒你：別再演苦情劇自憐自艾啦！你那不是犧牲奉獻，叫無效受苦！既然樹枝不舒服，趕快雙腳著地翻下來！該說不就說不，別把自我感動當成美德。",
+    "mind_reading_upright": {
+      "warm": "倒吊人腳踝繫於生命之樹，倒懸在天地之間，頭頂卻散發著聖潔的金色智慧光環，神態平靜安詳。",
+      "mind": "身邊的人都在往前狂奔，而你似乎停滯不前。但你內在的智慧在告訴你：這不是困頓，而是「換個維度看世界」的神奇契機。你的卡點在於「社會常態的催促」，讓你誤以為停下來就是落後。",
+      "humor": "大家都站著看世界看膩了，你倒過來看，天花板變成了地板，障礙物全變成頭頂的裝飾品，多有才啊！",
+      "action": "停止對自己施加「必須立刻有進展」的焦慮，把今天當作充電日，允許自己放空半天。"
+    },
+    "mind_reading_reversed": {
+      "warm": "倒吊人掙扎著想爬下來，臉色有些脹紅。你最近是不是覺得自己的委曲求全根本沒有人在意，深感憋屈？",
+      "mind": "你正在上演一場「無效的自我感動與苦肉計」。你以為只要自己默默忍耐、犧牲奉獻，對方總有一天會良心發現；真相是：你用受害者姿態綁架了自己，也給對方帶來無形壓力。",
+      "humor": "倒掛在樹上腳都麻了，底下的人都在烤肉根本沒人看你！趕快雙腳落地走過來吃雞腿比較實在啦！",
+      "action": "今天立刻推掉一件你不情願的苦差事，清楚表達：「這次我沒辦法幫忙」，勇敢落地。"
+    },
+    "dimensions_up": {
+      "career": "換個視角看世界！大家都在卷同一個方向，你倒過來另闢蹊徑，藍海商機立馬浮現。",
+      "love": "停止自導自演苦情戲！愛不是受苦受難，懂得適時放手，反而能換來對方的尊重與珍惜。",
+      "wealth": "暫時套牢或卡住別焦慮！按兵不動就是最好的策略，等市場情緒過去，價值自會回歸。",
+      "interpersonal": "退一步海闊天空。不跟認知不同的人爭辯，靜靜看著他們表演，嘴角微微上揚就好。",
+      "health": "容易有血液循環不順、水腫或精神嗜睡困頓。適度做倒立、抬腿或伸展運動促進下肢回流，心理上放下犧牲者悲情心態，重獲生命輕盈感。"
+    },
+    "dimensions_down": {
+      "career": "毫無意義的自我感動式加班！如果方向錯了，越努力越悲壯，立刻停下來重新校正目標。",
+      "love": "當舔狗換不來真正的尊重與愛。停止毫無底線的委曲求全，站直身子活出自己的底氣與驕傲。",
+      "wealth": "沉沒成本不是成本！把死抱虧損標的的執念放下，及時割肉止損才能騰出資金抓新機會。",
+      "interpersonal": "總是習慣替別人背黑鍋？收起無謂的救世主情節，各人因果各人擔，為自己而活。",
+      "health": "血液循環不良、下肢冰冷發麻、慢性疲勞。晚上做溫熱足浴，告別受害者心態讓身心回春。"
+    }
+  },
+  {
+    "id": 14,
+    "name": "死神 (Death)",
+    "pure_name": "死神",
+    "suit": "大阿爾克那",
+    "elem": "水",
+    "astro": "天蠍座 ♏",
+    "img": "120px-RWS_Tarot_13_Death.jpg",
+    "sym_title": "徹底終結與新生蛻變的轉化之門",
+    "visual_clue": "黑甲騎士手持白玫瑰旗幟象徵純潔的重生；教皇、國王與孩童面對死亡展現不同態度；遠方兩座塔樓之間冉冉升起金色朝陽象徵新生。",
+    "vibe": "舊局結束、徹底革新、迎接全新篇章",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "壯士斷腕的魄力！把那個拖垮團隊的爛專案果斷砍掉，騰出資源迎接即將爆發的新業務。",
+      "love": "痛快告別不對的人！揮別錯的才能和對的相逢，今天去換個新髮型，慶祝嶄新的單身或新生。",
+      "wealth": "徹底清查財務死角！取消那些根本沒在用的自動扣款訂閱，精簡開支就是開源的第一步。",
+      "interpersonal": "乾淨俐落地斷捨離人際毒素。不必做任何告別演說，悄悄退群封鎖，空氣都變清新了。",
+      "health": "深層細胞代謝與排毒重生的好時機！多喝溫水促進淋巴排毒，注意骨骼關節修復，徹底告別消耗元氣的壞習慣，新生的能量正在體內生長。"
+    },
+    "empathy": "不要恐懼失去與結束，凋零是為了孕育更美好的新芽。全然地放下，才能輕裝上路。",
+    "action": "果斷告別不再有益的舊習慣與環境，清除障礙，迎接嶄新的生命轉機。",
+    "reversed_guide": "逆位提醒：舊局結束、徹底革新、迎接全新篇章 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "別被名字嚇到了，死神騎士帶來的可是徹頭徹尾的新生破繭！那種苟延殘喘的關係、食之無味的專案，是時候大方斷捨離、送它上路了！舊的不去新的不來，清空衣櫥，才有空間掛上最美麗的新禮服嘛。",
+    "annie_witty_reversed": "逆位死神！你還在死拖活拽著不放手嗎？那塊已經餿掉的蛋糕，再捨不得吃下去也是會鬧肚子的！過去的就讓它隨風去吧，強求只會消耗你的青春，抬頭看，地平線上的日出已經在向你招手了。",
+    "mind_reading_upright": {
+      "warm": "黑色盔甲的騎士高舉白玫瑰旗幟，地平線上升起永恆的黎明金光。請不要被名字嚇到，這是一場溫柔而深刻的重生禮物。",
+      "mind": "你生命中的某個篇章（一段過期的關係、一份食之無味的工作、一種舊思維模式）已經走到了終點。你真正的恐懼是「害怕未知」——即使舊的容器已經碎了，你依然捨不得扔掉，阻礙了新生命的注入。",
+      "humor": "舊手機電池都膨脹了，你還捨不得換新機！清空衣櫥，才有藉口買最漂亮的新洋裝嘛！",
+      "action": "今天狠下心扔掉家裡一件壞掉但放很久的物品，象徵性地告別過去，騰出迎接新生的空間。"
+    },
+    "mind_reading_reversed": {
+      "warm": "死神騎士放慢腳步，黎明曙光被烏雲阻擋。你是不是死死抓著已經發霉的回憶不肯放手，夜深人靜時反覆折磨自己？",
+      "mind": "你在逃避告別的痛苦，用「再等一下、也許還會變好」的幻想自我麻醉。你害怕面對徹底結束後的真空期，但這種拖延只會讓傷口不斷發炎。",
+      "humor": "已經放餿掉的蛋糕，再名貴吃下去也是會掛急診的！優雅把它倒進垃圾桶，轉身去買新鮮現烤的出爐可頌！",
+      "action": "刪除或封存那個反覆讓你內耗的聊天紀錄或照片檔案，對著鏡子對自己說：「這段功課我修完了，我值得往前走」。"
+    },
+    "dimensions_up": {
+      "career": "壯士斷腕的魄力！把那個拖垮團隊的爛專案果斷砍掉，騰出資源迎接即將爆發的新業務。",
+      "love": "痛快告別不對的人！揮別錯的才能和對的相逢，今天去換個新髮型，慶祝嶄新的單身或新生。",
+      "wealth": "徹底清查財務死角！取消那些根本沒在用的自動扣款訂閱，精簡開支就是開源的第一步。",
+      "interpersonal": "乾淨俐落地斷捨離人際毒素。不必做任何告別演說，悄悄退群封鎖，空氣都變清新了。",
+      "health": "深層細胞代謝與排毒重生的好時機！多喝溫水促進淋巴排毒，注意骨骼關節修復，徹底告別消耗元氣的壞習慣，新生的能量正在體內生長。"
+    },
+    "dimensions_down": {
+      "career": "死抱著行將就木的夕陽項目不放！該翻篇的勇敢斷捨離，舊的不去新的不來，給自己一條活路。",
+      "love": "在早已死去的關係裡苟延殘喘。放過對方也是解救自己，優雅轉身才能迎接嶄新的生命春天。",
+      "wealth": "拖延不處理的不良資產會拖垮整個財務！當機立斷壯士斷腕，騰空雙手才能承接新財富。",
+      "interpersonal": "執著於過去的恩怨情仇只是在折磨自己。原諒不代表認可，放下是為了讓自己解脫。",
+      "health": "宿便毒素堆積、關節陳舊傷痛、代謝遲滯。進行一場身心大排毒，多喝溫水促進細胞新陳代謝。"
+    }
+  },
+  {
+    "id": 15,
+    "name": "節制 (Temperance)",
+    "pure_name": "節制",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "射手座 ♐",
+    "img": "120px-RWS_Tarot_14_Temperance.jpg",
+    "sym_title": "煉金融合與身心靈平衡的天使",
+    "visual_clue": "大天使一腳踏在水中一腳踏在陸地象徵潛意識與物質界的平衡；雙手雙杯之間水流互通象徵能量融合；胸前方形中的三角形象徵神性在物質中顯現。",
+    "vibe": "動態平衡、有效溝通、融合與適度調整",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "在跨部門協作中當最優雅的潤滑劑。調和各方利益，把衝突化為合作，優雅推進。",
+      "love": "細水長流的溫柔陪伴。像一杯溫度剛好的伯爵奶茶，不燙嘴也不冰涼，暖心又舒服。",
+      "wealth": "收支平衡的藝術大師。賺錢懂得犒賞生活，消費不忘儲蓄護城河，日子過得微醺又安心。",
+      "interpersonal": "高情商溝通的典範。說話有分寸、做事有餘地，跟誰在一起都讓人覺得如沐春風。",
+      "health": "體液平衡與微循環極佳。適合透過清淡減醣飲食、花草茶與規律冥想，維持體內酸鹼與自律神經諧振，身心和諧是無懈可擊的免疫盾牌。"
+    },
+    "empathy": "萬事過猶不及。在兩極之間尋找中庸之道，耐心地融合不同觀點，時間會沉澱出最純粹的精華。",
+    "action": "保持溫和與節制，促進各方對話與融合，以平靜的心態處理複雜情境。",
+    "reversed_guide": "逆位提醒：動態平衡、有效溝通、融合與適度調整 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "天使在雙杯之間倒水，水流優雅得像一首交響曲！這張牌就是特助的生活信條：中庸之道，動靜皆宜。把手頭的資源、情緒調配得剛剛好，不疾不徐，日子過得微醺又惬意，水到渠成最是迷人。",
+    "annie_witty_reversed": "逆位節制！是不是最近作息大崩潰、報復性熬夜外加情緒大起大落？這張牌在敲警鐘囉！天平已經歪得不像話了，今晚早點上床睡覺，少看點短影音，生活節奏一亂，神仙也救不了你。",
+    "mind_reading_upright": {
+      "warm": "大天使單腳踩在清澈溪流中，單腳踏在翠綠大地上，雙手在兩個金杯之間平穩倒轉清泉，流水生生不息。",
+      "mind": "這張牌帶來極致的心靈調和。你目前的盲區是「容易走極端」——要嘛全力衝刺到過勞，要嘛徹底躺平自責。節制告訴你：真正的成熟，是找到身心動態平衡的中道，不急不躁。",
+      "humor": "咖啡跟牛奶要黃金比例才叫拿鐵，你一口氣倒滿濃縮咖啡是想心悸到天亮嗎？調配好比例最美味！",
+      "action": "檢視今天的作息，在工作兩小時後，強制自己離開椅子走動 5 分鐘、喝一杯溫熱檸檬水。"
+    },
+    "mind_reading_reversed": {
+      "warm": "金杯裡的水灑落一地，天使的翅膀顯得沈重。你最近是不是生活節奏全亂了套，熬夜、暴飲暴食或情緒起伏劇烈？",
+      "mind": "你內在的「能量失衡與代償機制」正在爆發。因為白天壓抑了太多情緒，晚上就用報復性熬夜或無度消費來填補空虛，結果隔天更累，形成惡性循環。",
+      "humor": "天使倒水都倒到鞋子上了！生活不是調酒大賽，別把自己調成一杯失控的長島冰茶！",
+      "action": "今晚提早 40 分鐘躺上床，把手機放在離床三步遠的地方，聽著白噪音讓身體沉沉睡去。"
+    },
+    "dimensions_up": {
+      "career": "在跨部門協作中當最優雅的潤滑劑。調和各方利益，把衝突化為合作，優雅推進。",
+      "love": "細水長流的溫柔陪伴。像一杯溫度剛好的伯爵奶茶，不燙嘴也不冰涼，暖心又舒服。",
+      "wealth": "收支平衡的藝術大師。賺錢懂得犒賞生活，消費不忘儲蓄護城河，日子過得微醺又安心。",
+      "interpersonal": "高情商溝通的典範。說話有分寸、做事有餘地，跟誰在一起都讓人覺得如沐春風。",
+      "health": "體液平衡與微循環極佳。適合透過清淡減醣飲食、花草茶與規律冥想，維持體內酸鹼與自律神經諧振，身心和諧是無懈可擊的免疫盾牌。"
+    },
+    "dimensions_down": {
+      "career": "溝通斷層、節奏大亂！各部門各說各話，放下執念居中調和，先求同存異才能推動專案。",
+      "love": "頻繁因為雞毛蒜皮小事吵得不可開交。別把話說得太滿，各退一步，換個溫和角度溝通。",
+      "wealth": "收支嚴重失衡、過度消費！立刻啟動預算管控，戒掉衝動消費，重新找回財務平衡感。",
+      "interpersonal": "情緒暴躁容易把合作夥伴得罪光。管住情緒火氣，說話前先在心裡默數三秒。",
+      "health": "暴飲暴食引發水液代謝失衡、全身浮腫、自律神經失調。清淡飲食、戒菸限酒，靜心冥想調息。"
+    }
+  },
+  {
+    "id": 16,
+    "name": "惡魔 (The Devil)",
+    "pure_name": "惡魔",
+    "suit": "大阿爾克那",
+    "elem": "土",
+    "astro": "摩羯座 ♑",
+    "img": "120px-RWS_Tarot_15_Devil.jpg",
+    "sym_title": "物質誘惑與心靈枷鎖的試煉",
+    "visual_clue": "半人半羊的惡魔坐在石座上；男女脖子上套著鬆散的鐵鏈象徵隨時可自行脫下的執念枷鎖；倒立五角星象徵被物質欲望遮蔽靈性。",
+    "vibe": "擺脫束縛、覺察執著、看清慾望與盲點",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "提防辦公室內耗與暗黑心機！看清利益背後的陷阱，別為了一點眼前紅利出賣自己的靈魂。",
+      "love": "致命誘惑也是致命毒藥。虐戀只在短劇裡好看，現實中趕快把有毒關係一鍵刪除！",
+      "wealth": "管住貪念！所有號稱保證暴利的投資，百分之百是盯上你的本金，把錢捂緊點。",
+      "interpersonal": "識破情緒勒索的把戲。當有人對你道德綁架時，微笑回答『謝謝關心，但我有我的界線』。",
+      "health": "警惕熬夜、暴飲暴食或成癮性依賴對肝膽造成的負擔。切斷心理上的不健康執念，透過流汗運動（如慢跑、拳擊）排泄內在毒素與負能量。"
+    },
+    "empathy": "看見鎖鏈其實是自己親手套上的。只要看破內在的恐懼與貪婪，你隨時具備重獲自由的力量。",
+    "action": "清醒審視當前的束縛與成癮，勇敢切斷不合理的依賴，拿回自我的主控權。",
+    "reversed_guide": "逆位提醒：擺脫束縛、覺察執著、看清慾望與盲點 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "哎呀，惡魔牌！脖子上的鐵鍊明明鬆得可以自己拿下來，很多人卻偏偏沉溺在裡面不想走！這是在提醒你：不管是暴飲暴食、熬夜滑手機、還是對有毒關係的執念，看清誘惑背後的代價，你隨時都能轉身大步離開！",
+    "annie_witty_reversed": "逆位惡魔！太棒了！你終於清醒過來、一把扯掉束縛自己的鐵鍊了！那種看透把戲後的解脫感，是不是超級爽快？恭喜你拿回人生的掌控權，昂首闊步走向自由，沒有人能再道德綁架你！",
+    "mind_reading_upright": {
+      "warm": "巨大黑翅膀的盤羊角惡魔高坐台座，腳下男女脖子上套著鬆垮的鐵鍊。這張牌直擊我們最隱秘的慾望與心魔。",
+      "mind": "你正在被某種「癮頭」或「有毒的依戀」綁架（可能是金錢的焦慮、不甘心的執念、或者一個明知消耗你卻離不開的人）。但仔細看：脖子上的鐵鍊其實無比寬鬆，只要你願意抬頭，隨時可以自己拿下來！困住你的從來不是外境，是你自己的不甘心。",
+      "humor": "惡魔在那邊擺酷點火把，男女脖子上的項圈大得都能當呼啦圈轉了！你自己套上去的，隨時拿下來拍拍屁股走人啊！",
+      "action": "誠實列出一件你「明知有害卻天天在做」的習慣，今天只要求自己做到一次延遲滿足（例如想吃消夜時先等 20 分鐘）。"
+    },
+    "mind_reading_reversed": {
+      "warm": "鐵鍊終於被掙脫，惡魔的寶座在崩塌。恭喜你！你內心已經開始覺醒，正在從長期的精神枷鎖中醒過來！",
+      "mind": "雖然你已經看到了真相、準備走出有毒環境，但你此刻面臨的考驗是「戒斷反應的陣痛」。你可能會反覆懷疑自己：「我真的可以獨立生活嗎？離開他/這份工作我會不會更慘？」，需要強大的自我確信。",
+      "humor": "越獄成功了就趕快跑，千萬別因為監獄的被子疊得很整齊又想跑回去住啊！",
+      "action": "告訴自己一句力量宣言：「我已經自由了，我有足夠的能力為自己的幸福買單！」，大步往前走。"
+    },
+    "dimensions_up": {
+      "career": "提防辦公室內耗與暗黑心機！看清利益背後的陷阱，別為了一點眼前紅利出賣自己的靈魂。",
+      "love": "致命誘惑也是致命毒藥。虐戀只在短劇裡好看，現實中趕快把有毒關係一鍵刪除！",
+      "wealth": "管住貪念！所有號稱保證暴利的投資，百分之百是盯上你的本金，把錢捂緊點。",
+      "interpersonal": "識破情緒勒索的把戲。當有人對你道德綁架時，微笑回答『謝謝關心，但我有我的界線』。",
+      "health": "警惕熬夜、暴飲暴食或成癮性依賴對肝膽造成的負擔。切斷心理上的不健康執念，透過流汗運動（如慢跑、拳擊）排泄內在毒素與負能量。"
+    },
+    "dimensions_down": {
+      "career": "終於看清職場PUA的真相！掙脫束縛勇敢說「不」，拿回屬於自己的主控權，你自由了！",
+      "love": "斬斷有毒的虐戀與情感勒索！看清對方的操控套路，果斷走出陰影，你值得被健康溫柔對待。",
+      "wealth": "戒除超前消費與賭徒心態！停止拆東牆補西牆的惡性循環，一步一腳印重建乾淨財務。",
+      "interpersonal": "遠離那些把你拖入負能量泥淖的毒友。勇敢拉黑封鎖，你的能量場需要徹底大掃除。",
+      "health": "擺脫咖啡因、糖癮或熬夜惡習的最佳契機！做背部核心拉伸，以大汗淋漓的運動重塑體魄。"
+    }
+  },
+  {
+    "id": 17,
+    "name": "高塔 (The Tower)",
+    "pure_name": "高塔",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "火星 ♂",
+    "img": "120px-RWS_Tarot_16_Tower.jpg",
+    "sym_title": "雷霆霹靂與虛妄傲慢的徹底崩解",
+    "visual_clue": "閃電擊中高聳的王冠石塔；男女從塔頂墜落象徵建立在虛妄傲慢之上的體系崩潰；噴射的火焰與二十二顆火珠象徵神聖意志的強制重組。",
+    "vibe": "打破假象、突發衝擊、破舊立新重新出發",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "黑天鵝來襲也別慌！危樓塌了剛好重建最堅固的堡壘，危機往往包裝著最強大的轉機。",
+      "love": "真相大白的震撼彈！雖然當下心痛，但慶幸提早止損，不用再活在虛假的謊言泡泡裡。",
+      "wealth": "緊急啟動備用應急基金！別死守沉沒成本，壯士斷腕保全核心主力資產。",
+      "interpersonal": "假面朋友在危機時現形！感謝這場暴風雨幫你篩檢出誰才是能在暴雨中為你撐傘的真朋友。",
+      "health": "突發壓力容易引發急性神經抽痛、睡眠中斷或血壓急升。此時最需要接地氣平撫驚恐，赤足踏青、多接觸大樹泥土，讓身心平穩落地。"
+    },
+    "empathy": "崩塌的是不堅固的假象，而非真正的你。接納劇變帶來的震撼，廢墟之上將建立更真實的城堡。",
+    "action": "接受現實，不要試圖挽救注定瓦解的假象，將焦點放在保護核心價值與未來的重建。",
+    "reversed_guide": "逆位提醒：打破假象、突發衝擊、破舊立新重新出發 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "天打雷劈，高塔瞬間坍塌！先別尖叫，特助告訴你個秘密：有些高塔本來就是危樓，早點被雷劈倒反而是宇宙對你的救贖！虛假的幻象粉碎了，你才能在最扎實的平地上蓋出真正屬於你的城堡，破壞就是最好的建設！",
+    "annie_witty_reversed": "逆位高塔！雖然躲過了一場大崩潰，但地基依然在搖晃喔。別抱著僥倖心理粉飾太平，該修的漏洞趕快補上。坦然面對現實中的問題，別等到問題變成海嘯才想起來要跑。",
+    "mind_reading_upright": {
+      "warm": "金色閃電擊中高聳入雲的石塔，王冠被掀落，磚石崩解。這張牌看似驚心動魄，實則是宇宙最慈悲的強行重置。",
+      "mind": "某個你苦心維繫的假象（一份虛假的安全感、一個不切實際的幻想）被現實無情擊碎了。你的痛苦來自於「執念的坍塌」；但這座塔的地基從一開始就蓋歪了，與其天天擔心它倒下來，不如感謝這道閃電幫你徹底拆除違建！",
+      "humor": "違章建築被天雷拆除隊合法拆掉了，雖然灰塵大了點，但至少你不用每個月繳高額管理費啦！",
+      "action": "接受現狀，不在廢墟裡哭泣。洗把臉，拿出一張全新白紙，寫下「如果一切重新開始，我最想做的是什麼？」。"
+    },
+    "mind_reading_reversed": {
+      "warm": "高塔在地震中搖晃，烏雲籠罩。你最近是不是明知道事情已經爛到根子裡了，卻還在苦苦支撐、粉飾太平？",
+      "mind": "你在「慢性受虐」。你因為太害怕劇烈變動的劇痛，寧可忍受溫水煮青蛙的長期折磨。你正在耗盡最後一點元氣，去維持一個注定要破裂的泡泡。",
+      "humor": "天花板都在漏水掉水泥塊了，你還在牆上貼壁紙裝好看！趕快戴上安全帽跑出去比較聰明啦！",
+      "action": "停止任何拆東牆補西牆的無效搶救。讓該破的泡泡破掉，只有跌到谷底，反彈的力量才最強。"
+    },
+    "dimensions_up": {
+      "career": "黑天鵝來襲也別慌！危樓塌了剛好重建最堅固的堡壘，危機往往包裝著最強大的轉機。",
+      "love": "真相大白的震撼彈！雖然當下心痛，但慶幸提早止損，不用再活在虛假的謊言泡泡裡。",
+      "wealth": "緊急啟動備用應急基金！別死守沉沒成本，壯士斷腕保全核心主力資產。",
+      "interpersonal": "假面朋友在危機時現形！感謝這場暴風雨幫你篩檢出誰才是能在暴雨中為你撐傘的真朋友。",
+      "health": "突發壓力容易引發急性神經抽痛、睡眠中斷或血壓急升。此時最需要接地氣平撫驚恐，赤足踏青、多接觸大樹泥土，讓身心平穩落地。"
+    },
+    "dimensions_down": {
+      "career": "僥倖躲過一場危機不代表沒事！趕緊查漏補缺、加固底層架構，把隱患徹底根除防二次震盪。",
+      "love": "隱瞞的矛盾雖未徹底爆發，但裂痕已在。別抱僥倖心理粉飾太平，坦誠面對才能真正修復。",
+      "wealth": "資金鏈剛經歷驚險考驗！立刻建立緊急備用金與風控護城河，別再做走鋼索的冒險。",
+      "interpersonal": "經歷了一場誤會或衝突後餘震未消。給彼此時間平復情緒，低調沈潛、少惹是非。",
+      "health": "內在壓力鍋悶燒致胃痙攣或偏頭痛。及早宣洩情緒毒素，大聲唱歌或運動暴汗釋放高壓。"
+    }
+  },
+  {
+    "id": 18,
+    "name": "星星 (The Star)",
+    "pure_name": "星星",
+    "suit": "大阿爾克那",
+    "elem": "風",
+    "astro": "水瓶座 ♒",
+    "img": "120px-RWS_Tarot_17_Star.jpg",
+    "sym_title": "暴風雨後的希望之光與靈魂療癒",
+    "visual_clue": "赤裸女子雙手持水瓶分別澆灌陸地與池塘；頭頂一顆巨大的八角希望之星被七顆小星圍繞；樹上的朱鷺象徵智慧與靈感。",
+    "vibe": "希望曙光、療癒修復、充滿靈感與願景",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "靈感噴湧、靈氣十足！大膽提出你的創意策劃，你的作品會像夜空中的北極星一樣亮眼。",
+      "love": "純淨美好的治癒系戀情。互為彼此的精神燈塔，在一起連沉默都是舒服的詩篇。",
+      "wealth": "遠景一片看好！投資於個人成長、美學與身心健康，未來的回報將遠超你的想像。",
+      "interpersonal": "自帶希望光芒的能量發射站！你的正能量正在治癒身邊迷惘的朋友，成為別人的小幸運。",
+      "health": "身心靈深層洗滌與自癒黃金期！適合水療SPA、芳香精油療法與安穩優質睡眠，敞開心扉感受平靜，全身細胞正在喜悅地進行微修復。"
+    },
+    "empathy": "放下防禦與疑慮，信任宇宙為你保留的美好。你的存在本身就是一道光芒，照亮自己與他人。",
+    "action": "重燃信心，帶著希望與開放的心態投入創作與生活，分享你的靈感與善意。",
+    "reversed_guide": "逆位提醒：希望曙光、療癒修復、充滿靈感與願景 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "少女在星空下倒水，整片天空都灑滿了希望與靈感的光芒！這張牌美得讓人屏息。過去的風暴徹底平息了，請對未來保持絕對的信心，跟隨你內心最純粹的光芒走，你所渴望的奇蹟正在趕來的路上。",
+    "annie_witty_reversed": "逆位星星！是不是有一種『心願落空、前途渺茫』的灰心感？特助抱抱你。星星其實一直都在，只是暫時被烏雲遮住了而已。別急著否定自己，今晚好好吃頓飯睡個好覺，明天太陽升起又是全新的一天。",
+    "mind_reading_upright": {
+      "warm": "美麗的少女赤裸跪在清澈水畔，一手將甘露傾注在大地滋養繁花，一手傾注在池塘激起漣漪，天空中八角希望之星璀璨生輝。",
+      "mind": "在經歷了風暴與洗禮之後，你的靈魂正在進入深度療癒。你現在的盲區是「太過急著向外界證明自己已經痊癒」，給自己多一點安靜滋養的時間，光芒是自然流淌出來的，不需要用力爭搶。",
+      "humor": "星星在夜空閃閃發亮，可從來不用裝電池或插電線！你本來就很耀眼，不用天天發動態求按讚啦！",
+      "action": "今晚找一段舒緩的伸展音樂，伴著音樂深呼吸，感謝自己的身體一路堅強陪你走過來。"
+    },
+    "mind_reading_reversed": {
+      "warm": "天空被雲層遮蔽，少女手裡的甘露倒在泥地上。你最近是不是感到希望渺茫、前途黯淡，甚至開始懷疑所有的努力都沒有意義？",
+      "mind": "你陷入了「悲觀主義的心靈乾涸」。因為期待一次次落空，你便關閉了對美好的感知，認定自己與好運無緣；你把暫時的陰天，當成了太陽永遠熄滅。",
+      "humor": "天上那顆大星星一直都在，只是剛好有一朵胖烏雲飄過去遮住了！等陣風吹過，星星還是對你眨眼睛呀！",
+      "action": "寫下今天發生在你身邊的「三件微小幸運事」（例如喝到一杯香濃咖啡、綠燈一路順暢、同事一個微笑），喚醒內在的希望雷達。"
+    },
+    "dimensions_up": {
+      "career": "靈感噴湧、靈氣十足！大膽提出你的創意策劃，你的作品會像夜空中的北極星一樣亮眼。",
+      "love": "純淨美好的治癒系戀情。互為彼此的精神燈塔，在一起連沉默都是舒服的詩篇。",
+      "wealth": "遠景一片看好！投資於個人成長、美學與身心健康，未來的回報將遠超你的想像。",
+      "interpersonal": "自帶希望光芒的能量發射站！你的正能量正在治癒身邊迷惘的朋友，成為別人的小幸運。",
+      "health": "身心靈深層洗滌與自癒黃金期！適合水療SPA、芳香精油療法與安穩優質睡眠，敞開心扉感受平靜，全身細胞正在喜悅地進行微修復。"
+    },
+    "dimensions_down": {
+      "career": "遭遇打擊感到希望幻滅、職業倦怠。允許自己低潮幾天，別逼自己立刻打雞血，休息是為了走更長遠。",
+      "love": "對愛情失去信心、把心門徹底焊死。別因一個過客否定全世界，先好好愛自己，溫暖自會回流。",
+      "wealth": "因消極悲觀而放棄財務規劃。踏踏實實從小額儲蓄開始，每一分真金白銀都在為你築基。",
+      "interpersonal": "過度敏感自卑、總覺得別人在冷落自己。走出受害者心態，主動向溫暖真誠的朋友問好。",
+      "health": "睡眠品質差易驚醒、小腿水腫或抽筋脫水。睡前溫水泡腳、少看藍光螢幕，補充充足水分。"
+    }
+  },
+  {
+    "id": 19,
+    "name": "月亮 (The Moon)",
+    "pure_name": "月亮",
+    "suit": "大阿爾克那",
+    "elem": "水",
+    "astro": "雙魚座 ♓",
+    "img": "120px-RWS_Tarot_18_Moon.jpg",
+    "sym_title": "潛意識幻影與黑夜迷霧中的探索",
+    "visual_clue": "月亮低垂散發露珠；狼與狗對月吠叫象徵狂野與馴化的恐懼；龍蝦從深潭爬出象徵潛意識深層的焦慮；蜿蜒小徑通往未知遠方。",
+    "vibe": "覺察潛意識、消除焦慮、看清迷霧背後的實相",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "水落石出前別急著下定論。表面平靜底下暗流湧動，重要決策多做一層背景調查。",
+      "love": "別自己嚇自己！七成的不安都是腦補出來的小劇場，找個舒服的時間好好敞開聊聊。",
+      "wealth": "捂好錢包，慎防合約隱藏陷阱。看不清真實條款的合作，一律禮貌推遲。",
+      "interpersonal": "看穿人性的幽暗面依然熱愛生活。對心機一笑置之，保護好自己單純溫暖的心。",
+      "health": "容易受恐懼與潛意識雜訊困擾，引發失眠多夢、自律神經紊亂或淋巴水腫。睡前徹底遠離藍光螢幕，喝杯洋甘菊溫茶，平息驚疑不定的思緒。"
+    },
+    "empathy": "看見恐懼往往是自己想像出來的幻影。不要在黑夜中做出重大決定，等待迷霧散去。",
+    "action": "謹慎求證，暫緩重大決策，多關注事實數據而非情緒猜測，保護好內在的安全感。",
+    "reversed_guide": "逆位提醒：覺察潛意識、消除焦慮、看清迷霧背後的實相 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "月色朦朧，龍蝦爬出水面，狗與狼在對著月光狂吠。這張牌直擊你心底的小劇場：事情根本沒有你想的那麼恐怖，全是自己腦補出來的焦慮在嚇自己！看不清前方的時候就先別亂跑，牽著直覺這條忠犬，慢慢穿過迷霧就好。",
+    "annie_witty_reversed": "逆位月亮！迷霧終於漸漸散開，天邊露出晨曦囉！那些曾經讓你輾轉難眠的疑神疑鬼與謊言，真相即將大白。看清事情的真面目後，心裡的那塊大石頭總算可以放下了，這感覺太輕鬆了！",
+    "mind_reading_upright": {
+      "warm": "滿月在夜空中灑下神秘清輝，兩座遠塔之間，一狼一狗仰天長嚎，小龍蝦從深水潛意識中緩緩爬出。",
+      "mind": "你此刻處於極度的迷茫與不安中。這張牌把你的底細全說穿了：你所有的焦慮，90% 來自「你大腦對未知的恐怖電影式想像」！外境並沒有那麼可怕，可怕的是你自己在腦海中編導的驚悚劇本。",
+      "humor": "遠處那兩隻狗叫得那麼起勁，搞不好只是在爭論今晚是吃肉骨頭還是罐頭！你幹嘛自己嚇自己、裹在被子裡發抖呢？",
+      "action": "把你最害怕發生的那件事具體寫在紙上，然後問自己：「如果最壞的情況真的發生了，我具體能怎麼應對？」，一旦寫出解法，恐懼立刻煙消雲散。"
+    },
+    "mind_reading_reversed": {
+      "warm": "晨曦微露，月亮悄悄退去，水面的迷霧開始消散。你眼前的局勢正在逐步清晰起來。",
+      "mind": "迷茫的黑夜正在過去，你心中的困惑即將真相大白。你當前的心態是要勇敢面對「撥雲見日後的真實現實」，不要因為留戀夢境的安全感而不敢踏上清晨的大道。",
+      "humor": "太陽都出來了，小龍蝦也該爬回水裡睡覺了！別再戴著夜視鏡看太陽，趕快拉開窗簾曬曬太陽！",
+      "action": "今天對那個一直模糊不清的合約或關係，主動提出具體問題，把條款談清楚，走出灰色地帶。"
+    },
+    "dimensions_up": {
+      "career": "水落石出前別急著下定論。表面平靜底下暗流湧動，重要決策多做一層背景調查。",
+      "love": "別自己嚇自己！七成的不安都是腦補出來的小劇場，找個舒服的時間好好敞開聊聊。",
+      "wealth": "捂好錢包，慎防合約隱藏陷阱。看不清真實條款的合作，一律禮貌推遲。",
+      "interpersonal": "看穿人性的幽暗面依然熱愛生活。對心機一笑置之，保護好自己單純溫暖的心。",
+      "health": "容易受恐懼與潛意識雜訊困擾，引發失眠多夢、自律神經紊亂或淋巴水腫。睡前徹底遠離藍光螢幕，喝杯洋甘菊溫茶，平息驚疑不定的思緒。"
+    },
+    "dimensions_down": {
+      "career": "迷霧散去、真相大白！隱藏的暗箭與謊言水落石出，看清局勢後果斷出招，把握逆轉勝良機。",
+      "love": "曖昧不明的三角關係或欺騙終於攤牌。走出患得患失的精神內耗，看清真相反而是最大的解脫。",
+      "wealth": "及時識破投資騙局或理清爛帳！財務開始重見天日，只做透明合規的穩健投資。",
+      "interpersonal": "看清誰是真朋友、誰是雙面人。毫不猶豫清理朋友圈，把真心留給表裡如一的良友。",
+      "health": "多夢易醒、荷爾蒙波動或水液代謝不良。白天多接觸陽光，睡前使用薰衣草精油安定神經。"
+    }
+  },
+  {
+    "id": 20,
+    "name": "太陽 (The Sun)",
+    "pure_name": "太陽",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "太陽 ☉",
+    "img": "120px-RWS_Tarot_19_Sun.jpg",
+    "sym_title": "純粹光明與生命喜悅的終極顯化",
+    "visual_clue": "金色太陽綻放光芒；裸體孩童騎在白馬之上象徵純真與無畏；身後的向日葵象徵生命力旺盛；紅色羽毛與旗幟象徵熱情與勝利。",
+    "vibe": "光明坦蕩、成功圓滿、充滿活力與正能量",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "全力衝刺的黃金收穫期！專案大獲成功、成果受到全場喝采，享受這份高光時刻吧！",
+      "love": "陽光般明媚坦蕩的愛！牽手去海邊吹風踏浪，笑聲是你們之間最棒的情話。",
+      "wealth": "正財偏財雙喜臨門！心情越燦爛運氣越旺，適當給自己買份一直想要的大禮物。",
+      "interpersonal": "人見人愛的萬人迷！熱情真誠的笑容是世界上最強大的名片，貴人追著你跑。",
+      "health": "陽氣充沛、生命力旺盛！多曬晨間柔和陽光合成維生素D，促進心血管活力與歡樂多巴胺分泌，但需注意防曬與避免午後過度燥熱。"
+    },
+    "empathy": "全然地擁抱快樂與成功！你的光芒無需掩藏，大方地展現熱情與才華，溫暖所有人。",
+    "action": "全力以赴推進計畫，分享你的成果與喜悅，以樂觀正向的能量感染整個團隊。",
+    "reversed_guide": "逆位提醒：光明坦蕩、成功圓滿、充滿活力與正能量 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "小男孩騎著白馬在向日葵花田裡放肆歡笑！金燦燦的太陽照得人全身暖洋洋。這能量太爆棚了！一切都在向陽生長，好心情、好活力、好運氣全都在你這邊，盡情綻放你的光彩，把你的熱情傳染給身邊每一個人吧！",
+    "annie_witty_reversed": "逆位太陽！陽光稍微被雲層遮了一下，不過別擔心，熱度依然在！可能是最近玩得太嗨有點樂極生悲，或者熱情有點短暫降溫。適度收斂一下光芒，低調享受當下，幸福依然穩穩在線。",
+    "mind_reading_upright": {
+      "warm": "金色燦爛的太陽高懸天空，向日葵盛放，純真無邪的孩童騎在白馬上，展開雙臂迎接世界。這張牌代表著純粹的喜悅、成功與無盡活力。",
+      "mind": "你現在處於能量爆棚的黃金期！但你的微小心魔是「害怕好景不長」——你習慣了受苦與緊繃，當幸福和順利突然降臨時，你反而感到心虛，甚至暗暗擔心「我是不是馬上要倒楣了？」。",
+      "humor": "白馬上的小朋友連衣服都沒穿，笑得沒心沒肺多開懷！太陽曬在你身上是免費的，大方張開雙臂曬太陽，幹嘛還要自備雨傘呢！",
+      "action": "毫無保留地享受當下！今晚犒賞自己一頓豐盛的美食，並大聲對鏡子裡的自己說：「這是我努力應得的美好，我值得！」。"
+    },
+    "mind_reading_reversed": {
+      "warm": "太陽被一小片雲朵遮擋，向日葵有些垂頭。你身邊其實有很多好事正在發生，但你卻總是只盯著那一小片烏雲嘆氣。",
+      "mind": "你正在陷入「習慣性打折的悲觀濾鏡」。即使做成了 95 分，你依然死盯著那丟失的 5 分悶悶不樂。你對自己太過嚴苛，不允許自己純粹地快樂。",
+      "humor": "太陽只不過打了個噴嚏被雲遮了兩秒鐘，世界又沒有冰河時期！別因為一顆小痘痘就覺得整張臉不能看啦！",
+      "action": "主動跟一個朋友分享你最近完成的一個小成就，接受對方的讚美，不要客套推辭，大方說「謝謝，我也覺得自己很棒！」。"
+    },
+    "dimensions_up": {
+      "career": "全力衝刺的黃金收穫期！專案大獲成功、成果受到全場喝采，享受這份高光時刻吧！",
+      "love": "陽光般明媚坦蕩的愛！牽手去海邊吹風踏浪，笑聲是你們之間最棒的情話。",
+      "wealth": "正財偏財雙喜臨門！心情越燦爛運氣越旺，適當給自己買份一直想要的大禮物。",
+      "interpersonal": "人見人愛的萬人迷！熱情真誠的笑容是世界上最強大的名片，貴人追著你跑。",
+      "health": "陽氣充沛、生命力旺盛！多曬晨間柔和陽光合成維生素D，促進心血管活力與歡樂多巴胺分泌，但需注意防曬與避免午後過度燥熱。"
+    },
+    "dimensions_down": {
+      "career": "成功稍微延遲，或因過度自負忽略了細節盲點。保持耐心打磨產品，補齊短板依然光芒萬丈。",
+      "love": "熱情過猛給對方造成壓迫感，或太以自我為中心。收斂一點刺眼光芒，多留空間體貼傾聽伴侶。",
+      "wealth": "因盲目樂觀而稍微超支預算。留足安全緩衝空間，不把槓桿打太滿，回款終將如期落袋。",
+      "interpersonal": "說話太直接無意中刺傷了脆弱的朋友。熱情中帶點細膩謙遜，做個溫暖而不灼人的小太陽。",
+      "health": "虛火上升、口乾舌燥或過度運動後的虛脫。及時補水降火，陰涼處小憩片刻，避免曬傷中暑。"
+    }
+  },
+  {
+    "id": 21,
+    "name": "審判 (Judgement)",
+    "pure_name": "審判",
+    "suit": "大阿爾克那",
+    "elem": "火",
+    "astro": "冥王星 ♇",
+    "img": "120px-RWS_Tarot_20_Judgement.jpg",
+    "sym_title": "末日號角與靈魂復甦的終極召喚",
+    "visual_clue": "大天使加百列吹響金色號角；棺木中的男女老少破棺而出仰望救贖；紅十字旗幟象徵神聖召喚與生命重生。",
+    "vibe": "重大覺醒、清算複盤、聽從內心召喚",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "多年磨一劍，今日試鋒芒！重大的里程碑考核即將過關，準備迎接身份與職涯的大升級。",
+      "love": "解開心結、破鏡重圓或全新昇華。看清內心真正的渴望，給彼此一個成熟真誠的答案。",
+      "wealth": "過去扎實積累的價值全面兌現！這不是運氣，是你一步一腳印應得的豐厚回報。",
+      "interpersonal": "大格局的破冰與和解。放下過去的恩恩怨怨，站上更高的維度，格局大了，路就寬了。",
+      "health": "身體機制喚醒與深層修復！適合進行體檢追蹤或生活作息大重置，聽從身體發出的真實信號，放下過往的內疚負擔，迎來煥然一新的元氣。"
+    },
+    "empathy": "傾聽內在靈魂的號角聲。過去的痛苦已經過去，現在是你重獲新生、展翅高飛的時刻。",
+    "action": "果斷做出重大抉擇，告別猶豫不決，勇敢響應你真正渴望的天命與方向。",
+    "reversed_guide": "逆位提醒：重大覺醒、清算複盤、聽從內心召喚 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "天使吹響號角，棺木中的人們甦醒歡呼！這是一場靈魂深處的大復甦與覺醒時刻！過去的一切積累在今天開花結果，宇宙在召喚你站上更高的維度。別再猶豫了，接受這個召喚，開啟你人生的全新篇章！",
+    "annie_witty_reversed": "逆位審判！是不是心裡明明聽到了號角聲，卻還縮在被窩裡假裝聽不到？逃避不能解決問題，別再拖延做那個你知道該做的決定了。勇敢面對它，跨過去你就是重生的大女主！",
+    "mind_reading_upright": {
+      "warm": "大天使加百列吹響金色號角，雲端聖音繚繞，人們從石棺中展開雙臂站起，迎接靈魂的覺醒與新生。",
+      "mind": "這是一個命運召喚的關鍵時刻。你內心那個沉睡已久的真正夢想正在被喚醒。你的卡點在於「害怕舊帳被翻出、害怕面對過去的遺憾」；但審判不是懲罰，而是徹底寬恕過去、重新定義自己的通行證！",
+      "humor": "天使喇叭吹得震天響，隔壁鄰居都醒了，你可別再賴床裝睡、把被子拉過頭頂裝沒聽見啦！",
+      "action": "原諒過去某個做錯決定的自己。在心裡跟過去的自己握手言和：「那時候的你已經盡力了，現在由新版的我來接棒！」。"
+    },
+    "mind_reading_reversed": {
+      "warm": "號角聲低沈，人們猶豫著不願從棺木中跨出。你是不是還在為五年前、十年前的一個錯誤選擇反覆自責悔恨？",
+      "mind": "你把過去的失敗當成終身監禁的判決書。你用自我否定和自責來當作「不用努力前進的藉口」；因為只要認定自己是個失敗者，就不用承擔再次嘗試可能失敗的風險。",
+      "humor": "舊棺材蓋都發霉了，你還當成席夢思床墊賴著不走！過去那場戲早就劇終散場了，保全都要關燈鎖門啦！",
+      "action": "寫下一件你自責最久的事情，然後用紅筆在上面寫上大大的「已結案無罪釋放」，把紙撕碎丟棄。"
+    },
+    "dimensions_up": {
+      "career": "多年磨一劍，今日試鋒芒！重大的里程碑考核即將過關，準備迎接身份與職涯的大升級。",
+      "love": "解開心結、破鏡重圓或全新昇華。看清內心真正的渴望，給彼此一個成熟真誠的答案。",
+      "wealth": "過去扎實積累的價值全面兌現！這不是運氣，是你一步一腳印應得的豐厚回報。",
+      "interpersonal": "大格局的破冰與和解。放下過去的恩恩怨怨，站上更高的維度，格局大了，路就寬了。",
+      "health": "身體機制喚醒與深層修復！適合進行體檢追蹤或生活作息大重置，聽從身體發出的真實信號，放下過往的內疚負擔，迎來煥然一新的元氣。"
+    },
+    "dimensions_down": {
+      "career": "在命運十字路口優柔寡斷！因害怕犯錯而死守舒適圈，鼓起勇氣做出決斷，命運犒賞勇敢的人。",
+      "love": "沉溺在過去的失敗感情中反覆自責。過去是為了讓你成長，饒恕自己才能騰出雙手擁抱幸福。",
+      "wealth": "因過去的投資失誤患得患失不敢下手。認清沉沒成本，翻過舊帳頁，專注做好當下的每筆決策。",
+      "interpersonal": "太在意外界的眼光與評價。做自己靈魂的主宰，別人怎麼看是他的事，活出自己最重要。",
+      "health": "忽視身體微小警訊導致小病拖成大患。即刻預約健康檢查，認真傾聽身體發出的求救信號。"
+    }
+  },
+  {
+    "id": 22,
+    "name": "世界 (The World)",
+    "pure_name": "世界",
+    "suit": "大阿爾克那",
+    "elem": "土",
+    "astro": "土星 ♄",
+    "img": "120px-RWS_Tarot_21_World.jpg",
+    "sym_title": "圓滿成就與宇宙合一的終極凱歌",
+    "visual_clue": "舞者身披紫色絲帶在月桂花環中央優雅起舞；雙手持權杖象徵整合創造力；四角的四活物見證圓滿；花環象徵宇宙完整循環。",
+    "vibe": "圓滿達成、階段性終點、邁向新高度",
+    "coaching_hook": "「你看這張牌上的意象，如果這就是你現在心裡的風景，你覺得哪一個部分最觸動你當下的心情？」",
+    "dimensions": {
+      "career": "大功告成，完美收官！這個專案交出漂亮成績單，給自己放個悠閒假期，微醺慶功！",
+      "love": "天作之合的靈魂伴侶！走過千山萬水，終於在對的時間遇到對的人，幸福圓滿。",
+      "wealth": "財富自由與心靈自由的完美平衡。錢賺得優雅從容，花得愜意舒心，這才是真正的大贏家。",
+      "interpersonal": "走向更廣闊的世界舞台！海外出差、跨界合作如魚得水，你的生活比電影還精彩。",
+      "health": "五臟六腑與氣血運行的圓融和諧狀態！身體耐受力與免疫屏障處於高位，保持這份身心合一的鬆弛與喜悅，維持動態平衡即可長青逆齡。"
+    },
+    "empathy": "感謝這段旅程中的所有經歷。你已經完成了這一階段的修煉，享受這份圓滿與豐盛。",
+    "action": "慶祝當前的勝利與圓滿，總結經驗，以成熟豁達的心態迎接下一個更宏大的起點。",
+    "reversed_guide": "逆位提醒：圓滿達成、階段性終點、邁向新高度 的能量有所阻滯或過度，需要調整步伐。",
+    "annie_witty_upright": "舞者在綠色桂冠的花環中翩翩起舞，四方聖獸祥和護佑。這就是大圓滿的『世界牌』！一個偉大的週期圓滿落幕，身心靈達到了最純粹的合一與和諧。給自己倒杯香檳慶祝吧，你值得這世間所有的美好！",
+    "annie_witty_reversed": "逆位世界！就差最後臨門一腳了！可能是一份報告還差最後校對，或者心裡還有一點點小疙瘩沒解開。別在終點線前半途而廢，深吸口氣，把最後一塊拼圖拼上去，完美的終點就在眼前！",
+    "mind_reading_upright": {
+      "warm": "綠色月桂花環圍繞著優雅起舞的舞者，手中雙杖引動天地能量，四角神獸安詳見證大圓滿。這是一段生命旅程的完美閉環與巔峰綻放。",
+      "mind": "你完成了極其重要的人生階段或專案！但你下意識的焦慮是「巔峰之後怎麼辦？」。你習慣了不斷奔跑追逐下一個目標，甚至來不及停下腳步為自己的成功好好慶祝一番。",
+      "humor": "舞者在花環裡跳得那麼優雅迷人，台下的掌聲都拍爛了！你總不能剛跳完天鵝湖，就轉頭問後台地板掃了沒吧！",
+      "action": "今天給自己舉辦一個微型慶功宴，哪怕只是喝一杯頂級香檳或吃一塊精緻草莓塔，好好犒賞這段時間無比努力的自己。"
+    },
+    "mind_reading_reversed": {
+      "warm": "花環下方似乎有一處小缺口，舞者的腳步有些停滯。你是不是覺得事情明明差最後一步，卻卡在那裡遲遲無法圓滿收官？",
+      "mind": "你的「完美主義強迫症」在作祟。因為害怕交付後不夠完美被挑毛病，你反覆在最後 5% 的細節上糾纏打轉，遲遲不肯給專案畫上句號。",
+      "humor": "畫龍點睛，點完就該讓龍飛上天了！你不能因為龍鱗少了一顆亮粉，就抓著龍尾巴不讓牠飛呀！",
+      "action": "拿出「完成大於完美」的魄力，今天就把那個卡在最後階段的任務按下「發送」或「結案」，允許它帶著真實的小瑕疵優雅落地。"
+    },
+    "dimensions_up": {
+      "career": "大功告成，完美收官！這個專案交出漂亮成績單，給自己放個悠閒假期，微醺慶功！",
+      "love": "天作之合的靈魂伴侶！走過千山萬水，終於在對的時間遇到對的人，幸福圓滿。",
+      "wealth": "財富自由與心靈自由的完美平衡。錢賺得優雅從容，花得愜意舒心，這才是真正的大贏家。",
+      "interpersonal": "走向更廣闊的世界舞台！海外出差、跨界合作如魚得水，你的生活比電影還精彩。",
+      "health": "五臟六腑與氣血運行的圓融和諧狀態！身體耐受力與免疫屏障處於高位，保持這份身心合一的鬆弛與喜悅，維持動態平衡即可長青逆齡。"
+    },
+    "dimensions_down": {
+      "career": "差最後臨門一腳卻遲遲無法收尾，或因追求完美陷入拖延；破局在於「先求完成、再求完美」，大膽封箱交付！",
+      "love": "關係總覺得少了一點靈魂共鳴或陷入雞肋狀態；盲點在於向內尋找自己的完整性，先把自己過得圓融自在，幸福自然流動。",
+      "wealth": "海外投資或重大資產變現遭遇手續流程卡頓；理財心法在於耐心走完最後合規細節，切忌心急搶跑。",
+      "interpersonal": "視野受限於眼前小圈子或人情偏見；處世心法在於跳脫同溫層、放眼大千世界，你的格局自會豁然開朗。",
+      "health": "長期慢性疲勞導致微循環停滯水腫、腰椎沉重無力、臨門一腳提不起勁；建議熱水泡澡發汗、做全身筋膜滾筒放鬆排毒。"
+    }
+  }
+];
+
+    // State
+    let isSpinning = true;
+    let currentDrawnCard = null;
+    let isReversedCurrent = false;
+    let speechEnabled = true;
+    let isCurrentlySpeaking = false;
+    let activeUtterance = null;
+    let morphLipSyncTimer = null;
+
+    // Audio Elements
+    const introAudio = document.getElementById('introAudio');
+
+    // Play Annie Intro Voice on Page 1
+    function playAnnieIntroVoice() {
+      if (introAudio.paused) {
+        introAudio.currentTime = 0;
+        introAudio.volume = 0.95;
+        introAudio.play().then(() => {
+          document.getElementById('introBannerText').innerText = '🎙️ Annie 正在引導您靜心冥想...';
+        }).catch(err => {
+          // Fallback to Web Speech API with magnetic slow rate
+          speakAnnieAdvice('歡迎來到 Annie 的塔羅魔法室。請先深吸一口氣，讓紊亂的心念漸漸沉澱下來。在心中專注默想你近期最掛念的一件事，當你感覺與當下連結時，輕輕點擊緩緩旋轉的牌盒，命運之門將為你敞開。');
+        });
+
+        introAudio.onended = () => {
+          document.getElementById('introBannerText').innerText = '🎙️ 點擊聆聽 Annie 特助感性冥想引導語';
+        };
+      } else {
+        introAudio.pause();
+        introAudio.currentTime = 0;
+        document.getElementById('introBannerText').innerText = '🎙️ 點擊聆聽 Annie 特助感性冥想引導語';
+      }
+    }
+
+    // Starfield Background
+    const canvas = document.getElementById('starCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const numStars = Math.floor((canvas.width * canvas.height) / 7000);
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.3,
+          color: ['#fbbf24', '#c084fc', '#ffffff', '#60a5fa'][Math.floor(Math.random() * 4)],
+          speed: Math.random() * 0.015 + 0.005,
+          alpha: Math.random(),
+          alphaDir: Math.random() > 0.5 ? 1 : -1
+        });
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.alpha += s.speed * s.alphaDir;
+        if (s.alpha >= 1) { s.alpha = 1; s.alphaDir = -1; }
+        if (s.alpha <= 0.1) { s.alpha = 0.1; s.alphaDir = 1; }
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = s.alpha;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateStars();
+
+    // 3D Carousel Generation with Dynamic Screen Scaling
+    const carouselEl = document.getElementById('carousel3D');
+    const TOTAL_CARDS = 22;
+
+    function getCylinderRadius() {
+      const w = window.innerWidth;
+      if (w <= 420) return 155; // Mobile compact (iPhone, small Android)
+      if (w <= 640) return 190; // Mobile plus / mini tablet
+      if (w <= 900) return 260; // Tablet portrait
+      return 340;               // Desktop & S6 Landscape
+    }
+
+    function build3DCarousel() {
+      carouselEl.innerHTML = '';
+      const angleStep = 360 / TOTAL_CARDS;
+      const radius = getCylinderRadius();
+
+      for (let i = 0; i < TOTAL_CARDS; i++) {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'cylinder-card';
+        const cardAngle = i * angleStep;
+        cardDiv.style.transform = `rotateY(${cardAngle}deg) translateZ(${radius}px)`;
+        cardDiv.dataset.index = i;
+        cardDiv.dataset.angle = cardAngle;
+
+        cardDiv.innerHTML = `
+          <div class="card-back-pattern">
+            <div class="card-back-border">
+              <div class="star-emblem">✡</div>
+            </div>
+          </div>
+        `;
+        carouselEl.appendChild(cardDiv);
+      }
+    }
+
+    function updateCarouselRadius() {
+      const radius = getCylinderRadius();
+      const cards = carouselEl.querySelectorAll('.cylinder-card');
+      cards.forEach(c => {
+        const angle = c.dataset.angle;
+        if (angle !== undefined) {
+          c.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+        }
+      });
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      updateCarouselRadius();
+    });
+
+    build3DCarousel();
+
+    // Blind Draw Trigger (Click on Cylinder)
+    function handleDeckClick(event) {
+      if (!isSpinning) return;
+      
+      // Stop intro audio if playing
+      if (!introAudio.paused) {
+        introAudio.pause();
+        document.getElementById('introBannerText').innerText = '🎙️ 點擊聆聽 Annie 特助感性冥想引導語';
+      }
+
+      // Stop the continuous spin
+      isSpinning = false;
+      carouselEl.classList.remove('spinning');
+
+      // Randomly pick one card from the 22 Major Arcana with strictly equal 1/22 probability
+      const randomIndex = Math.floor(Math.random() * TOTAL_CARDS);
+      currentDrawnCard = MAJOR_ARCANA[randomIndex];
+
+      // Randomly pick orientation with strictly equal 50% / 50% probability
+      isReversedCurrent = Math.random() < 0.5;
+
+      // Card selection visual flair
+      const clickedEl = event.target.closest('.cylinder-card');
+      if (clickedEl) {
+        clickedEl.style.boxShadow = '0 0 38px #fbbf24';
+        clickedEl.style.borderColor = '#fef08a';
+      }
+
+      // Small delay then trigger reveal modal
+      setTimeout(() => {
+        revealDrawnCard();
+      }, 700);
+    }
+
+    // Reveal Drawn Card Modal (Infused with Annie IP Persona)
+    function revealDrawnCard() {
+      const overlay = document.getElementById('revealOverlay');
+      const flipInner = document.getElementById('flipCardInner');
+      const cardFrontImg = document.getElementById('cardFrontImg');
+      const posBadge = document.getElementById('posBadge');
+
+      // Set image source
+      cardFrontImg.src = 'tarot_images/' + currentDrawnCard.img;
+
+      // Update orientation badge
+      if (isReversedCurrent) {
+        posBadge.className = 'card-pos-badge reversed';
+        posBadge.innerHTML = '<span>🔄</span> 逆位 REVERSED';
+      } else {
+        posBadge.className = 'card-pos-badge upright';
+        posBadge.innerHTML = '<span>✨</span> 正位 UPRIGHT';
+      }
+
+      // Reset flip state first
+      flipInner.className = 'flip-card-inner';
+
+      // Populate text
+      document.getElementById('cardRomanId').innerText = `MAJOR ARCANA #${currentDrawnCard.id - 1}`;
+      document.getElementById('cardDisplayName').innerText = currentDrawnCard.name;
+      document.getElementById('cardPureName').innerText = `【${currentDrawnCard.pure_name}】`;
+      document.getElementById('cardSymTitle').innerText = `${currentDrawnCard.sym_title} · ${currentDrawnCard.elem}元素 · ${currentDrawnCard.astro}`;
+
+      // Retrieve 4-layer heart-mind reading
+      const reading = isReversedCurrent 
+        ? (currentDrawnCard.mind_reading_reversed || {}) 
+        : (currentDrawnCard.mind_reading_upright || {});
+
+      document.getElementById('textWarmEmpathy').innerText = reading.warm || '正在感應你的深層心境...';
+      document.getElementById('textMindDecryption').innerText = reading.mind || '正在解析你的內在卡點...';
+      document.getElementById('textHumorReframe').innerText = reading.humor || '正在以輕鬆幽默化解焦慮...';
+      document.getElementById('textMicroAction').innerText = reading.action || '正在為你調配今日定心小處方...';
+
+      // Annie spoken speech intro
+      const speechIntro = `抽到了${isReversedCurrent ? '逆位' : '正位'}的【${currentDrawnCard.pure_name}】。${reading.warm} ${reading.mind} ${reading.humor} ${reading.action}`;
+      document.getElementById('speechBubble').innerText = speechIntro;
+
+      // Populate 5 dimensions dynamically based on Upright vs Reversed
+      const dims = isReversedCurrent 
+        ? (currentDrawnCard.dimensions_down || currentDrawnCard.dimensions || {}) 
+        : (currentDrawnCard.dimensions_up || currentDrawnCard.dimensions || {});
+      document.getElementById('dimCareer').innerText = dims.career || currentDrawnCard.vibe;
+      document.getElementById('dimLove').innerText = dims.love || currentDrawnCard.empathy;
+      document.getElementById('dimWealth').innerText = dims.wealth || currentDrawnCard.action;
+      document.getElementById('dimInter').innerText = dims.interpersonal || currentDrawnCard.coaching_hook;
+      document.getElementById('dimHealth').innerText = dims.health || '聆聽身體信號，放鬆身心，維持自律神經動態平衡。';
+
+      // Populate golden lifestyle quote
+      const quotes = [
+        '把步調放慢一點，雜訊自然會沉澱。照顧好自己的心，世界就難不倒你。',
+        '走得從容一點，生活自然會有它的節奏。把複雜留給我，你只要負責愜意就好。',
+        '人生最昂貴的成本不是試錯，而是猶豫不決反覆焦慮。今天先給自己點杯好咖啡！',
+        '真正的大女主從不跟混亂死磕，保持優雅微笑，宇宙自會替你把障礙挪開。',
+        '這杯茶的溫度剛剛好，生活也是。不用急著給所有人答案，讓子彈飛一會兒。'
+      ];
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('lifestyleQuoteText').innerText = randomQuote;
+
+      // Show overlay
+      overlay.classList.add('active');
+
+      // Trigger flip animation after short delay
+      setTimeout(() => {
+        flipInner.classList.add('flipped');
+        if (isReversedCurrent) {
+          flipInner.classList.add('is-reversed');
+        }
+      }, 400);
+
+      // Start Annie Avatar Speaking & Audio TTS
+      if (speechEnabled) {
+        setTimeout(() => {
+          speakAnnieAdvice(speechIntro);
+        }, 900);
+      }
+    }
+
+    // Copy Full Reading Report to Clipboard for 10/31 workshop
+    function copyFullReadingReport() {
+      if (!currentDrawnCard) return;
+      const reading = isReversedCurrent 
+        ? (currentDrawnCard.mind_reading_reversed || {}) 
+        : (currentDrawnCard.mind_reading_upright || {});
+
+      const dims = isReversedCurrent 
+        ? (currentDrawnCard.dimensions_down || currentDrawnCard.dimensions || {}) 
+        : (currentDrawnCard.dimensions_up || currentDrawnCard.dimensions || {});
+
+      const reportText = `🌸【10/31 塔羅心靈絮語 · Annie 特助解讀報告】
+🃏 抽取牌卡：${currentDrawnCard.name} (${isReversedCurrent ? '🔄 逆位 REVERSED' : '✨ 正位 UPRIGHT'})
+🔮 牌面原型：${currentDrawnCard.sym_title} · ${currentDrawnCard.elem}元素 · ${currentDrawnCard.astro}
+
+🌸【溫暖同理 · 走進你的當下】
+${reading.warm || ''}
+
+🧠【心靈透視 · 照見真實心事】
+${reading.mind || ''}
+
+😂【幽默轉念 · Annie 輕鬆解壓】
+${reading.humor || ''}
+
+🌱【定心小處方 · 今日微行動】
+${reading.action || ''}
+
+🌟【5 大生活領域專屬指引】
+💼 職場事業：${dims.career || ''}
+❤️ 情感關係：${dims.love || ''}
+💰 財富豐盛：${dims.wealth || ''}
+🤝 人際人脈：${dims.interpersonal || ''}
+🌿 心理與健康：${dims.health || ''}
+
+✨ Annie 鬆弛感金句：${document.getElementById('lifestyleQuoteText').innerText}
+──────────────
+Annie Team 智慧塔羅魔法室 · 守護你專屬的從容與底氣`;
+
+      navigator.clipboard.writeText(reportText).then(() => {
+        const toast = document.getElementById('toastPopup');
+        toast.classList.add('show');
+        const btnText = document.getElementById('copyBtnText');
+        const origText = btnText.innerText;
+        btnText.innerText = '✅ 已成功複製！';
+        setTimeout(() => {
+          toast.classList.remove('show');
+          btnText.innerText = origText;
+        }, 2500);
+      }).catch(err => {
+        alert('複製失敗，請手動選取文字複製：' + err);
+      });
+    }
+
+    function demoSpecificCard() {
+      const selectCard = document.getElementById('selectDemoCard');
+      const selectOrient = document.getElementById('selectDemoOrient');
+      const cardIdx = parseInt(selectCard.value, 10);
+      currentDrawnCard = MAJOR_ARCANA[cardIdx];
+      isReversedCurrent = (selectOrient.value === 'reversed');
+      revealDrawnCard();
+    }
+
+    function toggleOrientationManual() {
+      if (!currentDrawnCard) return;
+      isReversedCurrent = !isReversedCurrent;
+      const flipInner = document.getElementById('flipCardInner');
+      const posBadge = document.getElementById('posBadge');
+
+      if (isReversedCurrent) {
+        flipInner.classList.add('is-reversed');
+        posBadge.className = 'card-pos-badge reversed';
+        posBadge.innerHTML = '<span>🔄</span> 逆位 REVERSED';
+      } else {
+        flipInner.classList.remove('is-reversed');
+        posBadge.className = 'card-pos-badge upright';
+        posBadge.innerHTML = '<span>✨</span> 正位 UPRIGHT';
+      }
+
+      // Update 4-layer heart-mind reading
+      const reading = isReversedCurrent 
+        ? (currentDrawnCard.mind_reading_reversed || {}) 
+        : (currentDrawnCard.mind_reading_upright || {});
+
+      document.getElementById('textWarmEmpathy').innerText = reading.warm || '正在感應你的深層心境...';
+      document.getElementById('textMindDecryption').innerText = reading.mind || '正在解析你的內在卡點...';
+      document.getElementById('textHumorReframe').innerText = reading.humor || '正在以輕鬆幽默化解焦慮...';
+      document.getElementById('textMicroAction').innerText = reading.action || '正在為你調配今日定心小處方...';
+
+      // Update 5 dimensions dynamically based on orientation
+      const dims = isReversedCurrent 
+        ? (currentDrawnCard.dimensions_down || currentDrawnCard.dimensions || {}) 
+        : (currentDrawnCard.dimensions_up || currentDrawnCard.dimensions || {});
+      document.getElementById('dimCareer').innerText = dims.career || currentDrawnCard.vibe;
+      document.getElementById('dimLove').innerText = dims.love || currentDrawnCard.empathy;
+      document.getElementById('dimWealth').innerText = dims.wealth || currentDrawnCard.action;
+      document.getElementById('dimInter').innerText = dims.interpersonal || currentDrawnCard.coaching_hook;
+      document.getElementById('dimHealth').innerText = dims.health || '聆聽身體信號，放鬆身心，維持自律神經動態平衡。';
+
+      // Annie spoken speech intro
+      const speechIntro = `切換為${isReversedCurrent ? '逆位' : '正位'}的【${currentDrawnCard.pure_name}】。${reading.warm || ''} ${reading.mind || ''} ${reading.humor || ''} ${reading.action || ''}`;
+      document.getElementById('speechBubble').innerText = speechIntro;
+
+      if (speechEnabled) {
+        speakAnnieAdvice(speechIntro);
+      }
+    }
+
+    function speakAnnieAdvice(text) {
+      if (!('speechSynthesis' in window)) {
+        console.warn('Speech synthesis not supported');
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'zh-TW';
+      // Slow, magnetic, emotional vocal pacing requested by Chairman
+      utter.rate = 0.88; 
+      utter.pitch = 0.95; // Deep, velvety, resonant voice pitch
+
+      // Select best traditional Chinese voice
+      const voices = window.speechSynthesis.getVoices();
+      const twVoice = voices.find(v => v.lang === 'zh-TW' && (v.name.includes('Mei-Jia') || v.name.includes('Meijia') || v.name.includes('Yating') || v.name.includes('HsiaoChen') || v.name.includes('Taiwan')));
+      if (twVoice) {
+        utter.voice = twVoice;
+      }
+
+      utter.onstart = () => {
+        isCurrentlySpeaking = true;
+        startMorphLipSync();
+      };
+
+      utter.onend = () => {
+        isCurrentlySpeaking = false;
+        stopMorphLipSync();
+      };
+
+      utter.onerror = () => {
+        isCurrentlySpeaking = false;
+        stopMorphLipSync();
+      };
+
+      activeUtterance = utter;
+      window.speechSynthesis.speak(utter);
+    }
+
+    // Photorealistic Frame-Switching Lip Sync Controller (Frames 0..3)
+    const visemeImgs = [
+      document.getElementById('viseme0'),
+      document.getElementById('viseme1'),
+      document.getElementById('viseme2'),
+      document.getElementById('viseme3')
+    ];
+
+    function setVisemeFrame(frameIndex) {
+      visemeImgs.forEach((img, i) => {
+        if (i === frameIndex) {
+          img.className = 'annie-avatar-img active-frame';
+        } else {
+          img.className = 'annie-avatar-img inactive-frame';
+        }
+      });
+    }
+
+    function startMorphLipSync() {
+      const avatarStage = document.getElementById('avatarStage');
+      const avatarStatus = document.getElementById('avatarStatus');
+      avatarStage.classList.add('speaking');
+      avatarStatus.innerText = 'Annie 正在為您微醺解牌...';
+
+      if (morphLipSyncTimer) clearInterval(morphLipSyncTimer);
+
+      // Realistic cadence loop: alternates between closed, consonant release, vowel open, and wide open
+      const speechSequence = [1, 2, 3, 2, 1, 0, 2, 3, 1, 2, 0, 1, 3, 2, 1, 0];
+      let seqIdx = 0;
+
+      morphLipSyncTimer = setInterval(() => {
+        if (!isCurrentlySpeaking) return;
+        const targetFrame = speechSequence[seqIdx % speechSequence.length];
+        setVisemeFrame(targetFrame);
+        seqIdx++;
+      }, 130);
+    }
+
+    function stopMorphLipSync() {
+      const avatarStage = document.getElementById('avatarStage');
+      const avatarStatus = document.getElementById('avatarStatus');
+      avatarStage.classList.remove('speaking');
+      avatarStatus.innerText = '特助 Annie 微醺解牌';
+
+      if (morphLipSyncTimer) {
+        clearInterval(morphLipSyncTimer);
+        morphLipSyncTimer = null;
+      }
+      // Return to resting closed gentle smile (Frame 0)
+      setVisemeFrame(0);
+    }
+
+    // Voice Replay
+    function replayVoice() {
+      const speechText = document.getElementById('speechBubble').innerText;
+      speakAnnieAdvice(speechText);
+    }
+
+    // Toggle Voice On/Off
+    function toggleSpeechVoice() {
+      speechEnabled = !speechEnabled;
+      const btn = document.getElementById('toggleAudioBtn');
+      const label = document.getElementById('voiceLabel');
+      if (speechEnabled) {
+        btn.classList.add('active');
+        label.innerText = '語音：開';
+      } else {
+        btn.classList.remove('active');
+        label.innerText = '語音：關';
+        if (window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+        }
+        stopMorphLipSync();
+      }
+    }
+
+    // Redraw / Reset
+    function redrawNewCard() {
+      closeReveal();
+      setTimeout(() => {
+        // Resume spinning
+        isSpinning = true;
+        carouselEl.classList.add('spinning');
+      }, 400);
+    }
+
+    function closeReveal() {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      stopMorphLipSync();
+      const overlay = document.getElementById('revealOverlay');
+      overlay.classList.remove('active');
+    }
+
+    // S6 Touch and Keyboard event support
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        if (isSpinning) {
+          handleDeckClick({ target: carouselEl });
+        } else if (document.getElementById('revealOverlay').classList.contains('active')) {
+          redrawNewCard();
+        }
+      } else if (e.code === 'Escape') {
+        closeReveal();
+      }
+    });
+  </script>
+
+  <!-- 10/31 Workshop Quick Demo Bar (For Ann & Facilitator) -->
+  <div class="event-demo-bar">
+    <span style="color: var(--gold-light); font-weight: 700;">🎯 10/31 現場演示：</span>
+    <select id="selectDemoCard">
+      <option value="0">0 愚者 (The Fool)</option>
+      <option value="1">1 魔術師 (The Magician)</option>
+      <option value="2">2 女祭司 (The High Priestess)</option>
+      <option value="3">3 女皇 (The Empress)</option>
+      <option value="4">4 皇帝 (The Emperor)</option>
+      <option value="5">5 教皇 (The Hierophant)</option>
+      <option value="6">6 戀人 (The Lovers)</option>
+      <option value="7">7 戰車 (The Chariot)</option>
+      <option value="8">8 力量 (Strength)</option>
+      <option value="9">9 隱士 (The Hermit)</option>
+      <option value="10">10 命運之輪 (Wheel of Fortune)</option>
+      <option value="11">11 正義 (Justice)</option>
+      <option value="12">12 倒吊人 (The Hanged Man)</option>
+      <option value="13">13 死神 (Death)</option>
+      <option value="14">14 節制 (Temperance)</option>
+      <option value="15">15 惡魔 (The Devil)</option>
+      <option value="16">16 高塔 (The Tower)</option>
+      <option value="17">17 星星 (The Star)</option>
+      <option value="18">18 月亮 (The Moon)</option>
+      <option value="19">19 太陽 (The Sun)</option>
+      <option value="20">20 審判 (Judgement)</option>
+      <option value="21">21 世界 (The World)</option>
+    </select>
+    <select id="selectDemoOrient">
+      <option value="upright">✨ 正位 (Upright)</option>
+      <option value="reversed">🔄 逆位 (Reversed)</option>
+    </select>
+    <button onclick="demoSpecificCard()">立即開牌展示</button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-popup" id="toastPopup">📋 已成功複製完整解牌報告！可直接貼至 LINE 分享給學員</div>
+
+</body>
+</html>
